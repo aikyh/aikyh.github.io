@@ -1,0 +1,68 @@
+{% extends "base2.html" %}
+{% block title %}Library Loan System - Retrieve Companies{% endblock %}
+{% block content %}
+<div class="retrieve_table">
+  <h1 class="display-4">Retrieve Companies</h1>
+  <div>
+    <table class="table table-striped" border="2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Company Name</th>
+          <th>Email</th>
+          <th>Date Joined</th>
+          <th>Address</th>
+          <th>Buttons</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for company in companies %}
+        <tr>
+          <td>{{ company.id }}</td>
+          <td>{{ company.company_name }}</td>
+          <td>{{ company.email }}</td>
+          <td>{{ company.date_joined }}</td>
+          <td>{{ company.address }}</td>
+          <td><a href="/updateCompany/{{ company.id }}" class="btn btn-warning">Update</a></td>
+          <td>
+            <form action="{{url_for('admin.deleteCompany', company_id=company.id)}}" method="post">
+             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal_{{company.id}}">
+                  Delete
+              </button>
+              <div class="modal" id="myModal_{{company.id}}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Confirmation</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+                      Are you sure you want to delete {{company.company_name}}?
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+
+
+            </form>
+
+          </td>
+
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock %}
