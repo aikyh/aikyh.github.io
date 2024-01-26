@@ -99,3 +99,4 @@ def company_dashboard():
 @main.route('/retrieveUserJoinedEvent', methods=['POST', 'GET'])
 def company_retrieve_event_details():
     return render_template("companyretrieveUserEvent.html")
+
