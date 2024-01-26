@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');
+
+:root {
+  --main-color: #B5C99A;
+  --secondary-color: #CFE1B9;
+  --bg: #FFFFFF;
+  --border: .1rem solid rgba(255, 255, 255, .3);
+  --text-color: black;
+
+}
+* {
+  font-family: 'Raleway', Verdana, sans-serif;
+}
+body {
+  margin: 0;
+  background-image: url('pictures/matt-artz-nTRDnDdDYk8-unsplash.webp');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*start of login page*/
+.login-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+form {
+  margin-bottom:10px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin:5px;
+}
+
+input {
+  margin-top: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content:center;
+}
+
+h2.login {
+  text-align: center;
+}
+
+.signup {
+  text-align: left;
+  display: block;
+  color: #333;
+}
+
+.show-password-container {
+  display: grid;
+  grid-template-columns: 1fr auto; /* First column takes up remaining space */
+  align-items: left;
+  justify-content: flex-start;
+}
+
+
+.show-password-checkbox {
+  margin-left: 0px; /* Adjust the spacing between the label and the checkbox */
+}
+
+.show-password-label {
+  width: 10px; /* Adjust value based on your desired label width */
+}
+
+/*end of login page*/
+
+
+/*start of signup page*/
+.signup-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width:70px;
+}
+
+.submit-signup{
+  margin-top:10px;
+}
+
+
+
+
+/*end of signup page*/
