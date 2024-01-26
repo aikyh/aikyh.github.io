@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e18863d4-c710-403c-9adf-a4b02d24eaae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_26_2024_2_15_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_26_2024_2_15_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/Changepassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/admin_homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base3.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/company_user_going.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/company_user_going.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyhomepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/companyhomepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/companyretrieveUserEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/companyretrieveUserEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/createUser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/forgetpassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landingpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/landingpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/profile_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resetpwsuccessful.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/resetpwsuccessful.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/retrieveUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/retrieveUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/testing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/updateUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,19 +35,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="a1832f79-639d-460e-a845-2f2feb71d9b6" />
-        <option name="url" value="https://github.com/aikyh/aikyh.github.io.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,15 +47,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Python/aikyh.github.io"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aikyh\Downloads\app dev\pythonProjectsqlalchemytTRYTRY\aikyh.github.io\template" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,26 +69,20 @@
       <option name="presentableId" value="Default" />
       <updated>1706249650137</updated>
     </task>
-    <task id="LOCAL-00001" summary="test123">
-      <created>1706253935416</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1706253935416</updated>
-    </task>
-    <task id="LOCAL-00002" summary="test123">
-      <created>1706253949013</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1706253949013</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test123" />
-    <option name="LAST_COMMIT_MESSAGE" value="test123" />
   </component>
 </project>
