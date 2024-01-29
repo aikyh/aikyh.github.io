@@ -1,6 +1,6 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
                      FloatField)
-from wtforms.fields import EmailField, DateField, TimeField
+from wtforms.fields import EmailField, DateField, TimeField, IntegerField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 
