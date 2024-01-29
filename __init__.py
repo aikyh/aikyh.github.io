@@ -7,7 +7,7 @@ from main import *
 import os, shelve, Response, Product
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
 import os, shelve, Response, Product
-from Form import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
+
 
 
 app = Flask(__name__)
