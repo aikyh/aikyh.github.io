@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}VegeGrove - Create Events{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createEvents.css') }}">
+
+<h1 class="display-4">Create Event</h1>
+<div class="col-lg-12" id="box">
+    <form method="POST" action="">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    {{ render_field(form.name, class="form-control") }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ render_field(form.person_in_charge, class="form-control") }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    {{ render_field(form.date, class="form-control") }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ render_field(form.budget, class="form-control") }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    {{ render_field(form.timing, class="form-control") }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                {{ render_field(form.collaborators, class="form-control") }}
+            </div>
+            <div class="row">
+                <div class="col-lg-12" >
+                    <div class="form-group" id="location">
+                        {{ render_field(form.location, class="form-control") }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-lg-6">
+                <div id="prof">
+                        <div class="form-group">
+                            {{ render_field(form.description, class="form-control") }}
+                        </div>
+            </div>
+            <div class="col-lg-6" style="border: 1px solid green;">
+                       Upload Image
+            </div>
+            </div>
+            </div>
+        </div>
+        <input type="submit" value="Create Event" class="btn btn-primary"/>
+    </form>
+
+</div>
+
+
+{% endblock %}
+
