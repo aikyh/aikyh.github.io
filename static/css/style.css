@@ -6,11 +6,23 @@
   --bg: #FFFFFF;
   --border: .1rem solid rgba(255, 255, 255, .3);
   --text-color: black;
+  /*for the to do list */
+   --checkbox-color: #ee9ca7;
+  --checkbox-shadow: rgba(238, 156, 167, 0.2);
+  --add-button: #ee9ca7;
+  --add-button-shadow: rgba(238, 156, 167,0.4);
+
 
 }
 * {
   font-family: 'Raleway', Verdana, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+  box-sizing: border-box;
 }
+
 body {
   margin: 0;
   background-image: url('pictures/matt-artz-nTRDnDdDYk8-unsplash.webp');
@@ -20,9 +32,84 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+
+
 }
+
+/* nav bar*/
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.user {
+  position: relative;
+}
+
+.user-applet {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Hide the cart applet by default */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px; /* Adjust the padding to increase cart size */
+  max-width: fit-content;
+  width: 600px; /* Increase the width to make the cart bigger */
+  margin: 0 auto; /* To center the cart on the page, if needed */
+}
+
+
+
+.user .glyphicon-user {
+  font-size: 30px;
+  text-align:center;
+  padding: 5px;
+
+}
+
+.logout{
+    padding: 8px;
+    width:100px;
+    background-color:red;
+    color: white;
+}
+
+
+.user {
+  position: relative;
+}
+
+.user-applet {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Hide the cart applet by default */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px; /* Adjust the padding to increase cart size */
+  max-width: fit-content;
+  width: 600px; /* Increase the width to make the cart bigger */
+  margin: 0 auto; /* To center the cart on the page, if needed */
+}
+
+
+/* end of nav bar*/
+
+
 /*start of login page*/
-.login-box {
+.login-box,  .signupbox{
   background-color: rgba(255, 255, 255, 0.8);
   padding: 40px;
   border-radius: 8px;
@@ -75,6 +162,12 @@ h2.login {
   width: 10px; /* Adjust value based on your desired label width */
 }
 
+.submit{
+    width: 100%;
+    padding:8px;
+    color:white;
+    background-color:#3cb043;
+}
 /*end of login page*/
 
 
@@ -92,7 +185,314 @@ h2.login {
   margin-top:10px;
 }
 
+.signup_form{
+  max-width:400px;
+}
+
+.Signup-text{
+  text-align: center;
+  padding: 10px;
+}
 
 
 
 /*end of signup page*/
+
+/* start of profile page*/
+.profile-container{
+    display:flex;
+    padding-top: 400px;
+    z-index:1;
+}
+
+.side_profile{
+    width:30%;
+    padding: 50px;
+    box-sizing: border-box;
+    background-color:#e9ecef;
+    margin-right: 20px;
+    border-radius:30px;
+}
+
+.profile_img{
+    width:100%;
+}
+
+.main-content{
+    flex-grow:1;
+    padding: 50px;
+    box-sizing: border-box;
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    z-index: 2;
+    background-color: #e9ecef;
+    border-radius:30px;
+    margin-left:20px;
+
+}
+
+table{
+    width: 100%;
+    margin-top:20px;
+}
+
+table td{
+    padding: 10px;
+}
+
+table th{
+    padding: 10px;
+    background-color:#f2f2f2;
+}
+
+.profile-update{
+    background-color:orange;
+}
+
+
+/* end of profile page*/
+
+/*start of home page*/
+
+.home_background{
+    background: url('../static/tree.png') center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    display:flex;
+
+}
+
+
+
+/*css fort he circle progress bar */
+.skill{
+      width: 160px;
+      height: 160px;
+      margin-top: 33vh; /* Adjust this value based on your preferences */
+      margin-left: 20px; /* Add left margin to separate the calendar from the circle */
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+}
+
+.outer{
+    width:160px;
+    height:160px;
+    border-radius: 50% ;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7);
+    padding:20px;
+}
+
+.inner{
+    height: 120px;
+    width:120px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    border-radius:50%;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                -0.5px -0.5px 0px rgba(255,255,255,1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+
+#number{
+
+    font-weight: 600;
+    color: white;
+}
+
+circle{
+    fill:none;
+    stroke: url(#GradientColor);
+    stroke-width:20px;
+    stroke-dasharray: 472; /*472 is the full circle*/
+    stroke-dashoffset: var(--dashOffsetValue, 472);
+    animation: anim 2s linear forwards;
+}
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+/* to do list */
+
+.todo-list{
+    display: flex;
+    padding: 10px;
+    margin-top: 30vh;
+    margin-left:20vh;
+    background-color: white;
+    max-width: 350px;
+    height: 200px;
+    border-radius: 30px;
+}
+.event-number{
+    padding:10px
+}
+/* end of to-do list */
+
+
+/*Start of donation progress bar*/
+div.donation{
+    padding: 35vh;
+    max-width: 350px
+    background-color: white;
+}
+
+.container{
+    max-width: 350px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+
+/*End of donation progress bar*/
+/*end of home page*/
+
+/* start of change password*/
+.password-container{
+    max-width: fit-content;
+    background-color: white;
+    padding: 20px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+     border: 1px solid #dddddd;
+     border-radius: 30px;
+}
+
+.password-box{
+    box-shadow: 10px;
+
+}
+
+.changepw-submit{
+    background-color:#3cb043;
+
+}
+
+
+/*end of change password*/
+
+
+/*start of forget password*/
+
+ .forgetpw-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+   .continue {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+
+.modal {
+    display: none;
+    background-color: #fff;
+    box-sizing: border-box;
+    left: 0; /* Set left to 0 to move it to the left */
+}
+
+   #resetModal button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+/*end of forget password*/
+
+/* starting of landingpage*/
+.landingpage-container{
+    width:100%;
+}
+
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: -500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 5rem;
+  top: 0;
+  left: 0;
+  background: url("https://media.gettyimages.com/photos/young-girl-hugging-a-big-tree-trunk-picture-id1257289481?k=6&m=1257289481&s=612x612&w=0&h=OaOnNyuQ8MythmIIHvHkncdygvpxRFN7zfvyaQnbeik=");
+  background-size: cover;
+}
+
+.hero::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.hero h1 {
+  color: #fafafa;
+  font-size: 4rem;
+  line-height: 3.5rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7rem 12rem;
+  background: #04c27c;
+}
+
+.about img {
+  height: 250px;
+  margin-right: 2rem;
+}
+
+.about__info {
+  width: 500px;
+  margin-left: 3rem;
+  color: #fafafa;
+}
+
+.about h3 {
+  font-size: 2rem;
+  /*   color: #cff1e0; */
+}
+
+.about p {
+  line-height: 1.7rem;
+  font-size: 2rem;
+  margin-top: 0.3rem;
+  /*   color: #cff1e0; */
+  font-weight: 300;
+}
+
+
+
+/*enidng of landing page*/
