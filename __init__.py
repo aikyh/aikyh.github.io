@@ -281,6 +281,111 @@ def reply_review():
 
     return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
 
+#Event management - Admin
+@app.route('/createEvents', methods=['GET', 'POST'])
+def create_events():
+    create_event_form = CreateEventForm(request.form)
+
+    if request.method == 'POST' and create_event_form.validate():
+
+        eventManagement_dict = {}
+        db = shelve.open('eventManagement.db', 'c')
+
+        try:
+            eventManagement_dict = db['Events']
+        except:
+            print("Error in retrieving Events from eventManagement.db.")
+
+        event = eventManagement.eventManagement(create_event_form.name.data, create_event_form.date.data,
+                                                create_event_form.timing.data, create_event_form.location.data,
+                                                create_event_form.description.data,
+                                                create_event_form.budget.data, create_event_form.collaborators.data,
+                                                create_event_form.person_in_charge.data)
+        eventManagement_dict[event.get_event_id()] = event
+        db['Events'] = eventManagement_dict
+
+        db.close()
+
+        return redirect(url_for('retrieve_events'))
+    return render_template('createEvents.html', form=create_event_form, )
+
+
+@app.route('/retrieveEvents')
+def retrieve_events():
+    eventManagement_dict = {}
+    try:
+        db = shelve.open('eventManagement.db', 'r')
+        if 'Events' in db:
+            eventManagement_dict = db['Events']
+        else:
+            db['Events'] = eventManagement_dict
+        db.close()
+    except:
+        print("eventManagement.db not found")
+
+    events_list = []
+    for key in eventManagement_dict:
+        events = eventManagement_dict.get(key)
+        events_list.append(events)
+
+    return render_template('retrieveEvents.html', count=len(events_list), events_list=events_list)
+
+
+@app.route('/updateEvents/<int:id>/', methods=['GET', 'POST'])
+def update_events(id):
+    update_event_form = CreateEventForm(request.form)
+    if request.method == 'POST' and update_event_form.validate():
+        eventManagement_dict = {}
+        db = shelve.open('eventManagement.db', 'w')
+        eventManagement_dict = db['Events']
+
+        event = eventManagement_dict.get(id)
+        event.set_name(update_event_form.name.data)
+        event.set_date(update_event_form.date.data)
+        event.set_timing(update_event_form.timing.data)
+        event.set_location(update_event_form.location.data)
+        event.set_description(update_event_form.description.data)
+        event.set_budget(update_event_form.budget.data)
+        event.set_person_in_charge(update_event_form.person_in_charge.data)
+        event.set_collaborators(update_event_form.collaborators.data)
+
+        db['Events'] = eventManagement_dict
+        db.close()
+
+        return redirect(url_for('retrieve_events'))
+    else:
+        eventManagement_dict = {}
+        db = shelve.open('eventManagement.db', 'r')
+        eventManagement_dict = db['Events']
+        db.close()
+
+        event = eventManagement_dict.get(id)
+        update_event_form.name.data = event.get_name()
+        update_event_form.date.data = event.get_date()
+        update_event_form.timing.data = event.get_timing()
+        update_event_form.location.data = event.get_location()
+        update_event_form.description.data = event.get_description()
+        update_event_form.budget.data = event.get_budget()
+        update_event_form.person_in_charge.data = event.get_person_in_charge()
+        update_event_form.collaborators.data = event.get_collaborators()
+
+        return render_template('updateEvents.html', form=update_event_form)
+
+
+@app.route('/deleteEvent/<int:id>', methods=['POST'])
+def delete_event(id):
+    eventManagement = {}
+    db = shelve.open('eventManagement.db', 'w')
+    eventManagement_dict = db['Events']
+
+    eventManagement_dict.pop(id)
+
+    db['Events'] = eventManagement_dict
+    db.close()
+
+    return redirect(url_for('retrieve_events'))
+
+
 
 if __name__ == '__main__':
     create_app()
