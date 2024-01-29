@@ -13,8 +13,12 @@ class CreateCompanyForm(Form):
 
 
 class CreateReviewForm(Form):
-    customer_name = StringField('Customer Name', [validators.Length(min=1, max=150), validators.DataRequired(), validators.Regexp(r'^[A-Za-z ]*$', message="Please enter only letters.")])
-    product_name = SelectField('Product Name', choices=[('', 'Select'), ('Tomato Seed', 'Tomato Seed'), ('Potato Seed', 'Potato Seed')], default='', validators=[validators.InputRequired()])
+    customer_name = StringField('Customer Name', [validators.Length(min=1, max=150), validators.DataRequired(),
+                                                  validators.Regexp(r'^[A-Za-z ]*$',
+                                                                    message="Please enter only letters.")])
+    product_name = SelectField('Product Name',
+                               choices=[('', 'Select'), ('Tomato Seed', 'Tomato Seed'), ('Potato Seed', 'Potato Seed')],
+                               default='', validators=[validators.InputRequired()])
     rating = IntegerField('Rating', [validators.NumberRange(min=1, max=5), validators.DataRequired()])
     email = EmailField('Email', [validators.Email(), validators.DataRequired()])
     review_date = DateField('Review Date', format='%Y-%m-%d')
@@ -91,30 +95,31 @@ class CreateProductForm(Form):
     tags = RadioField('Type', [validators.DataRequired()], choices=[('S', 'Seed'), ('F', 'Fertiliser')],
                       default='Select')
 
-    class CreateEventForm(Form):
-        name = StringField('Name: ', [validators.DataRequired()])
-        timing = TimeField('Timing: ', [validators.DataRequired()])
-        location = StringField('Location: ', [validators.DataRequired()])
-        date = DateField('Date: ', [validators.DataRequired()])
-        description = TextAreaField('Description: ', [validators.Optional()])
-        person_in_charge = StringField("Person-In-Charge: ")
-        budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
-        collaborators = StringField("Collaborators: ")
 
-        def validate_name(self, name):
-            excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
-            for char in name.data:
-                if char in excluded_chars:
-                    raise ValidationError('Event name can only contain alphabets')
+class CreateEventForm(Form):
+    name = StringField('Name: ', [validators.DataRequired()])
+    timing = TimeField('Timing: ', [validators.DataRequired()])
+    location = StringField('Location: ', [validators.DataRequired()])
+    date = DateField('Date: ', [validators.DataRequired()])
+    description = TextAreaField('Description: ', [validators.Optional()])
+    person_in_charge = StringField("Person-In-Charge: ")
+    budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
+    collaborators = StringField("Collaborators: ")
 
-        def validate_collaborators(self, collaborators):
-            excluded_chars = "*?!'^+%&/()=}][{$#"
-            for char in collaborators.data:
-                if char in excluded_chars:
-                    raise ValidationError('Collaborators can only contain alphanumeric values')
+    def validate_name(self, name):
+        excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
+        for char in name.data:
+            if char in excluded_chars:
+                raise ValidationError('Event name can only contain alphabets')
 
-        def validate_person_in_charge(self, person_in_charge):
-            excluded_chars = "*?!'^+%&/()=}][{$#"
-            for char in person_in_charge.data:
-                if char in excluded_chars:
-                    raise ValidationError('Person-In-Charge must only contain alphanumeric values')
+    def validate_collaborators(self, collaborators):
+        excluded_chars = "*?!'^+%&/()=}][{$#"
+        for char in collaborators.data:
+            if char in excluded_chars:
+                raise ValidationError('Collaborators can only contain alphanumeric values')
+
+    def validate_person_in_charge(self, person_in_charge):
+        excluded_chars = "*?!'^+%&/()=}][{$#"
+        for char in person_in_charge.data:
+            if char in excluded_chars:
+                raise ValidationError('Person-In-Charge must only contain alphanumeric values')
