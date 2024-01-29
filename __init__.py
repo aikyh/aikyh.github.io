@@ -298,8 +298,8 @@ def create_events():
         event = eventManagement.eventManagement(create_event_form.name.data, create_event_form.date.data,
                                                 create_event_form.timing.data, create_event_form.location.data,
                                                 create_event_form.description.data,
-                                                create_event_form.budget.data, create_event_form.collaborators.data,
-                                                create_event_form.person_in_charge.data)
+                                                create_event_form.budget.data, create_event_form.person_in_charge.data,
+                                                create_event_form.collaborators.data)
         eventManagement_dict[event.get_event_id()] = event
         db['Events'] = eventManagement_dict
 

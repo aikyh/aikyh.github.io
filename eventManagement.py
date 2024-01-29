@@ -3,7 +3,7 @@ class eventManagement:
     count_id = 0
 
     # initializer method
-    def __init__(self, name, date, timing, location, description, person_in_charge, budget, collaborators):
+    def __init__(self, name, date, timing, location, description, budget, person_in_charge,  collaborators):
         eventManagement.count_id += 1
         self.__event_id = eventManagement.count_id
         self.__name = name
