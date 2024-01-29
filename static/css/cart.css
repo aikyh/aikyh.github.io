@@ -1,0 +1,90 @@
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .user {
+    position: relative;
+  }
+  
+  .user-applet {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none; /* Hide the cart applet by default */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px; /* Adjust the padding to increase cart size */
+    max-width: fit-content;
+    width: 600px; /* Increase the width to make the cart bigger */
+    margin: 0 auto; /* To center the cart on the page, if needed */
+  }
+  
+  
+  
+  .user .glyphicon-user {
+    font-size: 30px;
+    text-align:center;
+    padding: 5px;
+  }
+  
+  .logout{
+      padding: 8px;
+      width:100px;
+  }
+
+.tittle {
+    padding: 8px 60px;
+}
+.cart-container {
+    border: 1px solid #ccc;
+    max-width: 1150px;
+    margin: 20px auto; /* Add some margin at the top and bottom */
+    padding: 15px; /* Add some padding for better spacing */
+    border-radius: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Add padding to each cart item for better spacing */
+    border: 1px solid #ddd; /* Add a border to separate cart items */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.item-details {
+    margin: 0;
+}
+
+.button-column {
+    display: flex;
+    gap: 10px;
+}
+
+/* Add some styling for the "Continue shopping" button */
+.store {
+    margin-top: 20px; /* Add some space between the cart and the button */
+    align-self: flex-start; /* Align the button to the start of the flex container */
+}
+
+/* Apply margin-top directly to .store element */
+.store {
+    margin-top: 20px;
+}
+
+
+.store.mt-3 {
+    margin-top: 20px; 
+    padding: 8px 60px;
+}
+
+

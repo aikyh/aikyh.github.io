@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Library Loan System - View Replies{% endblock %}
+
+{% block content %}
+<h1 class="display-4">View Replies</h1>
+<div>
+  {% if count == 0 %}
+  <p>There are no replies.</p>
+  {% elif count == 1 %}
+  <p>There is 1 reply.</p>
+  {% else %}
+  <p>There are {{ count }} replies.</p>
+  {% endif %}
+</div>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Reply ID</th>
+        <th>Customer Name</th>
+        <th>Product Name</th>
+        <th>Email</th>
+        <th>Reply Date</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reply in replys_list %}
+        <tr>
+          <td>{{ reply.get_reply_id() }}</td>
+          <td>{{ reply.get_customer_name() }}</td>
+          <td>{{ reply.get_product_name() }}</td>
+          <td>{{ reply.get_email() }}</td>
+          <td>{{ reply.get_reply_date() }}</td>
+          <td>{{ reply.get_comments() }}</td>
+          <td><a href="/updateReply/{{ reply.get_reply_id() }}" class="btn btn-warning">Update</a></td>
+          <td>
+            <form action="{{ url_for('delete_reply', id=reply.get_reply_id()) }}" method="POST">
+              <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this reply?');">
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
