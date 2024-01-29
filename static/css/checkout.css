@@ -1,0 +1,127 @@
+:root{
+    --primary-color: rgb(11, 78, 179)
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    place-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+/*General Settings*/
+.form-step .form-control{
+    width: 95%;
+    padding: 0.6rem;
+    border: 2px solid lightgray;
+}
+
+.text-center{
+    margin-left: 270px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/*Form*/
+.form{
+    width: 1350px;
+    margin: 0 auto;
+    margin-top: 32px;
+    border: 1px solid #ccc;
+    padding: 2.5rem;
+    background-color: #EEEEEE;
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px 11px -1px #000000;
+}
+
+.form .donation-amount{
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: red;
+}
+
+.form-step{
+    display: flex;
+}
+
+.form-step .form-page{
+    flex: 1;
+    padding: 10px;
+}
+
+.form-step .input-group, .form-step .radio-group{
+    margin: 1rem 0;
+}
+
+/*Button*/
+.form-step .btn{
+    padding: 0.65rem;
+    margin-left: 330px;
+    width: 100px;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    letter-spacing: 1px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.form-step .btn:active{
+    transform: scale(.95);
+}
+
+.form-step .btn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+/*Success*/
+.card{
+    margin: 120px auto;
+    width: 370px;
+    text-align: center;
+}
+
+.upper-side{
+    padding: 3em;
+    background-color: #8BC34A;
+    color: #fff;
+}
+
+.status{
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 25px;
+    margin-top: -.2em;
+    margin-bottom: 0;
+}
+
+.lower-side{
+    padding: 2em 2em 5em 2em;
+    background: #eee;
+}
+
+.message{
+    color: #757575;
+    letter-spacing: 1px;
+}
+
+.close-btn{
+    letter-spacing: 0.5px;
+    position: relative;
+    top: 1.5em;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: #f3f3f3;
+    background-color: #8bc34a;
+    border-radius: 5rem;
+    transition: all 250ms ease-in-out;
+}
+
+.close-btn:hover{
+    color: #f3f3f3;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px #8bc34a;
+}
