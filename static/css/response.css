@@ -1,0 +1,71 @@
+:root{
+    --primary-color: rgb(11, 78, 179)
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    place-items: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+/*General Settings*/
+.form-step .form-control{
+    width: 95%;
+    padding: 0.6rem;
+    border: 2px solid lightgray;
+}
+
+/*Form*/
+.form{
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 2.5rem;
+    background-color: #EEEEEE;
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px 11px -1px #000000;
+}
+
+.form-step{
+    display: flex;
+}
+
+.form-step .form-page{
+    flex: 1;
+    padding: 10px;
+}
+
+.form-step .input-group, .form-step .radio-group{
+    margin: 1rem 0;
+}
+
+/*Button*/
+.form-step .btn{
+    padding: 0.65rem;
+    margin-left: 330px;
+    width: 100px;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    letter-spacing: 1px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.form-step .btn:active{
+    transform: scale(.95);
+}
+
+.form-step .btn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+.display-4{
+    font-weight: bold;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 10px;
+}

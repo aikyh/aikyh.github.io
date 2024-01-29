@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}VegeGrove - Donation Page{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/donation.css') }}">
+
+<div class="donation-container">
+    <h1 class="title">Help us reach our goal by donating now!</h1>
+    <!-- Donation progress bar -->
+    <div class="progress-bg">
+        <div class="progress-bar">40%</div>
+        <p class="raised">$400 raised out of $1000 goal</p>
+    </div>
+    <!-- Donation amount options -->
+    <div class="donation-options">
+        <div class="options">
+            <!-- Predefined donation amounts -->
+            <button onclick="donateAmount(10)" class="option-btn">$10</button>
+            <button onclick="donateAmount(20)" class="option-btn">$20</button>
+            <button onclick="donateAmount(40)" class="option-btn">$40</button>
+            <button onclick="donateAmount(50)" class="option-btn">$50</button>
+            <button onclick="donateAmount(80)" class="option-btn">$80</button>
+            <button onclick="donateAmount(100)" class="option-btn">$100</button>
+
+            <!-- User-defined donation amount -->
+            <input type="number" id="customAmount" class="custom-btn" min="1">
+            <button onclick="donateCustomAmount()" class="donate-btn">Donate</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
