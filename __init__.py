@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 def create_app():
-    app = Flask(__name__)
+    # app = Flask(__name__)
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.db"
 
@@ -299,8 +299,8 @@ def create_events():
         event = eventManagement.eventManagement(create_event_form.name.data, create_event_form.date.data,
                                                 create_event_form.timing.data, create_event_form.location.data,
                                                 create_event_form.description.data,
-                                                create_event_form.budget.data, create_event_form.person_in_charge.data,
-                                                create_event_form.collaborators.data)
+                                                create_event_form.budget.data, create_event_form.collaborators.data,
+                                                create_event_form.person_in_charge.data)
         eventManagement_dict[event.get_event_id()] = event
         db['Events'] = eventManagement_dict
 
@@ -501,6 +501,93 @@ def delete_response(id):
     db.close()
 
     return redirect(url_for('response_management'))
+
+
+@app.route('/createProduct', methods=['GET', 'POST'])
+# accepts both get and post methods, createProduct page is retrieved
+# when form is received, data will be posted onto the server
+def create_product():
+    create_product_form = CreateProductForm(request.form)  # class object, calls server and passes in request
+    if request.method == 'POST' and create_product_form.validate():
+        products_dict = {}
+        db = shelve.open('product.db', 'c')
+
+        try:
+            products_dict = db['Products']
+        except:
+            print("Error in retrieving Products from product.db.")
+
+        product = Product.Product(create_product_form.name.data, create_product_form.price.data,
+                         create_product_form.description.data, create_product_form.tags.data)
+        products_dict[product.get_product_id()] = product
+        db['Products'] = products_dict
+
+        db.close()
+
+        return redirect(url_for('product_management'))
+    return render_template('createProduct.html', form=create_product_form)
+
+
+@app.route('/productManagement')
+def product_management():
+    products_dict = {}
+    db = shelve.open('product.db', 'r')
+    products_dict = db['Products']
+    db.close()
+
+    products_list = []
+    for key in products_dict:
+        product = products_dict.get(key)
+        products_list.append(product)
+
+    return render_template('productManagement.html', count=len(products_list), products_list=products_list)
+
+
+@app.route('/updateProduct/<int:id>/', methods=['GET', 'POST'])
+def update_product(id):
+    update_product_form = CreateProductForm(request.form)
+    if request.method == 'POST' and update_product_form.validate():
+        products_dict = {}
+        db = shelve.open('product.db', 'w')
+        products_dict = db['Products']
+
+        product = products_dict.get(id)
+        product.set_name(update_product_form.name.data)
+        product.set_price(update_product_form.price.data)
+        product.set_description(update_product_form.description.data)
+        product.set_tags(update_product_form.tags.data)
+
+        db['Products'] = products_dict
+        db.close()
+
+        return redirect(url_for('product_management'))
+    else:
+        products_dict = {}
+        db = shelve.open('product.db', 'r')
+        products_dict = db['Products']
+        db.close()
+
+        product = products_dict.get(id)
+        update_product_form.name.data = product.get_name()
+        update_product_form.price.data = product.get_price()
+        update_product_form.description.data = product.get_description()
+        update_product_form.tags.data = product.get_tags()
+
+        return render_template('updateProduct.html', form=update_product_form)
+
+
+@app.route('/deleteProduct/<int:id>', methods=['POST'])
+def delete_product(id):
+    products_dict = {}
+    db = shelve.open('product.db', 'w')
+    products_dict = db['Products']
+
+    products_dict.pop(id)
+
+    db['Products'] = products_dict
+    db.close()
+
+    return redirect(url_for('product_management'))
 
 
 if __name__ == '__main__':
