@@ -385,10 +385,6 @@ def delete_event(id):
     return redirect(url_for('retrieve_events'))
 
 
-app = Flask(__name__)
-app.secret_key = 'appDev_project'
-
-
 @app.route('/')
 # get method to get donation page
 def donation():
