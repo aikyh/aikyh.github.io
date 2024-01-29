@@ -1,5 +1,5 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
-                     DateField, FloatField)
+                     FloatField)
 from wtforms.fields import EmailField, DateField
 from wtforms.validators import DataRequired, Length
 
