@@ -1,0 +1,64 @@
+:root{
+    --primary-color: rgb(11, 78, 179)
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    place-items: center;
+    min-height: 100vh;
+    background-position: center;
+}
+
+.form-group .form-control{
+    display: block;
+    width: 95%;
+    padding: 0.5rem;
+    border: 2px solid lightgray;
+}
+
+.form-group .form-control .form-label{
+    display: flex;  /* Doesnt work */
+    margin-top: 10px;
+}
+
+.text-center{
+    text-align: center;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.form{
+    display: grid;
+    width: 470px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    background-color: #EEEEEE;
+    border-radius: 1rem;
+    box-shadow: 2px 4px 11px -1px #000000;
+}
+
+.form-group .radio-group{
+    margin: 1rem 0;
+}
+
+.btn{
+    letter-spacing: 0.5px;
+    padding: 0.75rem;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.btn:active{
+    transform: scale(.95);
+}
+
+.btn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+    color: #f3f3f3;
+}
