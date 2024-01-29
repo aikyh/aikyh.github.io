@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e18863d4-c710-403c-9adf-a4b02d24eaae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_26_2024_2_15_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_26_2024_2_15_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/Changepassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/admin_homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base3.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/base3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/company_user_going.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/company_user_going.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/companyhomepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/companyhomepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/companyretrieveUserEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/companyretrieveUserEvent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/createUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forgetpassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/forgetpassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landingpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/landingpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/profile_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resetpwsuccessful.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/resetpwsuccessful.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/retrieveUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/retrieveUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/testing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/updateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/template/updateUser.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +38,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Python\aikyh.github.io\template\static" />
       <recent name="C:\Users\aikyh\Downloads\app dev\pythonProjectsqlalchemytTRYTRY\aikyh.github.io\template" />
     </key>
   </component>
@@ -69,6 +51,21 @@
       <option name="presentableId" value="Default" />
       <updated>1706249650137</updated>
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1706257941222</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706257941222</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test again">
+      <created>1706258184665</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706258184665</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,5 +81,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="test" />
+    <MESSAGE value="test again" />
+    <option name="LAST_COMMIT_MESSAGE" value="test again" />
   </component>
 </project>
