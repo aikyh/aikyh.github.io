@@ -4,8 +4,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
-import os, shelve, Response, Product
-from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
+import os, shelve, Response
+from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm
+import Review, Cart, Store, Product
 
 app = Flask(__name__)
 
