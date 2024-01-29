@@ -8,9 +8,9 @@ import os, shelve, Response, Product
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
 import os, shelve, Response, Product
 
-
-
 app = Flask(__name__)
+
+
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
@@ -39,7 +39,6 @@ def create_app():
 
         from admin import admin as admin_blueprint
         app.register_blueprint(admin_blueprint)
-
 
     app.run(debug=True, port=8000)
 
@@ -175,6 +174,7 @@ def remove_from_cart():
     cart.close()
     return redirect(url_for('cart_page'))
 
+
 @app.route('/createReview', methods=['GET', 'POST'])
 def create_review():
     create_review_form = CreateReviewForm(request.form)
@@ -200,6 +200,7 @@ def create_review():
 
     return render_template('createReview.html', form=create_review_form)
 
+
 @app.route('/retrieveReviews')
 def retrieve_reviews():
     reviews_dict = {}
@@ -208,10 +209,11 @@ def retrieve_reviews():
     db.close()
     reviews_list = []
     for key in reviews_dict:
-       review = reviews_dict.get(key)
-       reviews_list.append(review)
+        review = reviews_dict.get(key)
+        reviews_list.append(review)
 
     return render_template('retrieveReviews.html', count=len(reviews_list), reviews_list=reviews_list)
+
 
 @app.route('/updateReview/<int:id>/', methods=['GET', 'POST'])
 def update_review(id):
@@ -250,6 +252,7 @@ def update_review(id):
 
         return render_template('updateReview.html', form=update_review_form)
 
+
 @app.route('/deleteReview/<int:id>', methods=['POST'])
 def delete_review(id):
     reviews_dict = {}
@@ -267,17 +270,16 @@ def delete_review(id):
 
 @app.route('/review')
 def reply_review():
-     reviews_dict = {}
-     db = shelve.open('review.db', 'r')
-     reviews_dict = db['Reviews']
-     db.close()
-     reviews_list = []
-     for key in reviews_dict:
-       review = reviews_dict.get(key)
-       reviews_list.append(review)
+    reviews_dict = {}
+    db = shelve.open('review.db', 'r')
+    reviews_dict = db['Reviews']
+    db.close()
+    reviews_list = []
+    for key in reviews_dict:
+        review = reviews_dict.get(key)
+        reviews_list.append(review)
 
-     return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
-
+    return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
 
 #Event management - Admin
 @app.route('/createEvents', methods=['GET', 'POST'])
