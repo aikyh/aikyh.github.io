@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/cart.css">
+    <title>VegeGrove</title>
+</head>
+<body>
+  {% extends "base.html" %}
+
+  {% block title %}Library Loan System - Cart{% endblock %}
+
+  {% block content %}
+  </header>
+
+
+
+  <h1 class="tittle">Your Shopping Cart</h1>
+<div class="d-flex flex-column">
+    <div class="cart-container">
+        {% for item in items %}
+            <div class="cart-item">
+                <p class="item-details">
+                    {{ item.product.name }} - ${{ item.product.price }} x {{ item.quantity }}
+                </p>
+                <div class="button-column">
+                    <form action="/remove_from_cart" method="POST">
+                        <input type="hidden" name="product_name" value="{{ item.product.name }}">
+                        <button type="submit" class="btn btn-danger">-</button>
+                    </form>
+                    <form action="/add_to_cart" method="POST">
+                        <input type="hidden" name="product_name" value="{{ item.product.name }}">
+                        <button type="submit" class="btn btn-success">+</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        <p class="m-0">Total Price: ${{ total_price }}</p>
+    </div>
+    <p class="store mt-3">
+      <a href="/store">
+          <button type="button" class="btn btn-primary">Continue shopping</button>
+      </a>
+    </p>
+</div>
+{% endblock %}
+</body>
+</html>

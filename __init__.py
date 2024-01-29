@@ -6,8 +6,11 @@ from flask_sqlalchemy import SQLAlchemy
 from main import *
 import os, shelve, Response, Product
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
+import os, shelve, Response, Product
+from Form import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
 
 
+app = Flask(__name__)
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'

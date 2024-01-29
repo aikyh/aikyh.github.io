@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" type="text/css" href="../static/css/retrieveReviews.css">
+</head>
+<body>
+
+{% extends "base.html" %}
+
+{% block title %}Retrieve Reviews{% endblock %}
+
+{% block content %}
+   <h1 class="display-4">Retrieve Reviews</h1>
+   <div>
+      {% if count == 0 %}
+         <p class="lead">There are no reviews.</p>
+      {% elif count == 1 %}
+         <p class="lead">There is 1 review.</p>
+      {% else %}
+         <p class="lead">There are {{ count }} reviews.</p>
+      {% endif %}
+   </div>
+   <div class="table-responsive">
+      <table class="table table-striped" border="2">
+         <thead>
+            <tr>
+               <th>Review ID</th>
+               <th>Customer Name</th>
+               <th>Product Name</th>
+               <th>Rating</th>
+               <th>Email</th>
+               <th>Review Date</th>
+               <th>Comments</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for review in reviews_list %}
+               <tr>
+                  <td>{{ review.get_review_id() }}</td>
+                  <td>{{ review.get_customer_name() }}</td>
+                  <td>{{ review.get_product_name() }}</td>
+                  <td>{{ review.get_rating() }}</td>
+                  <td>{{ review.get_email() }}</td>
+                  <td>{{ review.get_review_date() }}</td>
+                  <td>{{ review.get_comments() }}</td>
+                  <td>
+                     <a href="/updateReview/{{ review.get_review_id() }}" class="btn btn-warning update-btn">Update</a>
+                     <form action="{{ url_for('delete_review', id=review.get_review_id()) }}" method="POST" style="display: inline-block;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this review?');">
+                           Delete
+                        </button>
+                     </form>
+                  </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

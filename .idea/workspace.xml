@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e18863d4-c710-403c-9adf-a4b02d24eaae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Review.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/createReview.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/retrieveReviews.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/store.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1706258184665</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="merging first">
+      <created>1706517230520</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706517230520</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +93,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="test" />
     <MESSAGE value="test again" />
-    <option name="LAST_COMMIT_MESSAGE" value="test again" />
+    <MESSAGE value="merging first" />
+    <option name="LAST_COMMIT_MESSAGE" value="merging first" />
   </component>
 </project>
