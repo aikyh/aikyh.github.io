@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 from main import *
 import os, shelve, Response, Product
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm
-import os, shelve, Response, Product
 
 app = Flask(__name__)
 
@@ -385,6 +384,126 @@ def delete_event(id):
 
     return redirect(url_for('retrieve_events'))
 
+
+app = Flask(__name__)
+app.secret_key = 'appDev_project'
+
+
+@app.route('/')
+# get method to get donation page
+def donation():
+    return render_template("donation.html")
+
+
+@app.route('/success')
+def success():
+    return render_template("success.html")
+
+
+@app.route('/checkout', methods=['GET', 'POST'])
+# accepts both get and post methods, checkout page is retrieved
+# when form is received, data will be posted onto the server
+def response():
+    # Retrieve the 'amount' parameter
+    amount = request.args.get('amount')
+    create_checkout_form = CreateCheckoutForm(request.form)  # class object, calls server and passes in request
+    default_amount = amount
+    # Set the default value for amount
+    create_checkout_form.amount.data = default_amount
+
+    if request.method == 'POST' and create_checkout_form.validate():
+        responses_dict = {}
+        db = shelve.open('response.db', 'c')
+
+        try:
+            responses_dict = db['Responses']
+        except:
+            print("Error in retrieving Responses from response.db.")
+
+        response = Response.Response(create_checkout_form.fname.data, create_checkout_form.lname.data,
+                                     create_checkout_form.phone.data, create_checkout_form.email.data,
+                                     create_checkout_form.add1.data, create_checkout_form.add2.data,
+                                     create_checkout_form.pcode.data, create_checkout_form.dmethod.data,
+                                     create_checkout_form.amount.data)
+        responses_dict[response.get_response_id()] = response
+
+        db['Responses'] = responses_dict
+
+        db.close()
+
+        return redirect(url_for('success'))
+
+    return render_template('checkout.html', form=create_checkout_form, customAmount=amount)
+
+
+@app.route('/responseManagement')
+def response_management():
+    responses_dict = {}
+    db = shelve.open('response.db', 'r')
+    responses_dict = db['Responses']
+    db.close()
+
+    responses_list = []
+    for key in responses_dict:
+        response = responses_dict.get(key)
+        responses_list.append(response)
+
+    return render_template('responseManagement.html', count=len(responses_list), responses_list=responses_list)
+
+
+@app.route('/updateResponse/<int:id>/', methods=['GET', 'POST'])
+def update_response(id):
+    update_checkout_form = CreateUpdateForm(request.form)
+    if request.method == 'POST' and update_checkout_form.validate():
+        responses_dict = {}
+        db = shelve.open('response.db', 'w')
+        responses_dict = db['Responses']
+
+        response = responses_dict.get(id)
+        response.set_fname(update_checkout_form.fname.data)
+        response.set_lname(update_checkout_form.lname.data)
+        response.set_phone(update_checkout_form.phone.data)
+        response.set_email(update_checkout_form.email.data)
+        response.set_add1(update_checkout_form.add1.data)
+        response.set_add2(update_checkout_form.add2.data)
+        response.set_pcode(update_checkout_form.pcode.data)
+        response.set_dmethod(update_checkout_form.dmethod.data)
+
+        db['Responses'] = responses_dict
+        db.close()
+
+        return redirect(url_for('response_management'))
+    else:
+        responses_dict = {}
+        db = shelve.open('response.db', 'r')
+        responses_dict = db['Responses']
+        db.close()
+
+        response = responses_dict.get(id)
+        update_checkout_form.fname.data = response.get_fname()
+        update_checkout_form.lname.data = response.get_lname()
+        update_checkout_form.phone.data = response.get_phone()
+        update_checkout_form.email.data = response.get_email()
+        update_checkout_form.add1.data = response.get_add1()
+        update_checkout_form.add2.data = response.get_add2()
+        update_checkout_form.pcode.data = response.get_pcode()
+        update_checkout_form.dmethod.data = response.get_dmethod()
+
+    return render_template('updateResponse.html', form=update_checkout_form)
+
+
+@app.route('/deleteResponse/<int:id>', methods=['POST'])
+def delete_response(id):
+    responses_dict = {}
+    db = shelve.open('response.db', 'w')
+    responses_dict = db['Responses']
+
+    responses_dict.pop(id)
+
+    db['Responses'] = responses_dict
+    db.close()
+
+    return redirect(url_for('response_management'))
 
 
 if __name__ == '__main__':
