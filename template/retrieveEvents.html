@@ -36,14 +36,14 @@
         <tbody>
         {% for event in events_list %}
         <tr>
-            <td>{{ event.get_event_id() }}</td>
+           <td>{{ event.get_event_id() }}</td>
             <td>{{ event.get_name() }}</td>
             <td>{{ event.get_date() }}</td>
             <td>{{ event.get_timing() }}</td>
             <td> {{ event.get_location() }}</td>
             <td> {{ event.get_description() }}</td>
-            <td>{{ event.get_person_in_charge() }}</td>
             <td>{{ event.get_budget() }}</td>
+            <td>{{ event.get_person_in_charge() }}</td>
             <td>{{ event.get_collaborators() }}</td>
             <td><a href="/updateEvents/{{event.get_event_id()}}" class="btn btn-warning">Update</a></td>
             <td>
