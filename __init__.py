@@ -132,7 +132,7 @@ def store_page():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
-    return redirect(url_for('store'))
+
     return render_template('store.html', products=products, count=len(reviews_list), reviews_list=reviews_list)
 
 
@@ -159,7 +159,7 @@ def cart_page():
     print(items)
     cart.close()
 
-    return redirect(url_for('cart'))
+
     return render_template('cart.html', items=items, total_price=total_price)
 
 
