@@ -92,8 +92,8 @@ class Cart:
             print(items)
             self.carts[id] = items
         else:
-            items[product.name] = {'product': product, 'quantity': 1}
-            self.carts[id] = items
+            self.items[product.name] = {'product': product, 'quantity': 1}
+            self.carts[id] = self.items
 
     def remove_item(self, id, product):
         items = self.carts[id]
@@ -132,6 +132,7 @@ def store_page():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
+    return redirect(url_for('store'))
     return render_template('store.html', products=products, count=len(reviews_list), reviews_list=reviews_list)
 
 
@@ -157,6 +158,8 @@ def cart_page():
 
     print(items)
     cart.close()
+
+    return redirect(url_for('cart'))
     return render_template('cart.html', items=items, total_price=total_price)
 
 
