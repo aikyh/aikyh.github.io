@@ -1,8 +1,8 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/donation.css') }}">
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -19,8 +19,6 @@
         </ul>
     </div>
 </nav>
-
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/donation.css') }}">
 
 <div class="donation-container">
     <h1 class="title">Help us reach our goal by donating now!</h1>
@@ -46,4 +44,45 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Donation amount
+    function donateAmount(amount){
+        document.getElementById('customAmount').value = amount;
+    }
+
+    function donateCustomAmount(){
+        var customAmount = document.getElementById('customAmount').value;
+
+        if (customAmount && !isNaN(customAmount) && parseInt(customAmount) > 0){
+            // Confirmation alert
+            var confirmDonation = confirm('Are you sure that you want to donate $' + customAmount + '?');
+
+            if (confirmDonation){
+                // Clicking on "OK" redirects to the checkout page + passes customAmount
+                window.location.href = '/checkout?amount=' + customAmount;
+            } else{
+                alert('Donation cancelled.');
+            }
+        } else{
+            alert('Please enter a valid donation amount.')
+        }
+    }
+
+    // Non-numerical values not allowed in number based form fields
+    function validateNumericInput(input){
+        // Remove non-numeric characters from the input value
+        input.value = input.value.replace(/\D/g, '');
+    }
+
+    // Past dates cannot be chosen
+    document.addEventListener("DOMContentLoaded", function(){
+        // Get the DateField element
+        var edateInput = document.getElementById("edate");
+
+        // Set the minimum date to today
+        var today = new Date().toISOString().split("T")[0]; //ISO 8601 format
+        edateInput.setAttribute("min", today);
+    });
+</script>
 {% endblock %}
