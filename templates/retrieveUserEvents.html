@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}VegeGrove - My Events {% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<div>
+    <h1>My Events</h1>
+</div>
+<br>
+<div class="flex-container">
+    <div class="container-1">
+        <div class="event-details">
+            <div class="image-1">
+                <a href="#">PICTURE</a>
+            </div>
+            <div class="event-name">
+                <h3>Event #1</h3>
+                <hr>
+                <span>
+            Date:
+            <br>
+            Timing:
+            <br>
+            Location:
+          </span>
+                <br>
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Submit
+                    Photo
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Check-In Confirmation</h4>
+                                <span>Please fill in the blanks below to confirm your check in to the event</span>
+                            </div>
+                            <form action="">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        {{ render_field(form.name, class="form-control") }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ render_field(form.email, class="form-control") }}
+                                    </div>
+                                    <hr>
+                                    <div class="upload-photo">
+                                        <p>Upload Photo</p>
+                                        <span>Please upload a picture of one of our event signboard to complete your
+                                        check-in </span>
+                                    </div>
+                                    <br>
+                                    <div class="photo">
+                                        <p>Upload File</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    <button type="submit" id="checkInForm" value="Check In" class="btn btn-primary">
+                                        Check In
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

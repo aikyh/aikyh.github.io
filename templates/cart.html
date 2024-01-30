@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../static/css/cart.css">
-    <title>VegeGrove</title>
-</head>
-<body>
-  {% extends "base.html" %}
-
-  {% block title %}Library Loan System - Cart{% endblock %}
-
-  {% block content %}
-  </header>
-
-
+{% extends "base.html" %}
+{% block title %}Library Loan System - Cart{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cart.css') }}">
 
   <h1 class="tittle">Your Shopping Cart</h1>
 <div class="d-flex flex-column">
@@ -43,5 +32,4 @@
     </p>
 </div>
 {% endblock %}
-</body>
-</html>
+

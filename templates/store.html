@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../static/css/store.css">
-    <title>VegeGrove</title>
-   
-</head>
-<body>
-  {% extends "base.html" %}
+{% extends "base.html" %}
+{% block title %}Library Loan System - Store{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/store.css') }}">
 
-  {% block title %}Library Loan System - Store{% endblock %}
-
-  {% block content %}
   <div class="content-container">
     <h1>Our Products</h1>
     <ul class="product-list">
@@ -25,6 +17,7 @@
             </li>
         {% endfor %}
     </ul>
+  </div>
     <p class="continue-shopping">
         <a href="/cart" class="btn btn-primary">Continue shopping</a>
     </p>
@@ -71,5 +64,4 @@
         </table>
     </div>
     {% endblock %}
-</body>
-</html>
+

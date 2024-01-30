@@ -5,7 +5,8 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
 import os, shelve, Response, eventManagement
-from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm
+from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
+    CheckInForm
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
@@ -132,7 +133,6 @@ def store_page():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
-
     return render_template('store.html', products=products, count=len(reviews_list), reviews_list=reviews_list)
 
 
@@ -158,7 +158,6 @@ def cart_page():
 
     print(items)
     cart.close()
-
 
     return render_template('cart.html', items=items, total_price=total_price)
 
@@ -284,7 +283,8 @@ def reply_review():
 
     return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
 
-#Event management - Admin
+
+# Event management - Admin
 @app.route('/createEvents', methods=['GET', 'POST'])
 def create_events():
     create_event_form = CreateEventForm(request.form)
@@ -387,6 +387,20 @@ def delete_event(id):
     db.close()
 
     return redirect(url_for('retrieve_events'))
+
+
+# Events- User side
+
+@app.route('/retrieveEvents')
+def retrieveEvents():
+    return render_template('retrieveEvents.html')
+
+
+@app.route('/retrieveUserEvents', methods=['GET', 'POST'])
+def retrieveUserEvents():
+    check_in_form = CheckInForm(request.form)
+    check_in_form.validate()
+    return render_template('retrieveUserEvents.html', form=check_in_form)
 
 
 @app.route('/donation')
@@ -521,7 +535,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                         create_product_form.description.data, create_product_form.tags.data)
+                                  create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 

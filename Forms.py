@@ -11,7 +11,7 @@ class CreateCompanyForm(Form):
     address = StringField('Address', [validators.length(max=200), validators.DataRequired()])
     password = PasswordField('Password', [validators.Optional()])
 
-
+# Admin side (Events)
 class CreateReviewForm(Form):
     customer_name = StringField('Customer Name', [validators.Length(min=1, max=150), validators.DataRequired(),
                                                   validators.Regexp(r'^[A-Za-z ]*$',
@@ -23,6 +23,25 @@ class CreateReviewForm(Form):
     email = EmailField('Email', [validators.Email(), validators.DataRequired()])
     review_date = DateField('Review Date', format='%Y-%m-%d')
     comments = TextAreaField('Comments', [validators.Length(min=1, max=500), validators.DataRequired()])
+
+# User side (Events)
+class CheckInForm(Form):
+    name = StringField('Name: ', [validators.DataRequired(message="Please enter your full name")],
+                       render_kw={"placeholder": "Eg. Angeline Tan"})
+    email = EmailField('Email: ', [validators.DataRequired(message="Please enter your email address")],
+                       render_kw={"placeholder": "Eg. angelinetan123@gmail.com"})
+
+    def validate_name(self, name):
+        excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
+        for char in name.data:
+            if char in excluded_chars:
+                raise ValidationError('Name can only contain alphabets')
+
+    def validate_email(self, email):
+        excluded_chars = "*?!'^+%&/()={}[]$#"
+        for char in email.data:
+            if char in excluded_chars:
+                raise ValidationError("Invalid Email")
 
 
 class CreateCheckoutForm(Form):
