@@ -92,8 +92,8 @@ class Cart:
             print(items)
             self.carts[id] = items
         else:
-            items[product.name] = {'product': product, 'quantity': 1}
-            self.carts[id] = items
+            self.items[product.name] = {'product': product, 'quantity': 1}
+            self.carts[id] = self.items
 
     def remove_item(self, id, product):
         items = self.carts[id]
