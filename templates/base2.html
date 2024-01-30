@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head><!-- Company side -->
+<html><!-- Admin side -->
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/cart.css">
     <title>VegeGrove</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>{% block title %}VegeGrove{% endblock %}</title>
-  <link rel="stylesheet" href="../static/styleadmin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/styleadmin.css') }}">
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -20,20 +19,10 @@
         <a class="navbar-brand" href="/">VegeGrove</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/createReview">Create Event</a></li>
-            <li><a href="/retrieveReviews">User's SignedUp</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Products <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/store">View Products</a></li>
-            <li><a href="/cart">User's bought</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Donation Amount</a></li> <!-- Direct link to Donation -->
+        <li><a href="{{ url_for('admin.homepage')}}" class="active">Home</a></li>
+            <li><a href="{{ url_for('admin.create_user') }}">Create Company</a></li>
+            <li><a href="/retrieveCompany">Retrieve Company</a></li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
