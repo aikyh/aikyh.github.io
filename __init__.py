@@ -386,7 +386,7 @@ def delete_event(id):
     return redirect(url_for('retrieve_events'))
 
 
-@app.route('/')
+@app.route('/donation')
 # get method to get donation page
 def donation():
     return render_template("donation.html")
