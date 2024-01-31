@@ -5,7 +5,6 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import string
-from __init__ import db
 import datetime
 
 main = Blueprint('main', __name__)
