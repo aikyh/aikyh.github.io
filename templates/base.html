@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html><!-- user's side -->
 <head>
+  {% block head %}
+  {% endblock %}
     <link rel="stylesheet" type="text/css" href="../static/css/cart.css">
     <title>VegeGrove</title>
     <meta charset="utf-8">
@@ -15,7 +17,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/cart.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/checkout.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/createReviews.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/donation.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/product.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
