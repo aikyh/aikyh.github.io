@@ -1,24 +1,6 @@
+{% extends "base.html" %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/donation.css') }}">
-
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">VegeGrove</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="{{url_for('main.landingpage')}}">Home</a></li>
-            <li><a href="{{url_for('donation')}}">Donations</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{url_for('auth.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="{{ url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
 
 <div class="donation-container">
     <h1 class="title">Help us reach our goal by donating now!</h1>
