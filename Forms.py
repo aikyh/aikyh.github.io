@@ -1,10 +1,9 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
                      FloatField)
 from wtforms.fields import DateField, TimeField  # Import both DateField and TimeField
+from wtforms.fields import DateField, TimeField, IntegerField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Length, ValidationError
-
-
 
 
 class CreateCompanyForm(Form):
