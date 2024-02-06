@@ -1,14 +1,12 @@
 {% extends "base5.html" %}
-{% block title %}Create Review{% endblock %}
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/createReviews.css') }}">
-{% endblock %}
+{% block title %}Library Loan System - Update Review{% endblock %}
+
 {% block content %}
   {% from "includes/_formHelper.html" import render_field %}
-<div class="container">
-  <h1 class="display-4">Create Review</h1>
 
-  <form method="POST" action="" class="form">
+  <h1 class="display-4">Update Review</h1>
+
+  <form method="POST" action="">
     <div class="form-group">
       {{ render_field(form.customer_name, class="form-control") }}
     </div>
@@ -29,7 +27,4 @@
     </div>
     <input type="submit" value="Submit" class="btn btn-primary"/>
   </form>
-</div>
 {% endblock %}
-
-

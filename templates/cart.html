@@ -1,11 +1,15 @@
-{% extends "base.html" %}
+{% extends "base5.html" %}
 {% block title %}Library Loan System - Cart{% endblock %}
-{% block content %}
+{% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cart.css') }}">
-
+{% endblock %}
+{% block content %}
+    <div class="cart-tittle">
   <h1 class="tittle">Your Shopping Cart</h1>
+    </div>
 <div class="d-flex flex-column">
     <div class="cart-container">
+        <div>
         {% for item in items %}
             <div class="cart-item">
                 <p class="item-details">
