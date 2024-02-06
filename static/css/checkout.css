@@ -9,7 +9,7 @@ body{
     background-color: white;
 }
 
-/*Navbar*/
+/* Navbar */
 .navbar{
   position: fixed;
   top: 0;
@@ -36,8 +36,6 @@ body{
   width: 600px; /* Increase the width to make the cart bigger */
   margin: 0 auto; /* To center the cart on the page, if needed */
 }
-
-
 
 .user .glyphicon-user{
   font-size: 30px;
