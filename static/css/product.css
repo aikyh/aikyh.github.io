@@ -16,11 +16,6 @@ body{
     border: 2px solid lightgray;
 }
 
-.form-group .form-control .form-label{
-    display: flex;  /* Doesnt work */
-    margin-top: 10px;
-}
-
 .text-center{
     text-align: center;
     font-size: 30px;
@@ -52,6 +47,8 @@ body{
     border-radius: 0.25rem;
     cursor: pointer;
     transition: all 250ms ease-in-out;
+    width: 25%;
+    margin-left: 291px;
 }
 
 .btn:active{
