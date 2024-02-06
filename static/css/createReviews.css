@@ -1,9 +1,11 @@
-.form{
-    border: 1px solid #ccc;
-    background-color: #EEEEEE;
-    box-shadow: 2px 4px 11px -1px #000000;
-    width: 20 px
-
+.form123{
+     max-width: 500px;
+     align-item:center;
+     margin: 0 auto ;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     padding: 10px;
+     border-radius: 8px;
+     background-color: #EEEEEE;
 }
 
 .display-4{
