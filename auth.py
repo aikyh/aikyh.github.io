@@ -92,7 +92,7 @@ def signup_post():
 def logout():
     logout_user()
     flash('You have been logged out.')
-    return redirect(url_for('auth.login'))  # Correct usage
+    return redirect(url_for('main.landingpage'))  # Correct usage
 
 
 @auth.route('/changepassword', methods=['POST', 'GET'])
