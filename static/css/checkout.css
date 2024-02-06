@@ -142,7 +142,7 @@ body{
 
 /*Success*/
 .card{
-    margin: 120px auto;
+    margin: 180px auto;
     width: 370px;
     text-align: center;
 }
@@ -185,6 +185,7 @@ body{
 }
 
 .close-btn:hover{
+    text-decoration: none;
     color: #f3f3f3;
     box-shadow: 0 0 0 2px #fff, 0 0 0 3px #8bc34a;
 }
