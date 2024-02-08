@@ -2,6 +2,7 @@
 {% block title %}VegeGrove - Product Management{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}">
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -44,8 +45,6 @@
 
 <h1 class="display-4">Product Management</h1>
 
-<hr>
-
 <div>
     {% if count == 0 %}
     <p>There are no products.</p>
@@ -56,7 +55,7 @@
     {% endif %}
 </div>
 <div>
-    <table class="table table-striped">
+    <table class="table table-striped" border="3">
         <thead>
             <tr>
                 <th>Product ID</th>
