@@ -36,15 +36,15 @@ def landingpage():
 
 @main.route('/home')
 def home():
-    current_date = datetime.datetime.now().date()
-    date_from_database = '2024-01-03'
+   current_date = datetime.datetime.now().date()
+   date_from_database = '2024-01-03'
 
-    # if there is a getter setter method then
-    # start_date_from_db = get_donation_start_date()
-    # donation_instance = Donation(start_date_from_db)
-    # return render_template('home.html', current_date=current_date)
-    return render_template('home.html', date_from_database=date_from_database)
 
+   # if there is a getter setter method then
+   # start_date_from_db = get_donation_start_date()
+   # donation_instance = Donation(start_date_from_db)
+   # return render_template('home.html', current_date=current_date)
+   return render_template('home.html', date_from_database=date_from_database)
 
 @main.route('/profile', methods=['POST', 'GET'])
 @login_required
