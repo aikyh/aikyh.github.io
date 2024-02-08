@@ -1,13 +1,6 @@
 class Product:
     count_id = 0
 
-
-    def __init__(self, name, price, image):
-        Product.count_id += 1
-        self.name = name
-        self.price = price
-        self.image = image
-
     def __init__(self, name, price, description, tags):
         Product.count_id += 1
         self.__product_id = Product.count_id
@@ -45,4 +38,3 @@ class Product:
 
     def set_tags(self, tags):
         self.__tags = tags
-
