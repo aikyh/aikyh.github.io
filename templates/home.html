@@ -2,139 +2,164 @@
 {%block title%} Home {% endblock %}
 {% block content %}
 <div class="home_background" style="  background: url({{url_for('static', filename='img/tree.png')}}) center/cover no-repeat;">
-    <!-- end of to do list -->
-    <div class="todo-list">
-        <div class="container">
-            <h3>Events</h3>
-            <div class="event-list">
-                <ol class="event-number">
-                    <li class="event-items">
-                        <div class="event-description">
-                            <h5 class="event-name">Growing tree, Date: 25-12, 12pm - 2pm</h5>
-                        </div>
-                    </li>
-                    <li class="event-items">
-                        <div class="event-description">
-                            <h5 class="event-name">Growing tree, Date: 25-12, 12pm - 2pm</h5>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
-    <!-- start of circle progress bar  -->
+   <!-- end of to do list -->
+   <div class="todo-list">
+       <div class="container">
+           <h3>Events</h3>
+           <div class="event-list">
+               <ol class="event-number">
+                   <li class="event-items">
+                       <div class="event-description">
+                           <h5 class="event-name">Growing tree, Date: 25-12, 12pm - 2pm</h5>
+                       </div>
+                   </li>
+                   <li class="event-items">
+                       <div class="event-description">
+                           <h5 class="event-name">Growing tree, Date: 25-12, 12pm - 2pm</h5>
+                       </div>
+                   </li>
+               </ol>
+           </div>
+       </div>
+   </div>
+   <!-- start of circle progress bar  -->
 
-     <div class="skill">
-         <div class="outer">
-            <div class="inner">
-                <div id="number">  </div>
-            </div>
+
+    <div class="skill">
+        <div class="outer">
+           <div class="inner">
+               <div id="number">  </div>
+           </div>
+        </div>
+       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" id="progressCircle">
+        <defs>
+           <linearGradient id="GradientColor">
+              <stop offset="0%" stop-color="#e91e63" />
+              <stop offset="100%" stop-color="#673ab7" />
+           </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="70" stroke-linecap="round" id="progressCircle"/>
+       </svg>
+    </div>
+
+
+   <div class="donation">
+       <div class="container">
+         <h3>Donation</h3>
+         <div class="progress">
+           <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+               <div id="donatedAmount"></div>
+           </div>
          </div>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px" id="progressCircle">
-         <defs>
-            <linearGradient id="GradientColor">
-               <stop offset="0%" stop-color="#e91e63" />
-               <stop offset="100%" stop-color="#673ab7" />
-            </linearGradient>
-         </defs>
-         <circle cx="80" cy="80" r="70" stroke-linecap="round" id="progressCircle"/>
-        </svg>
-     </div>
-
-    <div class="donation">
-        <div class="container">
-          <h3>Donation</h3>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                <div id="donatedAmount"></div>
-            </div>
-          </div>
-            <div>
-                <div>
-                    <button id="dateButton">Donate Now</button>
-                </div>
-              </div>
-        </div>
-    </div>
+           <div>
+               <div>
+                   <button id="dateButton">Donate Now</button>
+               </div>
+             </div>
+       </div>
+   </div>
 </div>
-    <!-- End of circular progress bar -->
-    <script>
-    // start of progress bar
-    const startDate = new Date('{{ date_from_database }}');
+   <!-- End of circular progress bar -->
+   <script>
+   // start of progress bar
+   const startDate = new Date('{{ date_from_database }}');
 
-    console.log(startDate)
+
+   console.log(startDate)
+
 
 // Calculate the percentage based on the number of days passed
 function updateProgress() {
-    const currentDate = new Date();
-    const daysPassed = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
-    console.log(daysPassed)
-    let percentage = (daysPassed / 90) * 100;
+   const currentDate = new Date();
+   const daysPassed = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+   console.log(daysPassed)
+   let percentage = (daysPassed / 90) * 100;
 
 
 
-    // Ensure the percentage is between 0 and 100
-    percentage = Math.min(100, percentage);
 
-    const circle = document.getElementById('progressCircle');
 
-    const dashOffsetValue = 472 - ((percentage * 472) / 100);
 
-    console.log(dashOffsetValue);
+   // Ensure the percentage is between 0 and 100
+   percentage = Math.min(100, percentage);
 
-    circle.style.setProperty('--dashOffsetValue', dashOffsetValue);
 
-    // Update the displayed number
-    document.getElementById('number').innerText = percentage.toFixed(2) + '%';
+   const circle = document.getElementById('progressCircle');
 
-    // Check if the progress has reached 100% and reset to zero
-    if (percentage === 100) {
-        resetProgress();
-    }
+
+   const dashOffsetValue = 472 - ((percentage * 472) / 100);
+
+
+   console.log(dashOffsetValue);
+
+
+   circle.style.setProperty('--dashOffsetValue', dashOffsetValue);
+
+
+   // Update the displayed number
+   document.getElementById('number').innerText = percentage.toFixed(2) + '%';
+
+
+   // Check if the progress has reached 100% and reset to zero
+   if (percentage === 100) {
+       resetProgress();
+   }
 }
+
 
 // Function to reset the progress to zero
 function resetProgress() {
-    const circle = document.getElementById('progressCircle');
+   const circle = document.getElementById('progressCircle');
 
-    // Reset the dash offset and percentage
-    circle.style.setProperty('--dashOffsetValue', 472);
-    document.getElementById('number').innerText = '0.00%';
+
+   // Reset the dash offset and percentage
+   circle.style.setProperty('--dashOffsetValue', 472);
+   document.getElementById('number').innerText = '0.00%';
 }
+
 
 // Initial update
 updateProgress();
 
+
 // Update the progress every day
 setInterval(updateProgress, 24 * 60 * 60 * 1000); // Update every 24 hours
 
+
 // start of progress bar
+
 
 let fixedDonationAmount = 700; // Initial amount
 
+
 // Function to update the donation progress
 function updateDonationProgress() {
-    const progressBar = document.querySelector('.progress-bar');
-    const donatedAmount = document.getElementById('donatedAmount');
+   const progressBar = document.querySelector('.progress-bar');
+   const donatedAmount = document.getElementById('donatedAmount');
 
-    // Calculate the percentage
-    const percentage = (fixedDonationAmount % 1000) / 10; // Assuming 1000 is the goal amount
 
-    // Update the progress bar width and text
-    progressBar.style.width = `${percentage}%`;
-    donatedAmount.innerText = `$${fixedDonationAmount} / $1000`; // Adjust as needed
+   // Calculate the percentage
+   const percentage = (fixedDonationAmount % 1000) / 10; // Assuming 1000 is the goal amount
 
-    // Check if the donation goal is reached
-    if (fixedDonationAmount >= 1000) {
-        resetDonationProgress();
-    }
+
+   // Update the progress bar width and text
+   progressBar.style.width = `${percentage}%`;
+   donatedAmount.innerText = `$${fixedDonationAmount} / $1000`; // Adjust as needed
+
+
+   // Check if the donation goal is reached
+   if (fixedDonationAmount >= 1000) {
+       resetDonationProgress();
+   }
 }
+
 
 // Function to reset the donation progress to 0
 function resetDonationProgress() {
-    fixedDonationAmount = fixedDonationAmount - 1000 ;
-    updateDonationProgress();
+   fixedDonationAmount = fixedDonationAmount - 1000 ;
+   updateDonationProgress();
 }
+
 
 // Initial update
 updateDonationProgress();
@@ -144,9 +169,17 @@ updateDonationProgress();
 
 
 
-    </script>
+
+
+
+
+
+
+   </script>
+
+
+
 
 
 
 {% endblock %}
-
