@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ae490a6-57e4-46ee-98aa-77d04c0e398c" name="Changes" comment="added retrieveUserEvents.html in templates" />
+    <list default="true" id="6ae490a6-57e4-46ee-98aa-77d04c0e398c" name="Changes" comment="Change name of user discover events cuz will clash w admin side">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +114,31 @@
       <option name="project" value="LOCAL" />
       <updated>1707407095520</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Change name of user discover events cuz will clash w admin side">
+      <option name="closed" value="true" />
+      <created>1707407546152</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407546152</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Change name of user discover events cuz will clash w admin side">
+      <option name="closed" value="true" />
+      <created>1707407597208</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407597208</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Change name of user discover events cuz will clash w admin side">
+      <option name="closed" value="true" />
+      <created>1707407726827</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407726827</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +156,7 @@
     <MESSAGE value="Insert user side for events page" />
     <MESSAGE value="url for user events" />
     <MESSAGE value="added retrieveUserEvents.html in templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="added retrieveUserEvents.html in templates" />
+    <MESSAGE value="Change name of user discover events cuz will clash w admin side" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change name of user discover events cuz will clash w admin side" />
   </component>
 </project>
