@@ -1,18 +1,24 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">VegeGrove</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('main.landingpage')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('donation')}}">Donation</a>
-        </li>
-      </ul>
+<head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">VegeGrove</a>
+      </div>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-link" href="{{url_for('main.landingpage')}}">Home</a></li>
+          <li><a class="nav-link" href="{{url_for('donation')}}">Donation</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-link" href="{{url_for('auth.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a class="nav-link" href="{{ url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</body>
