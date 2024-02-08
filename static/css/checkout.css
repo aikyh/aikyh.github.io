@@ -6,7 +6,7 @@ body{
     font-family: 'Raleway', sans-serif;
     place-items: center;
     max-height: 100vh;
-    background-color: white;
+    background-color: #E1F0DA;
 }
 
 /*General Settings*/
@@ -102,6 +102,8 @@ body{
 .lower-side{
     padding: 2em 2em 5em 2em;
     background: #eee;
+    border: 2px solid #ccc;
+
 }
 
 .message{
