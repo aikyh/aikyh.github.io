@@ -404,11 +404,6 @@ def success():
     return render_template("success.html")
 
 
-@app.route('/productManagement')
-def productManagement():
-    return render_template("productManagement.html")
-
-
 @app.route('/checkout', methods=['GET', 'POST'])
 # accepts both get and post methods, checkout page is retrieved
 # when form is received, data will be posted onto the server
