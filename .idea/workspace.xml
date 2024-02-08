@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb5c060-9f6c-4c4d-8eb2-e676eea3ab4a" name="Changes" comment="changing the logout page from the login page to home page">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    <list default="true" id="7f4bb689-0316-4393-9866-2201111948ad" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/static/css/createReviews.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/createReviews.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/updateReview.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/updateReview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base5.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createReview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateReview.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,36 +25,15 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="main" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="Yuen Teng &lt;232598m@mymail.nyp.edu.sg&gt;" />
-      </list>
-    </option>
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2bd1xce7wRPcmtzeBw3zLTKImcE" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2bf3MzsuOkIk4QSPbF1LPgH9mce" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -58,219 +41,70 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/aikyh/Downloads/app dev/aikyh.github.io&quot;
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\aikyh\Downloads\app dev\aikyh.github.io\static\img" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0fb5c060-9f6c-4c4d-8eb2-e676eea3ab4a" name="Changes" comment="" />
-      <created>1706530388915</created>
+      <changelist id="7f4bb689-0316-4393-9866-2201111948ad" name="Changes" comment="" />
+      <created>1706592267983</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1706530388915</updated>
+      <updated>1706592267983</updated>
     </task>
-    <task id="LOCAL-00001" summary="Changes to Product.py">
-      <created>1706530767538</created>
+    <task id="LOCAL-00001" summary="..">
+      <created>1706592688816</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1706530767538</updated>
+      <updated>1706592688816</updated>
     </task>
-    <task id="LOCAL-00002" summary="Changes to Product.py">
-      <created>1706530813310</created>
+    <task id="LOCAL-00002" summary="..">
+      <created>1706593716546</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1706530813310</updated>
+      <updated>1706593716546</updated>
     </task>
-    <task id="LOCAL-00003" summary="Change from template to templates">
-      <created>1706532658408</created>
+    <task id="LOCAL-00003" summary="changed base">
+      <created>1706595823059</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1706532658408</updated>
+      <updated>1706595823059</updated>
     </task>
-    <task id="LOCAL-00004" summary="Adding to CSS">
-      <created>1706533120096</created>
+    <task id="LOCAL-00004" summary="css">
+      <created>1706598132664</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1706533120096</updated>
+      <updated>1706598132664</updated>
     </task>
-    <task id="LOCAL-00005" summary="Adding to CSS">
-      <created>1706533782972</created>
+    <task id="LOCAL-00005" summary="linked to css file">
+      <created>1706598230735</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1706533782972</updated>
+      <updated>1706598230735</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added includes">
-      <created>1706589560175</created>
+    <task id="LOCAL-00006" summary="edited my linking to css filr">
+      <created>1707217913188</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1706589560175</updated>
+      <updated>1707217913188</updated>
     </task>
-    <task id="LOCAL-00007" summary="Changging the css title">
-      <created>1706590674102</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1706590674102</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Changging the css title">
-      <created>1706591734617</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1706591734617</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Changging the css title">
-      <created>1706592975288</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1706592975288</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Commiting the admin details">
-      <created>1706593292349</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1706593292349</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Changing of the link of the background image">
-      <created>1706596815092</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1706596815092</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Changing of the link of the background image">
-      <created>1706597855781</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1706597855781</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Adding packages">
-      <created>1706597900503</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1706597900504</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Changes made to the requirement">
-      <created>1706600474694</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706600474694</updated>
-    </task>
-    <task id="LOCAL-00015" summary="addig css to the base">
-      <created>1706670600040</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706670600040</updated>
-    </task>
-    <task id="LOCAL-00016" summary="changing the base1">
-      <created>1706672460843</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1706672460843</updated>
-    </task>
-    <task id="LOCAL-00017" summary="adding package to requirement">
-      <created>1706692949646</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706692949646</updated>
-    </task>
-    <task id="LOCAL-00018" summary="changing the forms emailField and adding to requirements.txt">
-      <created>1706693629820</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1706693629820</updated>
-    </task>
-    <task id="LOCAL-00019" summary="adding">
-      <created>1706693830333</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1706693830333</updated>
-    </task>
-    <task id="LOCAL-00020" summary="changing the form import">
-      <created>1706694421754</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1706694421754</updated>
-    </task>
-    <task id="LOCAL-00021" summary="nil">
-      <created>1706694642404</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1706694642404</updated>
-    </task>
-    <task id="LOCAL-00022" summary="update datefield">
-      <created>1706695331426</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1706695331426</updated>
-    </task>
-    <task id="LOCAL-00023" summary="changing the logout page from the login page to home page">
-      <created>1707213816954</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1707213816954</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes to Product.py" />
-    <MESSAGE value="Change from template to templates" />
-    <MESSAGE value="Adding to CSS" />
-    <MESSAGE value="Added includes" />
-    <MESSAGE value="Changging the css title" />
-    <MESSAGE value="Commiting the admin details" />
-    <MESSAGE value="Changing of the link of the background image" />
-    <MESSAGE value="Adding packages" />
-    <MESSAGE value="Changes made to the requirement" />
-    <MESSAGE value="addig css to the base" />
-    <MESSAGE value="changing the base1" />
-    <MESSAGE value="adding package to requirement" />
-    <MESSAGE value="changing the forms emailField and adding to requirements.txt" />
-    <MESSAGE value="adding" />
-    <MESSAGE value="changing the form import" />
-    <MESSAGE value="nil" />
-    <MESSAGE value="update datefield" />
-    <MESSAGE value="changing the logout page from the login page to home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing the logout page from the login page to home page" />
+    <MESSAGE value=".." />
+    <MESSAGE value="changed base" />
+    <MESSAGE value="css" />
+    <MESSAGE value="linked to css file" />
+    <MESSAGE value="edited my linking to css filr" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited my linking to css filr" />
   </component>
 </project>

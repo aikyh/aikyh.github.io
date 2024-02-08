@@ -16,11 +16,6 @@ body{
     border: 2px solid lightgray;
 }
 
-.form-group .form-control .form-label{
-    display: flex;  /* Doesnt work */
-    margin-top: 10px;
-}
-
 .text-center{
     text-align: center;
     font-size: 30px;
@@ -45,13 +40,15 @@ body{
 
 .btn{
     letter-spacing: 0.5px;
-    padding: 0.75rem;
+    padding: 0.5rem;
     text-decoration: none;
     background-color: var(--primary-color);
     color: #f3f3f3;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: all 250ms ease-in-out;
+    width: 25%;
+    margin-left: 291px;
 }
 
 .btn:active{

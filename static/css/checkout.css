@@ -5,11 +5,11 @@
 body{
     font-family: 'Raleway', sans-serif;
     place-items: center;
-    min-height: 100vh;
+    max-height: 100vh;
     background-color: white;
 }
 
-/*Navbar*/
+/* Navbar */
 .navbar{
   position: fixed;
   top: 0;
@@ -36,8 +36,6 @@ body{
   width: 600px; /* Increase the width to make the cart bigger */
   margin: 0 auto; /* To center the cart on the page, if needed */
 }
-
-
 
 .user .glyphicon-user{
   font-size: 30px;
@@ -144,7 +142,7 @@ body{
 
 /*Success*/
 .card{
-    margin: 120px auto;
+    margin: 180px auto;
     width: 370px;
     text-align: center;
 }
@@ -187,6 +185,7 @@ body{
 }
 
 .close-btn:hover{
+    text-decoration: none;
     color: #f3f3f3;
     box-shadow: 0 0 0 2px #fff, 0 0 0 3px #8bc34a;
 }

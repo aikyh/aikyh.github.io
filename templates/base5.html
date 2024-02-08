@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html><!-- user's side -->
+<html lang="en">
 <head>
-    <title>VegeGrove</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <title>{% block title %}VegeGrove{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/cart.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/store.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/checkout.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/createReviews.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/product.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReviews.css') }}">
-   {% block head %}
-  {% endblock %}
-</head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReview.css') }}">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+</style>
 <body>
-  <nav class="navbar navbar-inverse">
+   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">VegeGrove</a>
@@ -47,7 +47,7 @@
             <li><a href="{{url_for('cart_page')}}">View Cart</a></li>
           </ul>
         </li>
-        <li><a href="/donation">Donation</a></li>
+        <li><a href="#">Donation</a></li> <!-- Direct link to Donation -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -69,26 +69,9 @@
     </div>
   </nav>
 
-    <script>
-         function logout() {
-            // Add any logout logic or redirect here
-            window.location.href = "{{ url_for('auth.logout') }}";
-        }
-
-        function toggleuser() {
-            var userApplet = document.getElementById('userApplet');
-            userApplet.style.display = (userApplet.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
-</div>
-  </header>
-
-
-  {% block content %}
-
-
-
-  {% endblock %}
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
-
 </html>
