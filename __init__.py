@@ -392,7 +392,7 @@ def delete_event(id):
 # Events- User side
 
 @app.route('/retrieveDiscoverEvents')
-def retrieveEvents():
+def retrieveDiscoverEvents():
     return render_template('retrieveDiscoverEvents.html')
 
 
