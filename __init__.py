@@ -4,10 +4,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
-import os, shelve, Response, eventManagement
+import os, shelve, Response, Product, eventManagement
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
     CheckInForm
-import Review, Cart, Store, Product
+import Review, Cart, Store
 
 app = Flask(__name__)
 
@@ -42,16 +42,6 @@ def create_app():
         app.register_blueprint(admin_blueprint)
 
     app.run(debug=True, port=8000)
-
-
-class Product:
-    count_id = 0
-
-    def __init__(self, name, price, image):
-        Product.count_id += 1
-        self.name = name
-        self.price = price
-        self.image = image
 
 
 class Store:
@@ -281,7 +271,7 @@ def reply_review():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
-    return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
+    return render_template('productManagement.html', count=len(reviews_list), reviews_list=reviews_list)
 
 
 # Event management - Admin
