@@ -49,19 +49,29 @@
                 <div id="donatedAmount"></div>
             </div>
           </div>
+            <div>
+                <div>
+                    <button id="dateButton">Donate Now</button>
+                </div>
+              </div>
         </div>
     </div>
 </div>
     <!-- End of circular progress bar -->
     <script>
     // start of progress bar
-    const startDate = new Date('2024-01-03');
+    const startDate = new Date('{{ date_from_database }}');
+
+    console.log(startDate)
 
 // Calculate the percentage based on the number of days passed
 function updateProgress() {
     const currentDate = new Date();
     const daysPassed = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+    console.log(daysPassed)
     let percentage = (daysPassed / 90) * 100;
+
+
 
     // Ensure the percentage is between 0 and 100
     percentage = Math.min(100, percentage);
@@ -134,9 +144,9 @@ updateDonationProgress();
 
 
 
-
     </script>
 
 
 
 {% endblock %}
+
