@@ -1,93 +1,66 @@
 {% extends "base.html" %}
-{% block title %}VegeGrove- Current Events Events{% endblock %}
+{% block title %} VegeGrove- Discover Events {% endblock %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='retrieveEvents.css') }}">
-
-
-<h1 class="display-4">Current Events</h1>
-<button class="createEventBtn"><a href="/createEvents">Create Event</a></button>
-
-<div class="numEvents">
-    {% if count == 0 %}
-    <p>There are no events.</p>
-    {% elif count == 1 %}
-    <p>There is 1 event.</p>
-    {% else %}
-    <p>There are {{ count }} events.</p>
-    {% endif %}
-</div>
 <div>
-    {% if count != 0 %}
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Event no.</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Timing</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th> Budget </th>
-            <th>Person-In-Charge</th>
-            <th>Collaborators</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for event in events_list %}
-        <tr>
-           <td>{{ event.get_event_id() }}</td>
-            <td>{{ event.get_name() }}</td>
-            <td>{{ event.get_date() }}</td>
-            <td>{{ event.get_timing() }}</td>
-            <td> {{ event.get_location() }}</td>
-            <td> {{ event.get_description() }}</td>
-            <td>{{ event.get_budget() }}</td>
-            <td>{{ event.get_person_in_charge() }}</td>
-            <td>{{ event.get_collaborators() }}</td>
-            <td><a href="/updateEvents/{{event.get_event_id()}}" class="btn btn-warning">Update</a></td>
-            <td>
-                <form action="{{url_for('delete_event', id=event.get_event_id())}}" method="POST">
-                    <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to delete {{ event.get_name() }}?');">
-                        Delete
-                    </button>
+    <h1>Discover Events</h1>
+</div>
+<br>
+<div class="flex-container">
+    <div class="container-1">
+        <div class="event-details">
+            <div class="image-1">
+                <a href="#">PICTURE</a>
+            </div>
+            <div class="event-name">
+                <h3>Event #1</h3>
+                <hr>
+                <span>
+            <p> Description</p>
+            Date:
+            <br>
+            Timing:
+            <br>
+            Location:
+          </span>
+                <br>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal"
+                        id="expand-btn">
+                    Register
+                </button>
 
+                <!-- Modal -->
 
-                    <!-- The Modal -->
-
-
-                    <div class="modal" id="myModal_{{event.get_event_id()}}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Delete Confirmation</h4>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    Are you sure you want to delete <b>{{event.get_name()}}? </b>
-                                </div>
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
-                                    </button>
-                                    <input type="submit" value="Delete" class="btn btn-danger">
-
-                                </div>
-
+                <div class="modal fade modal auto-clear" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mx-auto">Registration Successful!<img
+                                        src="static/images/greentick.png" alt="Success icon" width="30" height="30"
+                                        class="mx-2 my-auto"></h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Thank you for registering for the event! You're all set to attend.
+                                    <br> Event has been added to <b>My Events</b>
+                                </p>
+                                <ul>
+                                    <li>Date:</li>
+                                    <li>Event:</li>
+                                    <li>Location:</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/retrieveUserEvents" class="btn btn-primary active mx-auto" role="button"
+                                   aria-pressed="true">Go to My Events</a>
                             </div>
                         </div>
                     </div>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="{{ url_for('static', filename='events.js') }}"></script>
 {% endblock %}
