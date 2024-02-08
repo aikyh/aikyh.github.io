@@ -37,7 +37,7 @@ def landingpage():
 @main.route('/home')
 def home():
    current_date = datetime.datetime.now().date()
-   date_from_database = '2024-01-03'
+   date_from_database = '2024-01-01'
 
 
    # if there is a getter setter method then
