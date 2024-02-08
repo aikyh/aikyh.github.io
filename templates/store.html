@@ -1,7 +1,10 @@
-{% extends "base.html" %}
-{% block title %}Library Loan System - Store{% endblock %}
-{% block content %}
+{% extends "base5.html" %}
+{% block title %}Store{% endblock %}
+
+{% block head %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/store.css') }}">
+{% endblock %}
+{% block content %}
 
   <div class="content-container">
     <h1>Our Products</h1>
