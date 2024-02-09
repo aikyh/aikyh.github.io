@@ -1,0 +1,63 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.user {
+  position: relative;
+}
+
+.user-applet {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Hide the cart applet by default */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px; /* Adjust the padding to increase cart size */
+  max-width: fit-content;
+  width: 600px; /* Increase the width to make the cart bigger */
+  margin: 0 auto; /* To center the cart on the page, if needed */
+}
+
+
+
+.user .glyphicon-user {
+  font-size: 30px;
+  text-align:center;
+  padding: 5px;
+
+}
+
+.logout{
+    padding: 8px;
+    width:100px;
+    background-color:red;
+    color: white;
+}
+
+
+.user {
+  position: relative;
+}
+
+.user-applet {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none; /* Hide the cart applet by default */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px; /* Adjust the padding to increase cart size */
+  max-width: fit-content;
+  width: 600px; /* Increase the width to make the cart bigger */
+  margin: 0 auto; /* To center the cart on the page, if needed */
+}
