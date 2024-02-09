@@ -9,13 +9,6 @@ body{
     background-color: white;
 }
 
-/*General Settings*/
-.form-step .form-control{
-    width: 95%;
-    padding: 0.6rem;
-    border: 2px solid lightgray;
-}
-
 /*Form*/
 .form{
     width: 900px;

@@ -5,22 +5,6 @@
 {% from "includes/_formHelper.html" import render_field %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/checkout.css') }}">
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">VegeGrove</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="{{url_for('main.landingpage')}}">Home</a></li>
-            <li><a href="{{url_for('donation')}}">Donations</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{url_for('auth.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="{{ url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
-
 <form method="POST" action="" class="form">
     <h1 class="text-center">{{ render_field(form.amount, class="donation-amount") }}</h1>
 

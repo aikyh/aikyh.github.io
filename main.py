@@ -27,24 +27,22 @@ def get_user_details_by_id(user_id):
 #     # Replace this with your actual database retrieval logic
 #     return datetime(2023, 1, 1)  # Replace with the actual start date
 
-
-
-
 @main.route('/')
 def landingpage():
     return render_template("landingpage.html")
 
+
 @main.route('/home')
 def home():
-   current_date = datetime.datetime.now().date()
-   date_from_database = '2024-01-01'
+    current_date = datetime.datetime.now().date()
+    date_from_database = '2024-01-01'
 
+    # if there is a getter setter method then
+    # start_date_from_db = get_donation_start_date()
+    # donation_instance = Donation(start_date_from_db)
+    # return render_template('home.html', current_date=current_date)
+    return render_template('home.html', date_from_database=date_from_database)
 
-   # if there is a getter setter method then
-   # start_date_from_db = get_donation_start_date()
-   # donation_instance = Donation(start_date_from_db)
-   # return render_template('home.html', current_date=current_date)
-   return render_template('home.html', date_from_database=date_from_database)
 
 @main.route('/profile', methods=['POST', 'GET'])
 @login_required
@@ -103,3 +101,13 @@ def company_dashboard():
 @main.route('/retrieveUserJoinedEvent', methods=['POST', 'GET'])
 def company_retrieve_event_details():
     return render_template("companyretrieveUserEvent.html")
+
+
+@main.route("/usersignedup", methods=['POST', 'GET'])
+def usersignedup():
+    return render_template("usersignedup.html")
+
+
+@main.route("/usersbought", methods=['GET', 'POST'])
+def usersbought():
+    return render_template("userbought.html")
