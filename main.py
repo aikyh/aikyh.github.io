@@ -106,3 +106,8 @@ def company_retrieve_event_details():
 @main.route("/usersignedup", methods=['POST', 'GET'])
 def usersignedup():
     return render_template("usersignedup.html")
+
+
+@main.route("/usersbought", methods=['GET', 'POST'])
+def usersbought():
+    return render_template("userbought.html")
