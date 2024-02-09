@@ -1,0 +1,142 @@
+Index: templates/base4.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>{% block title %}{% endblock %}</title>\r\n\r\n    <!-- Font -->\r\n    <style>\r\n        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');\r\n    </style>\r\n\r\n    <!-- Bootstrap 5.1.3 CSS-->\r\n    <link crossorigin=\"anonymous\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" rel=\"stylesheet\">\r\n</head>\r\n<body>\r\n    {% block navbar %}\r\n        {% include 'includes/_navbar.html' %}\r\n    {% endblock %}\r\n\r\n    <div class=\"container-fluid\">\r\n        {% block content %}\r\n        {% endblock %}\r\n    </div>\r\n\r\n    {% block scripts %}\r\n    <!-- Popper 2.10.2, Bootstrap 5.1.3 JavaScript -->\r\n    <script crossorigin=\"anonymous\" integrity=\"sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB\" src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js\"></script>\r\n    <script crossorigin=\"anonymous\" integrity=\"sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13\" src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js\"></script>\r\n    {% endblock %}\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/base4.html b/templates/base4.html
+--- a/templates/base4.html	(revision 29ed3a197713b7fb03ee3aba631c1ea5adcaeb92)
++++ b/templates/base4.html	(date 1707401857221)
+@@ -3,12 +3,15 @@
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <title>{% block title %}{% endblock %}</title>
+ 
+     <!-- Font -->
+     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');
+     </style>
++    <link rel="stylesheet" href="{{ url_for('static', filename='/css/navbar.css') }}">
+ 
+     <!-- Bootstrap 5.1.3 CSS-->
+     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+Index: templates/includes/_navbar.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">\r\n  <div class=\"container-fluid\">\r\n    <a class=\"navbar-brand\" href=\"#\">VegeGrove</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#collapsibleNavbar\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"collapsibleNavbar\">\r\n      <ul class=\"navbar-nav\">\r\n        <li class=\"nav-item\">\r\n          <a class=\"nav-link\" href=\"{{url_for('main.landingpage')}}\">Home</a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a class=\"nav-link\" href=\"{{url_for('donation')}}\">Donations</a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/includes/_navbar.html b/templates/includes/_navbar.html
+--- a/templates/includes/_navbar.html	(revision 29ed3a197713b7fb03ee3aba631c1ea5adcaeb92)
++++ b/templates/includes/_navbar.html	(date 1707401566728)
+@@ -13,6 +13,10 @@
+           <a class="nav-link" href="{{url_for('donation')}}">Donations</a>
+         </li>
+       </ul>
++      <ul class="nav navbar-nav navbar-right">
++        <li><a href="{{url_for('auth.signup')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
++        <li><a href="{{ url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
++      </ul>
+     </div>
+   </div>
+ </nav>
+\ No newline at end of file
+Index: templates/base5.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>{% block title %}{% endblock %}</title>\r\n\r\n    <!-- Font -->\r\n    <style>\r\n        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');\r\n    </style>\r\n\r\n    <!-- Bootstrap 5.1.3 CSS-->\r\n    <link crossorigin=\"anonymous\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" rel=\"stylesheet\">\r\n</head>\r\n<body>\r\n    {% block navbar %}\r\n        {% include 'includes/_navbar2.html' %}\r\n    {% endblock %}\r\n\r\n    <div class=\"container-fluid\">\r\n        {% block content %}\r\n        {% endblock %}\r\n    </div>\r\n\r\n    {% block scripts %}\r\n    <!-- Popper 2.10.2, Bootstrap 5.1.3 JavaScript -->\r\n    <script crossorigin=\"anonymous\" integrity=\"sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB\" src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js\"></script>\r\n    <script crossorigin=\"anonymous\" integrity=\"sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13\" src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js\"></script>\r\n    {% endblock %}\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/base5.html b/templates/base5.html
+--- a/templates/base5.html	(revision 29ed3a197713b7fb03ee3aba631c1ea5adcaeb92)
++++ b/templates/base5.html	(date 1707401566708)
+@@ -9,6 +9,7 @@
+     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');
+     </style>
++    <link rel="stylesheet" href="{{ url_for('static', filename='/css/navbar.css') }}">
+ 
+     <!-- Bootstrap 5.1.3 CSS-->
+     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+Index: static/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap');\r\n\r\n:root {\r\n  --main-color: #B5C99A;\r\n  --secondary-color: #CFE1B9;\r\n  --bg: #FFFFFF;\r\n  --border: .1rem solid rgba(255, 255, 255, .3);\r\n  --text-color: black;\r\n  /*for the to do list */\r\n   --checkbox-color: #ee9ca7;\r\n  --checkbox-shadow: rgba(238, 156, 167, 0.2);\r\n  --add-button: #ee9ca7;\r\n  --add-button-shadow: rgba(238, 156, 167,0.4);\r\n\r\n\r\n}\r\n* {\r\n  font-family: 'Raleway', Verdana, sans-serif;\r\n  margin: 0px;\r\n  padding: 0px;\r\n  scroll-behavior: smooth;\r\n  scroll-padding-top: 1rem;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  background-image: url('pictures/matt-artz-nTRDnDdDYk8-unsplash.webp');\r\n  background-size: cover;\r\n  background-position: center;\r\n  height: 100vh;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n\r\n\r\n\r\n}\r\n\r\n/* nav bar*/\r\n\r\n\r\n.navbar {\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 1000;\r\n}\r\n\r\n.user {\r\n  position: relative;\r\n}\r\n\r\n.user-applet {\r\n  position: absolute;\r\n  top: 100%;\r\n  right: 0;\r\n  background-color: #fff;\r\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  padding: 10px;\r\n  display: none; /* Hide the cart applet by default */\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  padding: 20px; /* Adjust the padding to increase cart size */\r\n  max-width: fit-content;\r\n  width: 600px; /* Increase the width to make the cart bigger */\r\n  margin: 0 auto; /* To center the cart on the page, if needed */\r\n}\r\n\r\n\r\n\r\n.user .glyphicon-user {\r\n  font-size: 30px;\r\n  text-align:center;\r\n  padding: 5px;\r\n\r\n}\r\n\r\n.logout{\r\n    padding: 8px;\r\n    width:100px;\r\n    background-color:red;\r\n    color: white;\r\n}\r\n\r\n\r\n.user {\r\n  position: relative;\r\n}\r\n\r\n.user-applet {\r\n  position: absolute;\r\n  top: 100%;\r\n  right: 0;\r\n  background-color: #fff;\r\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\r\n  padding: 10px;\r\n  display: none; /* Hide the cart applet by default */\r\n  border: 1px solid #ccc;\r\n  border-radius: 4px;\r\n  padding: 20px; /* Adjust the padding to increase cart size */\r\n  max-width: fit-content;\r\n  width: 600px; /* Increase the width to make the cart bigger */\r\n  margin: 0 auto; /* To center the cart on the page, if needed */\r\n}\r\n\r\n\r\n/* end of nav bar*/\r\n\r\n\r\n/*start of login page*/\r\n.login-box,  .signupbox{\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  padding: 40px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  text-align: center;\r\n}\r\n\r\nform {\r\n  margin-bottom:10px;\r\n  width: 100%;\r\n}\r\n\r\nlabel {\r\n  display: block;\r\n  text-align: left;\r\n  margin:5px;\r\n}\r\n\r\ninput {\r\n  margin-top: 5px;\r\n  width: 100%;\r\n  padding: 10px;\r\n  box-sizing: border-box;\r\n  justify-content:center;\r\n}\r\n\r\nh2.login {\r\n  text-align: center;\r\n}\r\n\r\n.signup {\r\n  text-align: left;\r\n  display: block;\r\n  color: #333;\r\n}\r\n\r\n.show-password-container {\r\n  display: grid;\r\n  grid-template-columns: 1fr auto; /* First column takes up remaining space */\r\n  align-items: left;\r\n  justify-content: flex-start;\r\n}\r\n\r\n\r\n.show-password-checkbox {\r\n  margin-left: 0px; /* Adjust the spacing between the label and the checkbox */\r\n}\r\n\r\n.show-password-label {\r\n  width: 10px; /* Adjust value based on your desired label width */\r\n}\r\n\r\n.submit{\r\n    width: 100%;\r\n    padding:8px;\r\n    color:white;\r\n    background-color:#3cb043;\r\n}\r\n/*end of login page*/\r\n\r\n\r\n/*start of signup page*/\r\n.signup-box {\r\n  background-color: rgba(255, 255, 255, 0.8);\r\n  padding: 60px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  text-align: center;\r\n  width:70px;\r\n}\r\n\r\n.submit-signup{\r\n  margin-top:10px;\r\n}\r\n\r\n.signup_form{\r\n  max-width:400px;\r\n}\r\n\r\n.Signup-text{\r\n  text-align: center;\r\n  padding: 10px;\r\n}\r\n\r\n\r\n\r\n/*end of signup page*/\r\n\r\n/* start of profile page*/\r\n.profile-container{\r\n    display:flex;\r\n    padding-top: 400px;\r\n    z-index:1;\r\n}\r\n\r\n.side_profile{\r\n    width:30%;\r\n    padding: 50px;\r\n    box-sizing: border-box;\r\n    background-color:#e9ecef;\r\n    margin-right: 20px;\r\n    border-radius:30px;\r\n}\r\n\r\n.profile_img{\r\n    width:100%;\r\n}\r\n\r\n.main-content{\r\n    flex-grow:1;\r\n    padding: 50px;\r\n    box-sizing: border-box;\r\n    width:80%;\r\n    display:flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position:relative;\r\n    z-index: 2;\r\n    background-color: #e9ecef;\r\n    border-radius:30px;\r\n    margin-left:20px;\r\n\r\n}\r\n\r\ntable{\r\n    width: 100%;\r\n    margin-top:20px;\r\n}\r\n\r\ntable td{\r\n    padding: 10px;\r\n}\r\n\r\ntable th{\r\n    padding: 10px;\r\n    background-color:#f2f2f2;\r\n}\r\n\r\n.profile-update{\r\n    background-color:orange;\r\n}\r\n\r\n\r\n/* end of profile page*/\r\n\r\n/*start of home page*/\r\n\r\n.home_background{\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n    display:flex;\r\n}\r\n\r\n\r\n\r\n/*css fort he circle progress bar */\r\n.skill{\r\n      width: 160px;\r\n      height: 160px;\r\n      margin-top: 33vh; /* Adjust this value based on your preferences */\r\n      margin-left: 20px; /* Add left margin to separate the calendar from the circle */\r\n      position: relative;\r\n      display: flex;\r\n      align-items: center;\r\n      justify-content: center;\r\n      margin: auto;\r\n}\r\n\r\n.outer{\r\n    width:160px;\r\n    height:160px;\r\n    border-radius: 50% ;\r\n    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),\r\n                -6px -6px 10px -1px rgba(255,255,255,0.7);\r\n    padding:20px;\r\n}\r\n\r\n.inner{\r\n    height: 120px;\r\n    width:120px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content:center;\r\n    border-radius:50%;\r\n    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),\r\n                inset -4px -4px 6px -1px rgba(255,255,255,0.7),\r\n                -0.5px -0.5px 0px rgba(255,255,255,1),\r\n                0.5px 0.5px 0px rgba(0,0,0,0.15),\r\n                0px 12px 10px -10px rgba(0,0,0,0.05);\r\n}\r\n\r\n#number{\r\n\r\n    font-weight: 600;\r\n    color: white;\r\n}\r\n\r\ncircle{\r\n    fill:none;\r\n    stroke: url(#GradientColor);\r\n    stroke-width:20px;\r\n    stroke-dasharray: 472; /*472 is the full circle*/\r\n    stroke-dashoffset: var(--dashOffsetValue, 472);\r\n    animation: anim 2s linear forwards;\r\n}\r\nsvg {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n\r\n}\r\n\r\n/* to do list */\r\n\r\n.todo-list{\r\n    display: flex;\r\n    padding: 10px;\r\n    margin-top: 30vh;\r\n    margin-left:20vh;\r\n    background-color: white;\r\n    max-width: 350px;\r\n    height: 200px;\r\n    border-radius: 30px;\r\n}\r\n.event-number{\r\n    padding:10px\r\n}\r\n/* end of to-do list */\r\n\r\n\r\n/*Start of donation progress bar*/\r\ndiv.donation{\r\n    padding: 35vh;\r\n    max-width: 350px\r\n    background-color: white;\r\n}\r\n\r\n.container{\r\n    max-width: 350px;\r\n    background-color: white;\r\n    border-radius: 30px;\r\n}\r\n\r\n\r\n/*End of donation progress bar*/\r\n/*end of home page*/\r\n\r\n/* start of change password*/\r\n.password-container{\r\n    max-width: fit-content;\r\n    background-color: white;\r\n    padding: 20px;\r\n     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */\r\n     border: 1px solid #dddddd;\r\n     border-radius: 30px;\r\n}\r\n\r\n.password-box{\r\n    box-shadow: 10px;\r\n\r\n}\r\n\r\n.changepw-submit{\r\n    background-color:#3cb043;\r\n\r\n}\r\n\r\n\r\n/*end of change password*/\r\n\r\n\r\n/*start of forget password*/\r\n\r\n .forgetpw-container {\r\n            background-color: #fff;\r\n            padding: 20px;\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n            border-radius: 8px;\r\n            box-sizing: border-box;\r\n        }\r\n\r\n   .continue {\r\n            background-color: #007bff;\r\n            color: #fff;\r\n            border: none;\r\n            padding: 10px 20px;\r\n            cursor: pointer;\r\n            border-radius: 4px;\r\n        }\r\n\r\n\r\n.modal {\r\n    display: none;\r\n    background-color: #fff;\r\n    box-sizing: border-box;\r\n    left: 0; /* Set left to 0 to move it to the left */\r\n}\r\n\r\n   #resetModal button {\r\n            background-color: #28a745;\r\n            color: #fff;\r\n            border: none;\r\n            padding: 10px 20px;\r\n            cursor: pointer;\r\n            border-radius: 4px;\r\n        }\r\n\r\n/*end of forget password*/\r\n\r\n/* starting of landingpage*/\r\n.landingpage-container{\r\n    width:100%;\r\n    margin-top: 450px;\r\n}\r\n\r\n\r\n.hero {\r\n  height: 100vh;\r\n  width: 100%;\r\n  position: relative;\r\n  z-index: -500;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 5rem 5rem;\r\n  top: 0;\r\n  left: 0;\r\n  background: url(\"https://media.gettyimages.com/photos/young-girl-hugging-a-big-tree-trunk-picture-id1257289481?k=6&m=1257289481&s=612x612&w=0&h=OaOnNyuQ8MythmIIHvHkncdygvpxRFN7zfvyaQnbeik=\");\r\n  background-size: cover;\r\n}\r\n\r\n.hero::after {\r\n  content: \"\";\r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(33, 33, 33, 0.5);\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  z-index: -100;\r\n}\r\n\r\n.hero h1 {\r\n  color: #fafafa;\r\n  font-size: 4rem;\r\n  line-height: 3.5rem;\r\n  text-align: center;\r\n  font-weight: 300;\r\n}\r\n\r\n.about {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  padding: 7rem 12rem;\r\n  background: #04c27c;\r\n}\r\n\r\n.about img {\r\n  height: 250px;\r\n  margin-right: 2rem;\r\n}\r\n\r\n.about__info {\r\n  width: 500px;\r\n  margin-left: 3rem;\r\n  color: #fafafa;\r\n}\r\n\r\n.about h3 {\r\n  font-size: 2rem;\r\n  /*   color: #cff1e0; */\r\n}\r\n\r\n.about p {\r\n  line-height: 1.7rem;\r\n  font-size: 2rem;\r\n  margin-top: 0.3rem;\r\n  /*   color: #cff1e0; */\r\n  font-weight: 300;\r\n}\r\n\r\n\r\n\r\n/*enidng of landing page*/
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/static/css/style.css b/static/css/style.css
+--- a/static/css/style.css	(revision 29ed3a197713b7fb03ee3aba631c1ea5adcaeb92)
++++ b/static/css/style.css	(date 1707401417987)
+@@ -32,14 +32,9 @@
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-
+-
+-
+ }
+ 
+ /* nav bar*/
+-
+-
+ .navbar {
+   position: fixed;
+   top: 0;
+Index: static/css/navbar.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/static/css/navbar.css b/static/css/navbar.css
+new file mode 100644
+--- /dev/null	(date 1707401806762)
++++ b/static/css/navbar.css	(date 1707401806762)
+@@ -0,0 +1,40 @@
++/* nav bar*/
++.navbar{
++  position: fixed;
++  top: 0;
++  width: 100%;
++  z-index: 1000;
++}
++
++.user{
++  position: relative;
++}
++
++.user-applet{
++  position: absolute;
++  top: 100%;
++  right: 0;
++  background-color: #fff;
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
++  padding: 10px;
++  display: none; /* Hide the cart applet by default */
++  border: 1px solid #ccc;
++  border-radius: 4px;
++  padding: 20px; /* Adjust the padding to increase cart size */
++  max-width: fit-content;
++  width: 600px; /* Increase the width to make the cart bigger */
++  margin: 0 auto; /* To center the cart on the page, if needed */
++}
++
++.user .glyphicon-user{
++  font-size: 30px;
++  text-align:center;
++  padding: 5px;
++}
++
++.logout{
++    padding: 8px;
++    width:100px;
++    background-color:red;
++    color: white;
++}
+\ No newline at end of file

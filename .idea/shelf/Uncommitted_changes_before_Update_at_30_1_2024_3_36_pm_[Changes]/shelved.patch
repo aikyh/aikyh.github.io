@@ -1,0 +1,48 @@
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>bcrypt==4.1.2\r\nblinker==1.7.0\r\nclick==8.1.7\r\ncolorama==0.4.6\r\nFlask==3.0.1\r\nFlask-Login==0.6.3\r\nFlask-SQLAlchemy==3.1.1\r\ngreenlet==3.0.3\r\nitsdangerous==2.1.2\r\nJinja2==3.1.3\r\nmailbox==0.4\r\nMarkupSafe==2.1.4\r\nSQLAlchemy==2.0.25\r\ntyping_extensions==4.9.0\r\nWerkzeug==3.0.1\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/requirements.txt b/requirements.txt
+--- a/requirements.txt	(revision 3e90a803de873b58fb1f604fb0199fda26251191)
++++ b/requirements.txt	(date 1706532687862)
+@@ -1,15 +1,0 @@
+-bcrypt==4.1.2
+-blinker==1.7.0
+-click==8.1.7
+-colorama==0.4.6
+-Flask==3.0.1
+-Flask-Login==0.6.3
+-Flask-SQLAlchemy==3.1.1
+-greenlet==3.0.3
+-itsdangerous==2.1.2
+-Jinja2==3.1.3
+-mailbox==0.4
+-MarkupSafe==2.1.4
+-SQLAlchemy==2.0.25
+-typing_extensions==4.9.0
+-Werkzeug==3.0.1
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.11 (aikyh.github.io)\" project-jdk-type=\"Python SDK\" />\r\n\r\n  <component name=\"PyCharmProfessionalAdvertiser\">\r\n    <option name=\"shown\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 3e90a803de873b58fb1f604fb0199fda26251191)
++++ b/.idea/misc.xml	(date 1706533148656)
+@@ -1,8 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-
++  <component name="Black">
++    <option name="sdkName" value="Python 3.11 (aikyh.github.io)" />
++  </component>
+   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (aikyh.github.io)" project-jdk-type="Python SDK" />
+-
+   <component name="PyCharmProfessionalAdvertiser">
+     <option name="shown" value="true" />
+   </component>
