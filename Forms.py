@@ -8,7 +8,7 @@ from wtforms.validators import DataRequired, Length, ValidationError
 class CreateCompanyForm(Form):
     company_name = StringField('Company Name', [validators.Length(min=1, max=150), validators.DataRequired()])
     email = EmailField('Email', [validators.Length(min=1, max=150), validators.DataRequired()])
-    date_joined = wtforms.fields.DateField('Date Joined', format='%Y-%m-%d')
+    date_joined = DateField('Date Joined', format='%Y-%m-%d')
     address = StringField('Address', [validators.length(max=200), validators.DataRequired()])
     password = PasswordField('Password', [validators.Optional()])
 
