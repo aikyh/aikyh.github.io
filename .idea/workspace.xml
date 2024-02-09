@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="6ae490a6-57e4-46ee-98aa-77d04c0e398c" name="Changes" comment="chagning the base3">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_1_2024_1_28_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_1_2024_1_28_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_1_2024_5_29_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_1_2024_5_29_pm__Changes_.xml" afterDir="false" />
     <list default="true" id="6ae490a6-57e4-46ee-98aa-77d04c0e398c" name="Changes" comment="commiting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,15 +144,7 @@
       <option name="project" value="LOCAL" />
       <updated>1707407726827</updated>
     </task>
-    <task id="LOCAL-00012" summary="commiting">
-      <option name="closed" value="true" />
-      <created>1707408491605</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1707408491605</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +163,6 @@
     <MESSAGE value="url for user events" />
     <MESSAGE value="added retrieveUserEvents.html in templates" />
     <MESSAGE value="Change name of user discover events cuz will clash w admin side" />
-    <MESSAGE value="commiting" />
-    <option name="LAST_COMMIT_MESSAGE" value="commiting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change name of user discover events cuz will clash w admin side" />
   </component>
 </project>
