@@ -1,8 +1,7 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
                      FloatField, DateField)
 from wtforms.fields import TimeField, IntegerField
-import wtforms.fields
-from wtforms.fields.html5 import EmailField
+from wtforms.fields.html5 import EmailField, DateField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 
@@ -24,7 +23,7 @@ class CreateReviewForm(Form):
                                default='', validators=[validators.InputRequired()])
     rating = IntegerField('Rating', [validators.NumberRange(min=1, max=5), validators.DataRequired()])
     email = EmailField('Email', [validators.Email(), validators.DataRequired()])
-    review_date = wtforms.fields.DateField('Review Date', format='%Y-%m-%d')
+    review_date = DateField('Review Date', format='%Y-%m-%d')
     comments = TextAreaField('Comments', [validators.Length(min=1, max=500), validators.DataRequired()])
 
 
@@ -78,7 +77,7 @@ class CreateCheckoutForm(Form):
     cnum = StringField('Card Number', [validators.Length(min=16, max=16), DataRequired()],
                        render_kw={"placeholder": "XXXX XXXX XXXX XXXX"})
 
-    edate = wtforms.fields.DateField('Expiry Date', [validators.DataRequired()])
+    edate = DateField('Expiry Date', [validators.DataRequired()])
 
     cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
                       render_kw={"placeholder": "3 Digit CVC"})
@@ -123,7 +122,7 @@ class CreateEventForm(Form):
     name = StringField('Name: ', [validators.DataRequired()])
     timing = TimeField('Timing: ', [validators.DataRequired()])
     location = StringField('Location: ', [validators.DataRequired()])
-    date = wtforms.fields.DateField('Date: ', [validators.DataRequired()])
+    date = DateField('Date: ', [validators.DataRequired()])
     description = TextAreaField('Description: ', [validators.Optional()])
     person_in_charge = StringField("Person-In-Charge: ")
     budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
