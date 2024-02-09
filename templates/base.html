@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html><!-- user's side -->
 <head>
-  {% block head %}
-  {% endblock %}
-    <link rel="stylesheet" type="text/css" href="../static/css/cart.css">
     <title>VegeGrove</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +18,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReviews.css') }}">
+   {% block head %}
+  {% endblock %}
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -32,7 +31,7 @@
         <li><a href="{{url_for('main.home')}}">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Events <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{url_for('retrieveEvents')}}">Discover Events</a></li>
+            <li><a href="{{url_for('retrieveUserEvents')}}">Discover Events</a></li>
             <li><a href="{{url_for('retrieveUserEvents')}}">My Events</a></li>
           </ul>
         </li>

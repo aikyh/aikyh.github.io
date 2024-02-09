@@ -1,0 +1,32 @@
+{% extends "base5.html" %}
+{% block title %}Library Loan System - Update Review{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/updateReview.css') }}">
+{% block content %}
+  {% from "includes/_formHelper.html" import render_field %}
+
+
+  <div class="container321">
+    <h1 class="display-4">Update Review</h1>
+  <form method="POST" action="" class="haha">
+    <div class="form-group">
+      {{ render_field(form.customer_name, class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.product_name, class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.rating, class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.email, class="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.review_date, class="form-control datepicker") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.comments, class="form-control") }}
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </form>
+ </div>
+{% endblock %}

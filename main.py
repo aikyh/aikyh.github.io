@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import string
 import datetime
+import json
 
 main = Blueprint('main', __name__)
 
@@ -30,15 +31,17 @@ def get_user_details_by_id(user_id):
 def landingpage():
     return render_template("landingpage.html")
 
+
 @main.route('/home')
 def home():
-    # current_date = datetime.datetime.now().date()
+    current_date = datetime.datetime.now().date()
+    date_from_database = '2024-01-01'
 
     # if there is a getter setter method then
     # start_date_from_db = get_donation_start_date()
     # donation_instance = Donation(start_date_from_db)
     # return render_template('home.html', current_date=current_date)
-    return render_template('home.html')
+    return render_template('home.html', date_from_database=date_from_database)
 
 
 @main.route('/profile', methods=['POST', 'GET'])
@@ -99,3 +102,7 @@ def company_dashboard():
 def company_retrieve_event_details():
     return render_template("companyretrieveUserEvent.html")
 
+
+@main.route("/usersignedup", methods=['POST', 'GET'])
+def usersignedup():
+    return render_template("usersignedup.html")

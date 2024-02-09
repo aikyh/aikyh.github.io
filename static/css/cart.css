@@ -1,16 +1,14 @@
-
-
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
   }
-  
+
   .user {
     position: relative;
   }
-  
+
   .user-applet {
     position: absolute;
     top: 100%;
@@ -26,9 +24,9 @@
     width: 600px; /* Increase the width to make the cart bigger */
     margin: 0 auto; /* To center the cart on the page, if needed */
   }
-  
-  
-  
+
+
+
   .user .glyphicon-user {
     font-size: 30px;
     text-align:center;
@@ -84,7 +82,7 @@
 
 .store.mt-3 {
     margin-top: 20px; 
-    padding: 8px 60px;
+    padding: 10px 10px;
 }
 
 

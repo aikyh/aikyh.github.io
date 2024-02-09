@@ -381,9 +381,9 @@ def delete_event(id):
 
 # Events- User side
 
-@app.route('/retrieveEvents')
+@app.route('/retrieveDiscoverEvents')
 def retrieveEvents():
-    return render_template('retrieveEvents.html')
+    return render_template('retrieveDiscoverEvents.html')
 
 
 @app.route('/retrieveUserEvents', methods=['GET', 'POST'])
