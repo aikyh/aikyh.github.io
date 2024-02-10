@@ -6,33 +6,55 @@
     <div class="header-user-signedup">
         <h2>User's Signed Up</h2>
     </div>
-    <div class="table-responsive">
-        <table class="table table-striped" border="2">
-            <thead>
-                <tr>
-                    <th>User Name</th>
-                    <th>Event</th>
-                    <th>Contact</th>
-                </tr>
-            </thead>
-            <tbody>
-<!--            {% for review in reviews_list %}-->
-                <tr>
-                    <td> Delphie</td>
-                    <td> SGCleanUp</td>
-                    <td> 12345678</td>
-                </tr>
-<!--            {% endfor %}-->
-            </tbody>
-
-
-        </table>
+    <div class="table-container">
+        <div class="table-responsive">
+            <table class="table table-striped" border="2">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Event</th>
+                        <th>Contact</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Delphie</td>
+                        <td> SGCleanUp</td>
+                        <td> 12345678</td>
+                        <td>
+                            <button type="button" onclick="toggleUserDetail()" class="enlarged-button blue-button">
+                                Detail
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-
-
 </div>
 
+<div id="userdetailapplet" class="userdetailapplet">
+    <div class="popup-content">
+        <span class="close" onclick="toggleUserDetail()">&times;</span>
+        <h3>Detail</h3>
+        <div class="userdetail">
+            <p>Name: Delphie</p>
+            <p>Phone number: 12345678</p>
+            <p>Email: 123@gmail.com</p>
+            <p>Age: 30 </p>
+        </div>
+    </div>
+</div>
 
-
+<script>
+    function toggleUserDetail() {
+        var userDetailApplet = document.getElementById("userdetailapplet");
+        if (userDetailApplet.style.display === "none" || userDetailApplet.style.display === "") {
+            userDetailApplet.style.display = "block"; // Show the user detail applet
+        } else {
+            userDetailApplet.style.display = "none"; // Hide the user detail applet
+        }
+    }
+</script>
 {% endblock %}

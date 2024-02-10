@@ -19,23 +19,65 @@
                 </tr>
             </thead>
             <tbody>
-<!--            {% for review in reviews_list %}-->
                 <tr>
-                    <td> Delphie</td>
-                    <td> SGCleanUp</td>
-                    <td> 12345678</td>
+                    <td> 1</td>
+                    <td>
+                        <button type="button" onclick="toggleShoppingDetail()" class="shopping-button">
+                                Close
+                        </button>
+                    </td>
+                    <td> 712345, woodlands </td>
+                    <td> 1/1/2020 </td>
+                    <td> 89765432</td>
+                    <td> $20.00 </td>
                 </tr>
-<!--            {% endfor %}-->
             </tbody>
 
 
         </table>
     </div>
-
+<div id="usershoppingapplet" class="usershoppingapplet">
+    <div class="popup-content">
+        <span class="close" onclick="toggleShoppingDetail()">&times;</span>
+        <h3>Detail</h3>
+        <div class="userdetail">
+            <p>Name: Delphie</p>
+            <p>Phone number: 12345678</p>
+            <p>Email: 123@gmail.com</p>
+            <div class="table-responsive">
+            <table class="table table-striped" border="2">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>Pineapple seed</td>
+                        <td>1</td>
+                        <td>$20.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </div>
-
+<script>
+    function toggleShoppingDetail() {
+        var userDetailApplet = document.getElementById("usershoppingapplet");
+        if (userDetailApplet.style.display === "none" || userDetailApplet.style.display === "") {
+            userDetailApplet.style.display = "block"; // Show the user detail applet
+        } else {
+            userDetailApplet.style.display = "none"; // Hide the user detail applet
+        }
+    }
+</script>
 
 
 {% endblock %}
