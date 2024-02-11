@@ -1,0 +1,76 @@
+{% extends "base3.html" %}
+{% block title %}VegeGrove - Product Checkout{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/checkout.css') }}">
+
+<form method="POST" action="" class="form">
+    <h1 class="text-center">{{ render_field(form.amount, class="donation-amount") }}</h1>
+
+    <hr>
+
+    <!-- Field inputs -->
+    <div class="form-step">
+        <div class="form-page">
+            <div class="input-group">
+                {{ render_field(form.fname, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.lname, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.phone, class="form-control", onInput="validateNumericInput(this)") }}
+                <span id="phoneError" class="error-message"></span>
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.email, class="form-control") }}
+            </div>
+        </div>
+
+        <div class="form-page">
+            <div class="input-group">
+                {{ render_field(form.add1, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.add2, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.pcode, class="form-control", onInput="validateNumericInput(this)") }}
+                <span id="pcodeError" class="error-message"></span>
+            </div>
+
+            <div class="radio-group">
+                {{ render_field(form.dmethod, class="form-check", style="list-style-type:none") }}
+            </div>
+        </div>
+
+        <div class="form-page">
+            <div class="input-group">
+                {{ render_field(form.cname, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.cnum, class="form-control", onInput="validateNumericInput(this)") }}
+                <span id="cnumError" class="error-message"></span>
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.edate, class="form-control") }}
+            </div>
+
+            <div class="input-group">
+                {{ render_field(form.cvc, class="form-control", onInput="validateNumericInput(this)") }}
+                <span id="cvcError" class="error-message"></span>
+            </div>
+
+            <input type="submit" value="Submit" class="btn">
+            </div>
+        </div>
+</form>
+{% endblock %}
