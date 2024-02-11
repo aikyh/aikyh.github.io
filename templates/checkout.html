@@ -74,22 +74,4 @@
         </div>
     </div>
 </form>
-
-<script>
-    // Non-numerical values not allowed in number based form fields
-    function validateNumericInput(input){
-        // Remove non-numeric characters from the input value
-        input.value = input.value.replace(/\D/g, '');
-    }
-
-    // Past dates cannot be chosen
-    document.addEventListener("DOMContentLoaded", function(){
-        // Get the DateField element
-        var edateInput = document.getElementById("edate");
-
-        // Set the minimum date to today
-        var today = new Date().toISOString().split("T")[0]; //ISO 8601 format
-        edateInput.setAttribute("min", today);
-    });
-</script>
 {% endblock %}
