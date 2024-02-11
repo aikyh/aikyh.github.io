@@ -511,7 +511,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].upper() in ALLOWED_EXTENSIONS
 
 
-@app.route('/')
+@app.route('/donation')
 # get method to get donation page
 def donation():
     return render_template("donation.html")
