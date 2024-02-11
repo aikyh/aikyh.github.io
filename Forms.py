@@ -2,7 +2,7 @@ from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, 
                      FloatField)
 from wtforms.fields import TimeField, IntegerField
 from wtforms.fields import DateField
-from wtforms.fields.html5 import EmailField
+from wtforms.fields import EmailField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 
