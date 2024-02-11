@@ -9,7 +9,7 @@ class CheckIn:
         self.__email = email
 
     # accessor methods
-    def get_check_in(self):
+    def get_checkin_id(self):
         return self.__CheckIn_id
 
     def get_name(self):
@@ -19,7 +19,7 @@ class CheckIn:
         return self.__email
 
     # mutator methods
-    def set_event_id(self, CheckIn):
+    def set_checkin_id(self, CheckIn):
         self.__CheckIn_id = CheckIn
 
     def set_name(self, name):
