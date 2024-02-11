@@ -2,7 +2,7 @@
 {% block title %}VegeGrove - Product Management{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/product.css') }}">
 
 <h1>Product Management</h1>
 
@@ -15,6 +15,14 @@
     <p>There are {{ count }} products.</p>
     {% endif %}
 </div>
+
+<p class="filter-header">Only display...</p>
+<div class="filter-container">
+    <button class="filter-btn" onclick="filterProducts('all')">All</button>
+    <button class="filter-btn" data-tag="S" onclick="filterProducts('S')">Seeds</button>
+    <button class="filter-btn" data-tag="F" onclick="filterProducts('F')">Fertilisers</button>
+</div>
+
 <div>
     <table class="table table-striped" border="3">
         <thead>
@@ -31,6 +39,7 @@
         <tbody>
         {% for product in products_list %}
             <tr>
+                <tr class="product-row" data-tags="{{ product.get_tags() }}">
                 <td>{{ product.get_product_id() }}</td>
                 <td>{{ product.get_name() }}</td>
                 <td>${{ product.get_price() }}</td>
@@ -40,7 +49,7 @@
                 {% elif product.get_tags() == "F" %}
                 <td>Fertiliser</td>
                 {% endif %}
-                <td><a href="/updateProduct/{{product.get_product_id()}}" class="btn btn-warning">Update</a></td>
+                <td><a href="/updateProduct/{{product.get_product_id()}}" class="btn btn-warning" style="color: white">Update</a></td>
                 <td>
                     <form action="{{url_for('delete_product', id=product.get_product_id())}}" method="POST">
                         <!--<input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('You are about to delete {{product.get_name()}}!');">-->

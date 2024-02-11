@@ -1,4 +1,4 @@
-{% extends "base4.html" %}
+{% extends "base3.html" %}
 {% block title %}VegeGrove - Donation Page{% endblock %}
 
 {% block content %}
@@ -8,8 +8,8 @@
     <h1 class="title">Help us reach our goal by donating now!</h1>
     <!-- Donation progress bar -->
     <div class="progress-bg">
-        <div class="progress-bar">40%</div>
-        <p class="raised">$400 raised out of $1000 goal</p>
+        <div class="progress-bar">0%</div>
+        <p class="raised">$0 raised out of $1000 goal</p>
     </div>
     <!-- Donation amount options -->
     <div class="donation-options">
@@ -28,29 +28,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Donation amount
-    function donateAmount(amount){
-        document.getElementById('customAmount').value = amount;
-    }
-
-    function donateCustomAmount(){
-        var customAmount = document.getElementById('customAmount').value;
-
-        if (customAmount && !isNaN(customAmount) && parseInt(customAmount) > 0){
-            // Confirmation alert
-            var confirmDonation = confirm('Are you sure that you want to donate $' + customAmount + '?');
-
-            if (confirmDonation){
-                // Clicking on "OK" redirects to the checkout page + passes customAmount
-                window.location.href = '/checkout?amount=' + customAmount;
-            } else{
-                alert('Donation cancelled.');
-            }
-        } else{
-            alert('Please enter a valid donation amount.')
-        }
-    }
-</script>
 {% endblock %}
