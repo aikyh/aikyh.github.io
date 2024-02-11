@@ -36,7 +36,7 @@ body{
 .progress-bar{
     background-color: #0D9F0A;
     height: 30px;
-    width: 40%;
+    width: 0%;
     font-size: 20px;
     border-radius: 20px;
 }
