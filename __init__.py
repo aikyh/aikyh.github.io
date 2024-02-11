@@ -4,9 +4,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
-import os, shelve, Response, eventManagement, Purchase
+from werkzeug.utils import secure_filename
+import os, shelve, Response, eventManagement, Purchase, userEvents
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
-    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2
+    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
@@ -391,16 +392,123 @@ def delete_event(id):
 
 # Events- User side
 
-@app.route('/retrieveDiscoverEvents')
+@app.route('/discoverEvents_confirmation')
+def discoverEvents_confirmation():
+    return render_template('discoverEvents_confirmation.html')
+
+
+@app.route('/retrieveDiscoverEvents', methods=['GET', 'POST'])
+def createDiscoverEvents():
+    discovereventsform = RegsisterForm(request.form)
+    if request.method == 'POST' and discovereventsform.validate():
+        discoverEvents_dict = {}
+        discovereventsdb = shelve.open('discoverevents.db', 'c')
+
+        try:
+            discoverEvents_dict = discovereventsdb['discoverevents']
+        except:
+            print("Error in retrieving discoverevents from discoverevents.db")
+
+        discoverEvents = userEvents.CheckIn(discovereventsform.name.data, discovereventsform.email.data)
+        discoverEvents_dict[discoverEvents.get_checkin_id()] = discoverEvents
+        discovereventsdb['discoverevents'] = discoverEvents_dict
+
+        discovereventsdb.close()
+    else:
+        return render_template('retrieveDiscoverEvents.html', form=discovereventsform)
+
+
 def retrieveDiscoverEvents():
-    return render_template('retrieveDiscoverEvents.html')
+    discoverEvents_dict = {}
+    try:
+        discovereventsdb = shelve.open('discoverevents.db', 'r')
+        if 'discoverevents' in discoverEvents_dict:
+            discoverEvents_dict = discovereventsdb['discoverevents']
+        else:
+            discovereventsdb['discoverevents'] = discoverEvents_dict
+        discovereventsdb.close()
+
+    except:
+        print("discoverevents.db not found")
+
+    discoverevents_list = []
+    for key in discoverevents_list:
+        discoverevents = discoverEvents_dict.get(key)
+        discoverevents_list.append(discoverevents)
+
+    return render_template('retrieveDiscoverEvents.html', count=len(discoverevents_list),
+                           discoverevents_list=discoverevents_list)
 
 
-@app.route('/retrieveUserEvents', methods=['GET', 'POST'])
-def retrieveUserEvents():
-    check_in_form = CheckInForm(request.form)
-    check_in_form.validate()
-    return render_template('retrieveUserEvents.html', form=check_in_form)
+@app.route('/retrieveUserEvents')
+def createUserCheckIn():
+    create_checkIn_form = CheckInForm(request.form)
+    if request.method == 'POST' and create_checkIn_form.validate():
+        userCheckIn_dict = {}
+        db = shelve.open('usercheckIn.db', 'c')
+
+        try:
+            userCheckIn_dict = db['userCheckIn']
+
+        except:
+            print("Error in retrieving userCheckIn from usercheckIn.db")
+
+        userCheckIn = userEvents.CheckIn(create_checkIn_form.name.data, create_checkIn_form.email.data)
+        userCheckIn_dict[userCheckIn.get_checkin_id()] = userCheckIn
+        db['userCheckIn'] = userCheckIn_dict
+
+        db.close()
+
+    else:
+        return render_template('retrieveUserEvents.html', form=create_checkIn_form)
+
+def userevent_confirmation():
+    userCheckIn_dict = {}
+    try:
+        db = shelve.open('userCheckIn.db', 'r')
+        if 'userCheckIn' in db:
+            userCheckIn_dict = db['userCheckIns']
+        else:
+            db['userCheckIn'] = userCheckIn_dict
+        db.close()
+    except:
+        print('userCheckIn.db not found')
+
+    userCheckIn_list = []
+    for key in userCheckIn_list:
+        userCheckIn = userCheckIn_dict.get(key)
+        userCheckIn_dict.append(userCheckIn)
+
+    return render_template('retrieveUserEvents.html', count=len(userCheckIn_list),
+                           userCheckIn_list=userCheckIn_list)
+
+@app.route('/userevent_confirmation', methods=['GET', 'POST'])
+def userevent_confirmation():
+    return render_template('confirmation.html')
+
+
+
+@app.route("/upload_file", methods=["POST"])
+def upload_file():
+    file = request.files["file"]
+
+    if file and allowed_file(file.filename):  # Add file extension validation
+        filename = secure_filename(file.filename)
+
+        # Save file data using shelve
+        with shelve.open("files", "c") as db:
+            db[filename] = file.read()
+
+        flash("File uploaded successfully!")
+    else:
+        flash("Invalid file format or error during processing.")
+    return redirect('/userevent_confirmation')
+
+
+# Define allowed file extensions (optional)
+def allowed_file(filename):
+    ALLOWED_EXTENSIONS = ["png", "jpeg", "jpg"]  # Add your allowed extensions
+    return '.' in filename and filename.rsplit('.', 1)[1].upper() in ALLOWED_EXTENSIONS
 
 
 @app.route('/')

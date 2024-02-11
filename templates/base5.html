@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/cart.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/store.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/checkout.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/createReviews.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/product.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReviews.css') }}">
-  <style> @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-</style>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300&display=swap">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/cart.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/store.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/checkout.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/createReviews.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/product.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReviews.css') }}">
+      <style>
+          @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+      </style>
 <body>
    <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -31,11 +32,11 @@
         <li><a href="{{url_for('main.home')}}">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Events <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{url_for('retrieve_events')}}">Discover Events</a></li>
-            <li><a href="{{url_for('retrieveUserEvents')}}">My Events</a></li>
+            <li><a href="{{url_for('retrieve_events')}}">View Events</a></li>
+            <li><a href="{{url_for('retrieveUserEvents')}}">User's SignedUp</a></li>
           </ul>
         </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review <span class="caret"></span></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reviews <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{url_for('create_review')}}">Create Review</a></li>
             <li><a href="{{url_for('retrieve_reviews')}}">Retrieve Review</a></li>
@@ -44,10 +45,12 @@
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Products <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{url_for('store_page')}}">View Products</a></li>
-            <li><a href="{{url_for('cart_page')}}">View Cart</a></li>
+            <li><a href="{{url_for('purchase_management')}}">User's Bought</a></li>
+            <li><a href="{{url_for('product_management')}}">Product Management</a></li>
+            <li><a href="{{url_for('create_product')}}">Create Product</a></li>
           </ul>
         </li>
-        <li><a href="#">Donation</a></li> <!-- Direct link to Donation -->
+        <li><a href="{{url_for('response_management')}}">Donation Management</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -68,22 +71,12 @@
       </ul>
     </div>
   </nav>
-   <script>
-         function logout() {
-            // Add any logout logic or redirect here
-            window.location.href = "{{ url_for('auth.logout') }}";
-        }
-
-        function toggleuser() {
-            var userApplet = document.getElementById('userApplet');
-            userApplet.style.display = (userApplet.style.display === 'block') ? 'none' : 'block';
-        }
-    </script>
-   </header>
 
     <div class="container-fluid">
         {% block content %}
         {% endblock %}
     </div>
+
+    <script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
 </body>
 </html>

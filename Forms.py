@@ -45,7 +45,24 @@ class CheckInForm(Form):
         for char in email.data:
             if char in excluded_chars:
                 raise ValidationError("Invalid Email")
+class RegsisterForm(Form):
+    name = StringField('Name: ', [validators.DataRequired(message="Please enter your full name")],
+                       render_kw={"placeholder": "Eg. Angeline Tan"})
+    email = EmailField('Email: ', [validators.DataRequired(message="Please enter your email address")],
+                       render_kw={"placeholder": "Eg. angelinetan123@gmail.com"})
 
+
+    def validate_name(self, name):
+        excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
+        for char in name.data:
+            if char in excluded_chars:
+                raise ValidationError('Name can only contain alphabets')
+
+    def validate_email(self, email):
+        excluded_chars = "*?!'^+%&/()={}[]$#"
+        for char in email.data:
+            if char in excluded_chars:
+                raise ValidationError("Invalid Email")
 
 class CreateCheckoutForm(Form):
     amount = IntegerField('You are donating a total of', render_kw={"readonly": True})

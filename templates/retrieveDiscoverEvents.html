@@ -2,65 +2,62 @@
 {% block title %} VegeGrove- Discover Events {% endblock %}
 
 {% block content %}
+{% from "includes/_formHelper.html" import render_field %}
 <div>
     <h1>Discover Events</h1>
 </div>
 <br>
-<div class="flex-container">
-    <div class="container-1">
-        <div class="event-details">
-            <div class="image-1">
-                <a href="#">PICTURE</a>
-            </div>
-            <div class="event-name">
-                <h3>Event #1</h3>
-                <hr>
-                <span>
-            <p> Description</p>
-            Date:
-            <br>
-            Timing:
-            <br>
-            Location:
-          </span>
+<div class="container-fluid mt-3 w-75 rounded-3" style="border:3px solid black" id="event-card">
+    <div class="row" id="discoverevent-details">
+        <div class="col-sm-4">
+            <img src="static/images/plant.jpeg">
+        </div>
+        <div class="col-sm-8 pe-5 py-4">
+            <h3>Event #1</h3>
+            <hr>
+            <span>
+                <span>Description: </span>
                 <br>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrationModal"
-                        id="expand-btn">
-                    Register
-                </button>
+                Date:
+                <br>
+                Timing:
+                <br>
+                Location:
+            </span>
+            <br>
+            <hr>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                Register
+            </button>
+        </div>
+    </div>
+</div>
 
-                <!-- Modal -->
+<!-- Modal -->
 
-                <div class="modal fade modal auto-clear" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title mx-auto">Registration Successful!<img
-                                        src="static/images/greentick.png" alt="Success icon" width="30" height="30"
-                                        class="mx-2 my-auto"></h5>
-                            </div>
-                            <div class="modal-body">
-                                <p>Thank you for registering for the event! You're all set to attend.
-                                    <br> Event has been added to <b>My Events</b>
-                                </p>
-                                <ul>
-                                    <li>Date:</li>
-                                    <li>Event:</li>
-                                    <li>Location:</li>
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="/retrieveUserEvents" class="btn btn-primary active mx-auto" role="button"
-                                   aria-pressed="true">Go to My Events</a>
-                            </div>
-                        </div>
-                    </div>
+<div class="modal fade modal auto-clear" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Please enter your particulars before signing up:</div>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                <div class="form-group">
+                    {{ render_field(form.name, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.email, class="form-control") }}
+                </div>
+                </form>
+                <div class="modal-footer">
+                    <a href="/discoverEvents_confirmation" class="btn btn-primary" type="submit">Register</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script src="{{ url_for('static', filename='events.js') }}"></script>
+
 {% endblock %}

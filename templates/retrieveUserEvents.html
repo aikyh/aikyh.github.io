@@ -7,72 +7,63 @@
     <h1>My Events</h1>
 </div>
 <br>
-<div class="flex-container">
-    <div class="container-1">
-        <div class="event-details">
-            <div class="image-1">
-                <a href="#">PICTURE</a>
+<div class="container-fluid mt-3 w-75 rounded-3" style="border: 3px solid black;" id="userevent-card">
+    <div class="row" id="userevent-details">
+        <div class="col-sm-4">
+            <img src="static/images/plant.jpeg">
+        </div>
+        <div class="col-sm-8 pe-5 py-4">
+            <h3>Event #1</h3>
+            <hr>
+            <span class="userevent-details">
+                <span>[Description]</span><br>
+                Date: <br>
+                Timing <br>
+                Location:
+            </span>
+            <br>
+            <hr>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkinModal">Check In</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal auto-clear" id="checkinModal" tabindex="-1"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"> Please fill in the blanks below to confirm your check in to the event</div>
             </div>
-            <div class="event-name">
-                <h3>Event #1</h3>
-                <hr>
-                <span>
-            Date:
-            <br>
-            Timing:
-            <br>
-            Location:
-          </span>
-                <br>
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Submit
-                    Photo
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Check-In Confirmation</h4>
-                                <span>Please fill in the blanks below to confirm your check in to the event</span>
-                            </div>
-                            <form action="">
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        {{ render_field(form.name, class="form-control") }}
-                                    </div>
-                                    <div class="form-group">
-                                        {{ render_field(form.email, class="form-control") }}
-                                    </div>
-                                    <hr>
-                                    <div class="upload-photo">
-                                        <p>Upload Photo</p>
-                                        <span>Please upload a picture of one of our event signboard to complete your
-                                        check-in </span>
-                                    </div>
-                                    <br>
-                                    <div class="photo">
-                                        <p>Upload File</p>
-                                    </div>
-                                </div>
-
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                    <button type="submit" id="checkInForm" value="Check In" class="btn btn-primary">
-                                        Check In
-                                    </button>
-                                </div>
-
-                            </form>
-                        </div>
+            <div class="modal-body p-3">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        {{ render_field(form.name, class="form-control") }}
                     </div>
-                </div>
+                    <div class="form-group">
+                        {{ render_field(form.email, class="form-control") }}
+                    </div>
+                    <hr>
+                    <div class="upload-photo">
+                        <p>Upload Photo</p>
+                        <span>Please upload a picture of one of our event signboard to complete your
+                                        check-in </span>
+                    </div>
+                    <br>
+                    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file">
+                    </form>
+                    <div class="modal-footer ">
+                        <a href="/userevent_confirmation" class="btn btn-primary">
+                            Submit
+                        </a>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
 </div>
+
+
 {% endblock %}
