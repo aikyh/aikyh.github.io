@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0032cba9-b607-4fbb-9984-15f68861d9f3" name="Changes" comment="adding new stuff">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_1_2024_8_51_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_1_2024_8_51_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_2_2024_10_18_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_2_2024_10_18_pm__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_2_2024_10_23_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_2_2024_10_23_pm__Changes_.xml" afterDir="false" />
+    <list default="true" id="0032cba9-b607-4fbb-9984-15f68861d9f3" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/aikyh.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aikyh.github.io.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +55,8 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yitin/Downloads/eventPage -User&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -73,46 +72,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706528560294</updated>
-    </task>
-    <task id="LOCAL-00013" summary="idk">
-      <option name="closed" value="true" />
-      <created>1706595713080</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1706595713080</updated>
-    </task>
-    <task id="LOCAL-00014" summary="idk">
-      <option name="closed" value="true" />
-      <created>1706596489889</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1706596489889</updated>
-    </task>
-    <task id="LOCAL-00015" summary="idk">
-      <option name="closed" value="true" />
-      <created>1706596665845</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1706596665845</updated>
-    </task>
-    <task id="LOCAL-00016" summary="idk">
-      <option name="closed" value="true" />
-      <created>1706596873802</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1706596873802</updated>
-    </task>
-    <task id="LOCAL-00017" summary="idk">
-      <option name="closed" value="true" />
-      <created>1706597319710</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1706597319710</updated>
     </task>
     <task id="LOCAL-00018" summary="idk">
       <option name="closed" value="true" />
@@ -465,7 +424,47 @@
       <option name="project" value="LOCAL" />
       <updated>1707473436342</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="comitting">
+      <option name="closed" value="true" />
+      <created>1707491558573</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1707491558573</updated>
+    </task>
+    <task id="LOCAL-00063" summary="comitting">
+      <option name="closed" value="true" />
+      <created>1707491565743</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1707491565743</updated>
+    </task>
+    <task id="LOCAL-00064" summary="comitting">
+      <option name="closed" value="true" />
+      <created>1707491654533</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1707491654533</updated>
+    </task>
+    <task id="LOCAL-00065" summary="comitting">
+      <option name="closed" value="true" />
+      <created>1707491994729</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1707491994729</updated>
+    </task>
+    <task id="LOCAL-00066" summary="commit">
+      <option name="closed" value="true" />
+      <created>1707636453294</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1707636453294</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -482,16 +481,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="idk" />
     <MESSAGE value="adding new stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding new stuff" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Forms.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="comitting" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
