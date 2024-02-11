@@ -1,0 +1,37 @@
+
+div.col-sm-4 img{
+  width: 300px;
+  height: auto;
+}
+
+div.form-group{
+font-weight: bold;
+}
+
+div.uploadimg{
+margin: auto;
+}
+
+#checkinbtn{
+right: 100px;
+}
+
+h4.modal-title{
+font-weight: bold;
+font-size: 20px;}
+
+
+div.upload-photo{
+text-align:center;}
+
+div.upload-photo p{
+font-size: 20px;
+font-weight: bold;
+}
+
+div.upload-photo span{
+font-style: italic;
+font-size: 14px;
+margin: auto;
+}
+
