@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/product.css') }}">
 
 <form method="POST" action="" class="form">
-    <h1 class="text-center">Create a Product</h1>
+    <h1 class="text-center">Update Product</h1>
 
     <div class="form-group">
         {{ render_field(form.name, class="form-control") }}
@@ -24,9 +24,7 @@
             {{ render_field(form.tags, class="form-check", style="list-style-type:none") }}
         </div>
     </div>
-    <button type="button" class="btn btn-secondary">
-        <a class="cancel" href="/productManagement">Cancel</a>
-    </button>
-    <input type="submit" value="Update" class="btn"/>
+
+    <input type="submit" value="Update" class="btn btn-submit"/>
 </form>
 {% endblock %}

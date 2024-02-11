@@ -82,6 +82,65 @@ class CreateCheckoutForm(Form):
     cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
                       render_kw={"placeholder": "3 Digit CVC"})
 
+    class CreateCheckoutForm2(Form):
+        amount = IntegerField('You are purchasing a total of', render_kw={"readonly": True})
+
+        fname = StringField('First Name', [validators.DataRequired()])
+
+        lname = StringField('Last Name', [validators.DataRequired()])
+
+        phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
+                            render_kw={"placeholder": "8 Digit Phone Number"})
+
+        email = EmailField('Email Address', [validators.DataRequired()], render_kw={"placeholder": "Example@gmail.com"})
+
+        add1 = StringField('Address Line 1', [validators.DataRequired()],
+                           render_kw={"placeholder": "Street"})
+
+        add2 = StringField('Address Line 2', [validators.DataRequired()],
+                           render_kw={"placeholder": "Block & Unit Number"})
+
+        pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
+                            render_kw={"placeholder": "6 Digit Postal Code"})
+
+        dmethod = RadioField('Delivery Method', [validators.DataRequired()],
+                             choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
+                             default='Select')
+
+        cname = StringField('Full Name on Card', [validators.DataRequired()])
+
+        cnum = StringField('Card Number', [validators.Length(min=16, max=16), DataRequired()],
+                           render_kw={"placeholder": "XXXX XXXX XXXX XXXX"})
+
+        edate = DateField('Expiry Date', [validators.DataRequired()])
+
+        cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
+                          render_kw={"placeholder": "3 Digit CVC"})
+
+        class CreateUpdateForm2(Form):
+            fname = StringField('First Name', [validators.DataRequired()])
+
+            lname = StringField('Last Name', [validators.DataRequired()])
+
+            phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
+                                render_kw={"placeholder": "8 Digit Phone Number"})
+
+            email = EmailField('Email Address', [validators.DataRequired()],
+                               render_kw={"placeholder": "Example@gmail.com"})
+
+            add1 = StringField('Address Line 1', [validators.DataRequired()],
+                               render_kw={"placeholder": "Street"})
+
+            add2 = StringField('Address Line 2', [validators.DataRequired()],
+                               render_kw={"placeholder": "Block & Unit Number"})
+
+            pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
+                                render_kw={"placeholder": "6 Digit Postal Code"})
+
+            dmethod = RadioField('Delivery Method', [validators.DataRequired()],
+                                 choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
+                                 default='Select')
+
 
 class CreateUpdateForm(Form):
     fname = StringField('First Name', [validators.DataRequired()])
