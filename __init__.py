@@ -44,6 +44,14 @@ def create_app():
 
     app.run(debug=True, port=8000)
 
+class Product:
+    count_id = 0
+
+    def __init__(self, name, price, image):
+        Product.count_id += 1
+        self.name = name
+        self.price = price
+        self.image = image
 
 
 
@@ -454,7 +462,7 @@ def createUserCheckIn():
     else:
         return render_template('retrieveUserEvents.html', form=create_checkIn_form)
 
-def userevent_confirmation():
+def retrieveUserCheckIn():
     userCheckIn_dict = {}
     try:
         db = shelve.open('userCheckIn.db', 'r')
