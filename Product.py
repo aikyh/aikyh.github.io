@@ -1,7 +1,7 @@
 class Product:
     count_id = 0
 
-    def __init__(self, name, price, description, tags):
+    def _init_(self, name, price, description, tags):
         Product.count_id += 1
         self.__product_id = Product.count_id
         self.__name = name

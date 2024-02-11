@@ -82,7 +82,7 @@ class CreateCheckoutForm(Form):
     cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
                       render_kw={"placeholder": "3 Digit CVC"})
 
-    class CreateCheckoutForm2(Form):
+class CreateCheckoutForm2(Form):
         amount = IntegerField('You are purchasing a total of', render_kw={"readonly": True})
 
         fname = StringField('First Name', [validators.DataRequired()])
@@ -116,8 +116,7 @@ class CreateCheckoutForm(Form):
 
         cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
                           render_kw={"placeholder": "3 Digit CVC"})
-
-        class CreateUpdateForm2(Form):
+class CreateUpdateForm2(Form):
             fname = StringField('First Name', [validators.DataRequired()])
 
             lname = StringField('Last Name', [validators.DataRequired()])

@@ -1,0 +1,91 @@
+{% extends "base5.html" %}
+{% block title %}VegeGrove - Purchase Management{% endblock %}
+
+{% block content %}
+<h1>Purchase Management</h1>
+
+<div>
+    {% if count == 0 %}
+    <p>There are no purchases.</p>
+    {% elif count == 1 %}
+    <p>There is 1 purchase.</p>
+    {% else %}
+    <p>There are {{ count }} purchases.</p>
+    {% endif %}
+</div>
+<div>
+    <table class="table table-striped" border="3">
+        <thead>
+            <tr>
+                <th>Purchase ID</th>
+                <th>Purchase Amount</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address Line 1</th>
+                <th>Address Line 2</th>
+                <th>Postal Code</th>
+                <th>Delivery Method</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for purchase in purchases_list %}
+            <tr>
+                <td>{{ purchase.get_purchase_id() }}</td>
+                <td>${{ purchase.get_amount() }}</td>
+                <td>{{ purchase.get_fname() }}</td>
+                <td>{{ purchase.get_lname() }}</td>
+                <td>{{ purchase.get_phone() }}</td>
+                <td>{{ purchase.get_email() }}</td>
+                <td>{{ purchase.get_add1() }}</td>
+                <td>{{ purchase.get_add2() }}</td>
+                <td>{{ purchase.get_pcode() }}</td>
+                {% if purchase.get_dmethod() == "S" %}
+                <td>Standard</td>
+                {% elif purchase.get_dmethod() == "E" %}
+                <td>Express</td>
+                {% endif %}
+                <td><a href="/updatePurchase/{{purchase.get_purchase_id()}}" class="btn btn-warning" style="color: white">Update</a></td>
+                <td>
+                    <form action="{{url_for('delete_purchase', id=purchase.get_purchase_id())}}" method="POST">
+                        <!--<input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('You are about to delete {{purchase.get_fname()}}'s purchase!');">-->
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{purchase.get_purchase_id()}}">
+                            Delete
+                        </button>
+
+                        <!-- The Modal -->
+                        <div class="modal" id="myModal_{{purchase.get_purchase_id()}}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">You are about to delete {{purchase.get_fname()}}'s purchase!</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Are you sure you would like to proceed?
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -4,9 +4,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
-import os, shelve, Response, eventManagement
+import os, shelve, Response, eventManagement, Purchase
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
-    CheckInForm
+    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
@@ -403,7 +403,7 @@ def retrieveUserEvents():
     return render_template('retrieveUserEvents.html', form=check_in_form)
 
 
-@app.route('/donation')
+@app.route('/')
 # get method to get donation page
 def donation():
     return render_template("donation.html")
@@ -412,6 +412,11 @@ def donation():
 @app.route('/success')
 def success():
     return render_template("success.html")
+
+
+@app.route('/success2')
+def success2():
+    return render_template("success2.html")
 
 
 @app.route('/checkout', methods=['GET', 'POST'])
@@ -526,6 +531,7 @@ def delete_response(id):
 def create_product():
     create_product_form = CreateProductForm(request.form)  # class object, calls server and passes in request
     if request.method == 'POST' and create_product_form.validate():
+
         products_dict = {}
         db = shelve.open('product.db', 'c')
 
@@ -535,7 +541,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                                  create_product_form.description.data, create_product_form.tags.data)
+                         create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 
@@ -605,6 +611,111 @@ def delete_product(id):
     db.close()
 
     return redirect(url_for('product_management'))
+
+
+# Product checkout
+@app.route('/checkout2', methods=['GET', 'POST'])
+# accepts both get and post methods, checkout page is retrieved
+# when form is received, data will be posted onto the server
+def purchase():
+    create_checkout_form2 = CreateCheckoutForm2(request.form)  # class object, calls server and passes in request
+    # Supposed to retrieve the 'amount' parameter from products, I just leave it as 50 for now
+    default_amount = 50
+    create_checkout_form2.amount.data = default_amount
+
+    if request.method == 'POST' and create_checkout_form2.validate():
+        purchases_dict = {}
+        db = shelve.open('purchase.db', 'c')
+
+        try:
+            purchases_dict = db['Purchases']
+        except:
+            print("Error in retrieving Purchases from purchase.db.")
+
+        purchase = Purchase.Purchase(create_checkout_form2.fname.data, create_checkout_form2.lname.data,
+                                     create_checkout_form2.phone.data, create_checkout_form2.email.data,
+                                     create_checkout_form2.add1.data, create_checkout_form2.add2.data,
+                                     create_checkout_form2.pcode.data, create_checkout_form2.dmethod.data,
+                                     create_checkout_form2.amount.data)
+        purchases_dict[purchase.get_purchase_id()] = purchase
+
+        db['Purchases'] = purchases_dict
+
+        db.close()
+
+        return redirect(url_for('success2'))
+
+    return render_template('checkout2.html', form=create_checkout_form2)
+
+
+@app.route('/purchaseManagement')
+def purchase_management():
+    purchases_dict = {}
+    db = shelve.open('purchase.db', 'r')
+    purchases_dict = db['Purchases']
+    db.close()
+
+    purchases_list = []
+    for key in purchases_dict:
+        purchase = purchases_dict.get(key)
+        purchases_list.append(purchase)
+
+    return render_template('purchaseManagement.html', count=len(purchases_list), purchases_list=purchases_list)
+
+
+@app.route('/updatePurchase/<int:id>/', methods=['GET', 'POST'])
+def update_purchase(id):
+    update_checkout_form2 = CreateUpdateForm2(request.form)
+    if request.method == 'POST' and update_checkout_form2.validate():
+        purchases_dict = {}
+        db = shelve.open('purchase.db', 'w')
+        purchases_dict = db['Purchases']
+
+        purchase = purchases_dict.get(id)
+        purchase.set_fname(update_checkout_form2.fname.data)
+        purchase.set_lname(update_checkout_form2.lname.data)
+        purchase.set_phone(update_checkout_form2.phone.data)
+        purchase.set_email(update_checkout_form2.email.data)
+        purchase.set_add1(update_checkout_form2.add1.data)
+        purchase.set_add2(update_checkout_form2.add2.data)
+        purchase.set_pcode(update_checkout_form2.pcode.data)
+        purchase.set_dmethod(update_checkout_form2.dmethod.data)
+
+        db['Purchases'] = purchases_dict
+        db.close()
+
+        return redirect(url_for('purchase_management'))
+    else:
+        purchases_dict = {}
+        db = shelve.open('purchase.db', 'r')
+        purchases_dict = db['Purchases']
+        db.close()
+
+        purchase = purchases_dict.get(id)
+        update_checkout_form2.fname.data = purchase.get_fname()
+        update_checkout_form2.lname.data = purchase.get_lname()
+        update_checkout_form2.phone.data = purchase.get_phone()
+        update_checkout_form2.email.data = purchase.get_email()
+        update_checkout_form2.add1.data = purchase.get_add1()
+        update_checkout_form2.add2.data = purchase.get_add2()
+        update_checkout_form2.pcode.data = purchase.get_pcode()
+        update_checkout_form2.dmethod.data = purchase.get_dmethod()
+
+    return render_template('updatePurchase.html', form=update_checkout_form2)
+
+
+@app.route('/deletePurchase/<int:id>', methods=['POST'])
+def delete_purchase(id):
+    purchases_dict = {}
+    db = shelve.open('purchase.db', 'w')
+    purchases_dict = db['Purchases']
+
+    purchases_dict.pop(id)
+
+    db['Purchases'] = purchases_dict
+    db.close()
+
+    return redirect(url_for('purchase_management'))
 
 
 if __name__ == '__main__':
