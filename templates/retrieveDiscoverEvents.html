@@ -13,16 +13,16 @@
             <img src="static/images/plant.jpeg">
         </div>
         <div class="col-sm-8 pe-5 py-4">
-            <h3>Event #1</h3>
+            <h3>{{ render_field(form.name, class="form-control") }}</h3>
             <hr>
             <span>
-                <span>Description: </span>
+                <span>{{ render_field(form.description, class="form-control") }}</span>
                 <br>
-                Date:
+                Date: {{ render_field(form.date, class="form-control") }}
                 <br>
-                Timing:
+                Timing: {{ render_field(form.timing, class="form-control") }}
                 <br>
-                Location:
+                Location: {{ render_field(form.location, class="form-control") }}
             </span>
             <br>
             <hr>
