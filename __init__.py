@@ -6,9 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 from main import *
 from werkzeug.utils import secure_filename
 import os, shelve, Response, eventManagement, Purchase, userEvents
-from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
-    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm
-import Review, Cart, Store, Product
+from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm, CreateReplyForm
+import Review, Cart, Store, Product, Reply
 
 app = Flask(__name__)
 
@@ -272,7 +271,7 @@ def delete_review(id):
 
 
 @app.route('/review')
-def reply_review():
+def view_user_review():
     reviews_dict = {}
     db = shelve.open('review.db', 'r')
     reviews_dict = db['Reviews']
@@ -282,7 +281,96 @@ def reply_review():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
-    return render_template('productmanagement.html', count=len(reviews_list), reviews_list=reviews_list)
+    return render_template('reviewManagement.html', count=len(reviews_list), reviews_list=reviews_list)
+
+@app.route('/createReply', methods=['GET', 'POST'])
+def create_reply():
+    create_reply_form = CreateReplyForm(request.form)
+
+    if request.method == 'POST' and create_reply_form.validate():
+        replys_dict = {}
+        db = shelve.open('reply.db', 'c')
+
+        try:
+            replys_dict = db['Replys']
+        except:
+            print("Error in retrieving Replies from reply.db.")
+
+        reply = Reply.Reply(create_reply_form.customer_name.data, create_reply_form.product_name.data,create_reply_form.email.data,
+                               create_reply_form.reply_date.data, create_reply_form.comments.data)
+        replys_dict[reply.get_reply_id()] = reply
+        db['Replys'] = replys_dict
+
+        db.close()
+
+        return redirect(url_for('view_replys'))
+
+    return render_template('createReply.html', form=create_reply_form)
+
+@app.route('/viewReplys')
+def view_replys():
+    reviews_dict = {}
+    db = shelve.open('reply.db', 'r')
+    replys_dict = db['Replys']
+    db.close()
+    replys_list = []
+    for key in replys_dict:
+       reply = replys_dict.get(key)
+       replys_list.append(reply)
+
+    return render_template('viewReplys.html', count=len(replys_list), replys_list=replys_list)
+
+@app.route('/updateReply/<int:id>/', methods=['GET', 'POST'])
+def update_reply(id):
+    update_reply_form = CreateReplyForm(request.form)
+
+    if request.method == 'POST' and update_reply_form.validate():
+        replys_dict = {}
+        db = shelve.open('reply.db', 'w')
+        replys_dict = db['Replys']
+
+        reply = replys_dict.get(id)
+        reply.set_customer_name(update_reply_form.customer_name.data)
+        reply.set_product_name(update_reply_form.product_name.data)
+        reply.set_email(update_reply_form.email.data)
+        reply.set_reply_date(update_reply_form.reply_date.data)
+        reply.set_comments(update_reply_form.comments.data)
+
+        db['Replys'] = replys_dict
+        db.close()
+
+        return redirect(url_for('view_replys'))
+    else:
+        replys_dict = {}
+        db = shelve.open('reply.db', 'r')
+        replys_dict = db['Replys']
+        db.close()
+
+        reply = replys_dict.get(id)
+        update_reply_form.customer_name.data = reply.get_customer_name()
+        update_reply_form.product_name.data = reply.get_product_name()
+        update_reply_form.email.data = reply.get_email()
+        update_reply_form.reply_date.data = reply.get_reply_date()
+        update_reply_form.comments.data = reply.get_comments()
+
+        return render_template('updateReply.html', form=update_reply_form)
+
+@app.route('/deleteReply/<int:id>', methods=['POST'])
+def delete_reply(id):
+    replys_dict = {}
+    db = shelve.open('reply.db', 'w')
+    reviews_dict = db.get('Replys', {})
+
+    reviews_dict.pop(id)
+
+    db['Replys'] = replys_dict
+
+    db.close()
+
+    return redirect(url_for('view_replys'))
+
+
+
 
 
 # Event management - Admin
