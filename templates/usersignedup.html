@@ -6,6 +6,7 @@
     <div class="header-user-signedup">
         <h2>User's Signed Up</h2>
     </div>
+    {% for event in events_list %}
     <div class="table-container">
         <div class="table-responsive">
             <table class="table table-striped" border="2">
@@ -34,6 +35,7 @@
     </div>
 </div>
 
+
 <div id="userdetailapplet" class="userdetailapplet">
     <div class="popup-content">
         <span class="close" onclick="toggleUserDetail()">&times;</span>
@@ -47,6 +49,7 @@
     </div>
 </div>
 
+{% endfor %}
 <script>
     function toggleUserDetail() {
         var userDetailApplet = document.getElementById("userdetailapplet");

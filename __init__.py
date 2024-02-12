@@ -1,13 +1,13 @@
 import mailbox
 import bcrypt as Bcrypt
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
 from werkzeug.utils import secure_filename
-import os, shelve, Response, eventManagement, Purchase, userEvents
+import os, shelve, Response, eventManagement, Purchase, userEvents, RegisteredEventUser
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
-    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm
+    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm, Signupeventform
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
@@ -45,6 +45,14 @@ def create_app():
     app.run(debug=True, port=8000)
 
 
+class Product:
+    count_id = 0
+
+    def __init__(self, name, price, image):
+        Product.count_id += 1
+        self.name = name
+        self.price = price
+        self.image = image
 
 
 class Store:
@@ -367,6 +375,22 @@ def update_events(id):
 
         return render_template('updateEvents.html', form=update_event_form)
 
+@app.route('/retrieve_event_name', methods=['GET'])
+def retrieve_event_name():
+    try:
+        db = shelve.open('RegisteredEventUser.db', 'r')  # Open the database for reading
+        events = db.get('Events', {})  # Retrieve the 'Events' data from the database
+        if events:
+            # Assume you want to retrieve the name of the first event in the database
+            event_name = events[1].get_name()  # Assuming event IDs start from 1
+            return jsonify({'event_name': event_name})
+        else:
+            return jsonify({'error': 'No events found in the database'})
+    except Exception as e:
+        return jsonify({'error': str(e)})
+    finally:
+        if db is not None:
+            db.close()  # Close the database
 
 @app.route('/deleteEvent/<int:id>', methods=['POST'])
 def delete_event(id):
@@ -389,72 +413,150 @@ def discoverEvents_confirmation():
     return render_template('discoverEvents_confirmation.html')
 
 
-@app.route('/retrieveDiscoverEvents', methods=['GET', 'POST'])
-def createDiscoverEvents():
-    discovereventsform = RegsisterForm(request.form)
-    if request.method == 'POST' and discovereventsform.validate():
-        discoverEvents_dict = {}
-        discovereventsdb = shelve.open('discoverevents.db', 'c')
+# @app.route('/retrieveDiscoverEvents', methods=['GET', 'POST'])
+# def createDiscoverEvents():
+#     discovereventsform = RegsisterForm(request.form)
+#     if request.method == 'POST' and discovereventsform.validate():
+#         discoverEvents_dict = {}
+#         discovereventsdb = shelve.open('discoverevents.db', 'c')
+#
+#         try:
+#             discoverEvents_dict = discovereventsdb['discoverevents']
+#         except:
+#             print("Error in retrieving discoverevents from discoverevents.db")
+#
+#         discoverEvents = userEvents.CheckIn(discovereventsform.name.data, discovereventsform.email.data)
+#         discoverEvents_dict[discoverEvents.get_checkin_id()] = discoverEvents
+#         discovereventsdb['discoverevents'] = discoverEvents_dict
+#
+#         discovereventsdb.close()
+#     else:
+#         return render_template('retrieveDiscoverEvents.html', form=discovereventsform)
+#
+#
+# @app.route('/retrieveDiscoverEvents')
+# def retrieve_userevents():
+#     eventManagement_dict = {}
+#     try:
+#         db = shelve.open('eventManagement.db', 'r')
+#         if 'Events' in db:
+#             eventManagement_dict = db['Events']
+#         else:
+#             print("No events found in eventManagement.db")
+#     except FileNotFoundError:
+#         print("eventManagement.db not found")
+#     except Exception as e:
+#         print(f"Error retrieving events: {e}")
+#     finally:
+#         db.close()
+#
+#     # Print the retrieved events
+#     for key, event in eventManagement_dict.items():
+#         print(f"Event ID: {key}")
+#         print(f"Name: {event.get_name()}")
+#         print(f"Date: {event.get_date()}")
+#         print(f"Timing: {event.get_timing()}")
+#         print(f"Location: {event.get_location()}")
+#         print(f"Description: {event.get_description()}")
+#         print(f"Budget: {event.get_budget()}")
+#         print(f"Person in Charge: {event.get_person_in_charge()}")
+#         print(f"Collaborators: {event.get_collaborators()}")
+#         print("-----------------------------")
+#
+#     events_list = list(eventManagement_dict.values())
+#
+#     return render_template('retrieveDiscoverEvents.html', count=len(events_list), events_list=events_list)
 
-        try:
-            discoverEvents_dict = discovereventsdb['discoverevents']
-        except:
-            print("Error in retrieving discoverevents from discoverevents.db")
 
-        discoverEvents = userEvents.CheckIn(discovereventsform.name.data, discovereventsform.email.data)
-        discoverEvents_dict[discoverEvents.get_checkin_id()] = discoverEvents
-        discovereventsdb['discoverevents'] = discoverEvents_dict
-
-        discovereventsdb.close()
-    else:
-        return render_template('retrieveDiscoverEvents.html', form=discovereventsform)
-
-
-def retrieveDiscoverEvents():
-    discoverEvents_dict = {}
+@app.route('/retrieveDiscoverEvents')
+def retrieve_userEvents():
+    event_dict = {}
     try:
-        discovereventsdb = shelve.open('discoverevents.db', 'r')
-        if 'discoverevents' in discoverEvents_dict:
-            discoverEvents_dict = discovereventsdb['discoverevents']
+        db = shelve.open('eventManagement.db', 'r')
+        if 'Events' in db:
+            event_dict = db['Events']
         else:
-            discovereventsdb['discoverevents'] = discoverEvents_dict
-        discovereventsdb.close()
-
+            db['Events'] = event_dict
+        db.close()
     except:
-        print("discoverevents.db not found")
+        print("eventManagement.db not found")
 
-    discoverevents_list = []
-    for key in discoverevents_list:
-        discoverevents = discoverEvents_dict.get(key)
-        discoverevents_list.append(discoverevents)
+    events_list = []
+    for key in event_dict:
+        events = event_dict.get(key)
+        events_list.append(events)
 
-    return render_template('retrieveDiscoverEvents.html', count=len(discoverevents_list),
-                           discoverevents_list=discoverevents_list)
+    return render_template("retrieveDiscoverEvents.html", count=len(events_list), events_list=events_list)
 
 
-@app.route('/retrieveUserEvents')
-def createUserCheckIn():
-    create_checkIn_form = CheckInForm(request.form)
-    if request.method == 'POST' and create_checkIn_form.validate():
-        userCheckIn_dict = {}
-        db = shelve.open('usercheckIn.db', 'c')
+@app.route('/userSignupEvents', methods=['GET', 'POST'])
+def user_signup():
+    userSignup_event_form = Signupeventform(request.form)
+
+    if request.method == 'POST' and userSignup_event_form.validate():
+
+        eventuser_dict = {}
+        db = shelve.open('RegisteredEventUser.db', 'c')
 
         try:
-            userCheckIn_dict = db['userCheckIn']
-
+            eventuser_dict = db['Events']
         except:
-            print("Error in retrieving userCheckIn from usercheckIn.db")
+            print("Error in retrieving Events from RegisteredEventUser.db.")
 
-        userCheckIn = userEvents.CheckIn(create_checkIn_form.name.data, create_checkIn_form.email.data)
-        userCheckIn_dict[userCheckIn.get_checkin_id()] = userCheckIn
-        db['userCheckIn'] = userCheckIn_dict
+        # Create an instance of the eventManagement class
+
+        # Call the get_name() method on the eventManager instance
+
+        event = RegisteredEventUser.RegisteredEventUser(
+            name=userSignup_event_form.name.data,
+            no_of_people=userSignup_event_form.no_of_people.data,
+            email=userSignup_event_form.email.data,
+            contact_number=userSignup_event_form.contact_number.data
+        )
+
+        eventuser_dict[retrieve_event_name()] = event  # Assuming you want to store by event ID
+        db['Events'] = eventuser_dict
 
         db.close()
 
-    else:
-        return render_template('retrieveUserEvents.html', form=create_checkIn_form)
+        return redirect(url_for('user_event'))  # Redirect to some route upon successful submission
 
-def userevent_confirmation():
+    return render_template('usersignupevent.html', form=userSignup_event_form)
+
+
+@app.route('/userevent', methods=['GET', 'POST'])
+def user_event():
+    return render_template('user_signupsuccessful.html')
+
+
+# @app.route('/registerevent')
+# def registerevent():
+#     return
+
+
+# @app.route('/retrieveUserEvents')
+# def createUserCheckIn():
+#     create_checkIn_form = CheckInForm(request.form)
+#     if request.method == 'POST' and create_checkIn_form.validate():
+#         userCheckIn_dict = {}
+#         db = shelve.open('usercheckIn.db', 'c')
+#
+#         try:
+#             userCheckIn_dict = db['userCheckIn']
+#
+#         except:
+#             print("Error in retrieving userCheckIn from usercheckIn.db")
+#
+#         userCheckIn = userEvents.CheckIn(create_checkIn_form.name.data, create_checkIn_form.email.data)
+#         userCheckIn_dict[userCheckIn.get_checkin_id()] = userCheckIn
+#         db['userCheckIn'] = userCheckIn_dict
+#
+#         db.close()
+#
+#     else:
+#         return render_template('retrieveUserEvents.html', form=create_checkIn_form)
+
+def retrieveUserCheckIn():
     userCheckIn_dict = {}
     try:
         db = shelve.open('userCheckIn.db', 'r')
@@ -474,10 +576,10 @@ def userevent_confirmation():
     return render_template('retrieveUserEvents.html', count=len(userCheckIn_list),
                            userCheckIn_list=userCheckIn_list)
 
+
 @app.route('/userevent_confirmation', methods=['GET', 'POST'])
 def userevent_confirmation():
     return render_template('confirmation.html')
-
 
 
 @app.route("/upload_file", methods=["POST"])
@@ -641,7 +743,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                         create_product_form.description.data, create_product_form.tags.data)
+                                  create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 

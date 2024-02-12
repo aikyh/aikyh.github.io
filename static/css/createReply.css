@@ -1,0 +1,23 @@
+.form13{
+    display: grid;
+    width: 470px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    background-color: #EEEEEE;
+    border-radius: 1rem;
+    box-shadow: 2px 4px 11px -1px #000000;
+
+}
+
+.display-4{
+    text-align: center;
+}
+
+.form-group{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid lightgray;
+}

@@ -12,7 +12,7 @@ admin = Blueprint('admin', __name__)
 
 @admin.route('/admin_home')
 def homepage():
-    return render_template('admin_homepage.html')
+    return render_template('base2.html')
 
 
 @admin.route('/createUser', methods=['GET', 'POST'])
