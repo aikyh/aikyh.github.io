@@ -20,7 +20,7 @@
             </tr>
             <tr>
                 <td>
-                   <button id="retrieve-button"><a href="{{url_for('user_signup')}}">
+                   <button id="retrieve-button"><a href="{{ url_for( 'user_signup', id=event.get_event_id() )}}">
                    Register
                    </a>
                    </button>

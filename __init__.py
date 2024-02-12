@@ -377,7 +377,6 @@ def update_events(id):
 
 @app.route('/retrieve_event_name', methods=['GET'])
 def retrieve_event_name():
-    db = None  # Initialize db with None
     try:
         db = shelve.open('RegisteredEventUser.db', 'r')  # Open the database for reading
         events = db.get('Events', {})  # Retrieve the 'Events' data from the database
@@ -390,9 +389,7 @@ def retrieve_event_name():
     except Exception as e:
         return jsonify({'error': str(e)})
     finally:
-        if db is not None:
-            db.close()  # Close the database
-
+        db.close()  # Close the database
 
 @app.route('/deleteEvent/<int:id>', methods=['POST'])
 def delete_event(id):
