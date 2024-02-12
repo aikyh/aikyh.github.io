@@ -7,6 +7,7 @@ import random
 import string
 import datetime
 import json
+import shelve
 
 main = Blueprint('main', __name__)
 
@@ -105,7 +106,17 @@ def company_retrieve_event_details():
 
 @main.route("/usersignedup", methods=['POST', 'GET'])
 def usersignedup():
-    return render_template("usersignedup.html")
+    userevents_dict = {}
+    db = shelve.open("RegisteredEventUser.db", 'r')
+    userevents_dict = db['Events']
+    db.close()
+    userevents_list = []
+    for key in userevents_dict:
+        user = userevents_dict.get(key)
+        userevents_list.append(user)
+
+    return render_template("usersignedup.html", count=len(userevents_list), userevents_list=userevents_list)
+
 
 
 @main.route("/usersbought", methods=['GET', 'POST'])

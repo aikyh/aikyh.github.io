@@ -311,7 +311,7 @@ def create_events():
         db.close()
 
         return redirect(url_for('retrieve_events'))
-    return render_template('createEvents.html', form=create_event_form, )
+    return render_template('createEvents.html', form=create_event_form )
 
 
 @app.route('/retrieveEvents')
@@ -377,6 +377,7 @@ def update_events(id):
 
 @app.route('/retrieve_event_name', methods=['GET'])
 def retrieve_event_name():
+    db = None  # Initialize db with None
     try:
         db = shelve.open('RegisteredEventUser.db', 'r')  # Open the database for reading
         events = db.get('Events', {})  # Retrieve the 'Events' data from the database
@@ -391,6 +392,7 @@ def retrieve_event_name():
     finally:
         if db is not None:
             db.close()  # Close the database
+
 
 @app.route('/deleteEvent/<int:id>', methods=['POST'])
 def delete_event(id):
@@ -526,7 +528,10 @@ def user_signup():
 
 @app.route('/userevent', methods=['GET', 'POST'])
 def user_event():
+
     return render_template('user_signupsuccessful.html')
+
+
 
 
 # @app.route('/registerevent')

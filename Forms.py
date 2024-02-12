@@ -215,7 +215,7 @@ class CreateEventForm(Form):
     person_in_charge = StringField("Person-In-Charge: ")
     budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
     collaborators = StringField("Collaborators: ")
-    # photo = FileField("Upload Image: ", validators=[FileAllowed(["jpg", "png", "jpeg"], 'Images only')])
+    photo = FileField("Upload Image: ")
 
     def validate_name(self, name):
         excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
