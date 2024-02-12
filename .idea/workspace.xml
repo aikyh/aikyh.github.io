@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0032cba9-b607-4fbb-9984-15f68861d9f3" name="Changes" comment="url">
+    <list default="true" id="0032cba9-b607-4fbb-9984-15f68861d9f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/retrieveUserEvents.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/retrieveUserEvents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/createReply.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/createReply.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createReply.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createReply.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createReview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/retrieveReviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/retrieveReviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reviewsManagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reviewsManagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateReplys.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateReplys.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateReview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/viewReplys.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewReplys.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,46 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706528560294</updated>
-    </task>
-    <task id="LOCAL-00050" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707400749791</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1707400749792</updated>
-    </task>
-    <task id="LOCAL-00051" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707401077820</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1707401077820</updated>
-    </task>
-    <task id="LOCAL-00052" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707403212554</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1707403212554</updated>
-    </task>
-    <task id="LOCAL-00053" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707407853560</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1707407853562</updated>
-    </task>
-    <task id="LOCAL-00054" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707408622903</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1707408622903</updated>
     </task>
     <task id="LOCAL-00055" summary="idk">
       <option name="closed" value="true" />
@@ -468,7 +435,47 @@
       <option name="project" value="LOCAL" />
       <updated>1707719340993</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="...">
+      <option name="closed" value="true" />
+      <created>1707730530151</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1707730530151</updated>
+    </task>
+    <task id="LOCAL-00100" summary="...">
+      <option name="closed" value="true" />
+      <created>1707731508091</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1707731508091</updated>
+    </task>
+    <task id="LOCAL-00101" summary="...">
+      <option name="closed" value="true" />
+      <created>1707740342584</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1707740342584</updated>
+    </task>
+    <task id="LOCAL-00102" summary="...">
+      <option name="closed" value="true" />
+      <created>1707742212118</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1707742212118</updated>
+    </task>
+    <task id="LOCAL-00103" summary="...">
+      <option name="closed" value="true" />
+      <created>1707745331227</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1707745331227</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,6 +498,7 @@
     <MESSAGE value="shiqi files" />
     <MESSAGE value="yt" />
     <MESSAGE value="url" />
-    <option name="LAST_COMMIT_MESSAGE" value="url" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
 </project>

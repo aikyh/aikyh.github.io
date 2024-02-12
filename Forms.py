@@ -1,8 +1,9 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
                      FloatField)
-from wtforms.fields import TimeField, IntegerField
-from wtforms.fields.html5 import EmailField, DateField
+from wtforms.fields import TimeField, IntegerField, FileField, DateField
+from wtforms.fields import EmailField
 from wtforms.validators import DataRequired, Length, ValidationError
+from flask_wtf.file import FileAllowed, FileRequired
 
 
 class CreateCompanyForm(Form):
@@ -34,6 +35,14 @@ class CheckInForm(Form):
     email = EmailField('Email: ', [validators.DataRequired(message="Please enter your email address")],
                        render_kw={"placeholder": "Eg. angelinetan123@gmail.com"})
 
+class CreateReplyForm(Form):
+    customer_name = StringField('Customer Name', [validators.Length(min=1, max=150), validators.DataRequired()])
+    product_name = SelectField('Product Name', choices=[('', 'Select'), ('Tomato Seed', 'Tomato Seed'),
+                                                            ('Potato Seed', 'Potato Seed')], default='',
+                                   validators=[validators.InputRequired()])
+    email = EmailField('Email', [validators.Email(), validators.DataRequired()])
+    reply_date = DateField('Reply Date', format='%Y-%m-%d')
+    comments = TextAreaField('Comments', [validators.Length(min=1, max=500), validators.DataRequired()])
     def validate_name(self, name):
         excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
         for char in name.data:
@@ -207,6 +216,7 @@ class CreateEventForm(Form):
     person_in_charge = StringField("Person-In-Charge: ")
     budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
     collaborators = StringField("Collaborators: ")
+    photo = FileField("Upload Image: ", validators=[FileAllowed(["jpg", "png", "jpeg"], 'Images only')])
 
     def validate_name(self, name):
         excluded_chars = "*?!'^+%&/()=}][{$#1234567890"

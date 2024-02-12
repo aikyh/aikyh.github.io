@@ -3,7 +3,7 @@ class eventManagement:
     count_id = 0
 
     # initializer method
-    def __init__(self, name, date, timing, location, description, budget, person_in_charge,  collaborators):
+    def __init__(self, name, date, timing, location, description, budget, person_in_charge,  collaborators, photo):
         eventManagement.count_id += 1
         self.__event_id = eventManagement.count_id
         self.__name = name
@@ -14,7 +14,7 @@ class eventManagement:
         self.__person_in_charge = person_in_charge
         self.__budget = budget
         self.__collaborators = collaborators
-
+        self.__photo = photo
 
         
 
@@ -46,6 +46,8 @@ class eventManagement:
     def get_budget(self):
         return self.__budget
 
+    def get_photo(self):
+        return self.__photo
     # mutator methods
     def set_event_id(self, event_id):
         self.__event_id = event_id
@@ -73,3 +75,6 @@ class eventManagement:
 
     def set_collaborators(self, collaborators):
         self.__collaborators = collaborators
+
+    def set_photo(self, photo):
+        self.__photo = photo

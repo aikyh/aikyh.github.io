@@ -2,13 +2,13 @@
 {% block title %}VegeGrove- Current Events Events{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='retrieveEvents.css') }}">
 
 
-<h1 class="display-4">Current Events</h1>
-<button class="createEventBtn"><a href="/createEvents">Create Event</a></button>
 
-<div class="numEvents">
+<h1 class="display-4 mb-4">Current Events</h1>
+<a href="/createEvents" class="btn btn-primary">Create Event</a>
+
+<div class="numEvents pt-4">
     {% if count == 0 %}
     <p>There are no events.</p>
     {% elif count == 1 %}
@@ -28,7 +28,7 @@
             <th>Timing</th>
             <th>Location</th>
             <th>Description</th>
-            <th> Budget </th>
+            <th> Budget($) </th>
             <th>Person-In-Charge</th>
             <th>Collaborators</th>
         </tr>
@@ -52,36 +52,6 @@
                             onclick="return confirm('Are you sure you want to delete {{ event.get_name() }}?');">
                         Delete
                     </button>
-
-
-                    <!-- The Modal -->
-
-
-                    <div class="modal" id="myModal_{{event.get_event_id()}}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Delete Confirmation</h4>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    Are you sure you want to delete <b>{{event.get_name()}}? </b>
-                                </div>
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
-                                    </button>
-                                    <input type="submit" value="Delete" class="btn btn-danger">
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
                 </form>
             </td>
         </tr>
