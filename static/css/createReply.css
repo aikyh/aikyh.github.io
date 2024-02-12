@@ -1,13 +1,35 @@
-.form13{
-     max-width: 500px;
-     align-item:center;
-     margin: 0 auto ;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-     padding: 10px;
-     border-radius: 8px;
-     background-color: #EEEEEE;
+body{
+    font-family: 'Raleway', sans-serif;
+    place-items: center;
+    min-height: 100vh;
+    background-position: center;
 }
 
-.display-4{
+.form-group .form-control{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid lightgray;
+}
+
+.text-center{
     text-align: center;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.form{
+    display: grid;
+    width: 470px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    background-color: #EEEEEE;
+    border-radius: 1rem;
+    box-shadow: 2px 4px 11px -1px #000000;
+}
+
+.form-group .radio-group{
+    margin: 1rem 0;
 }

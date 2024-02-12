@@ -8,8 +8,7 @@ from werkzeug.utils import secure_filename
 import os, shelve, Response, eventManagement, Purchase, userEvents
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm, CreateReplyForm
 import Review, Cart, Store, Product, Reply
-import smtplib
-from email.mime.text import MIMEText
+
 
 app = Flask(__name__)
 
