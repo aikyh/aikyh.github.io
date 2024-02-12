@@ -1,0 +1,26 @@
+/* admin_homepage.css */
+
+/* Style for the container01 */
+.container01 {
+    margin-top: 20px;
+}
+
+/* Style for the pie charts */
+#piechart1,
+#piechart2 {
+    width: 100%; /* Make charts responsive */
+    height: 300px; /* Adjust height as needed */
+}
+
+/* Style for the links12 section */
+.links12 {
+    margin-top: 20px;
+    width: 100%; /* Make the links12 container fill the width */
+    text-align: center; /* Center-align the content inside links12 */
+}
+
+/* Style for the buttons inside links12 */
+.links12 .btn {
+    margin-right: 10px;
+}
+

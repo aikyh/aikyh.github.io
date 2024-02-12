@@ -1,6 +1,6 @@
 import mailbox
 import bcrypt as Bcrypt
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
@@ -11,7 +11,6 @@ from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, Creat
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/img/'
 
 
 def create_app():
@@ -43,7 +42,17 @@ def create_app():
         from admin import admin as admin_blueprint
         app.register_blueprint(admin_blueprint)
 
-        app.run(debug=True, port=8000)
+    app.run(debug=True, port=8000)
+
+class Product:
+    count_id = 0
+
+    def __init__(self, name, price, image):
+        Product.count_id += 1
+        self.name = name
+        self.price = price
+        self.image = image
+
 
 
 class Store:
@@ -295,8 +304,7 @@ def create_events():
                                                 create_event_form.timing.data, create_event_form.location.data,
                                                 create_event_form.description.data,
                                                 create_event_form.budget.data, create_event_form.collaborators.data,
-                                                create_event_form.person_in_charge.data,
-                                                create_event_form.photo.data)
+                                                create_event_form.person_in_charge.data)
         eventManagement_dict[event.get_event_id()] = event
         db['Events'] = eventManagement_dict
 
@@ -344,7 +352,6 @@ def update_events(id):
         event.set_budget(update_event_form.budget.data)
         event.set_person_in_charge(update_event_form.person_in_charge.data)
         event.set_collaborators(update_event_form.collaborators.data)
-        event.set_photo(update_event_form.photo.data)
 
         db['Events'] = eventManagement_dict
         db.close()
@@ -365,7 +372,6 @@ def update_events(id):
         update_event_form.budget.data = event.get_budget()
         update_event_form.person_in_charge.data = event.get_person_in_charge()
         update_event_form.collaborators.data = event.get_collaborators()
-        update_event_form.photo.data = event.get_photo()
 
         return render_template('updateEvents.html', form=update_event_form)
 
@@ -391,71 +397,103 @@ def discoverEvents_confirmation():
     return render_template('discoverEvents_confirmation.html')
 
 
-@app.route('/retrieveDiscoverEvents', methods=['GET', 'POST'])
-def createDiscoverEvents():
-    discovereventsform = RegsisterForm(request.form)
-    if request.method == 'POST' and discovereventsform.validate():
-        discoverEvents_dict = {}
-        discovereventsdb = shelve.open('discoverevents.db', 'c')
+# @app.route('/retrieveDiscoverEvents', methods=['GET', 'POST'])
+# def createDiscoverEvents():
+#     discovereventsform = RegsisterForm(request.form)
+#     if request.method == 'POST' and discovereventsform.validate():
+#         discoverEvents_dict = {}
+#         discovereventsdb = shelve.open('discoverevents.db', 'c')
+#
+#         try:
+#             discoverEvents_dict = discovereventsdb['discoverevents']
+#         except:
+#             print("Error in retrieving discoverevents from discoverevents.db")
+#
+#         discoverEvents = userEvents.CheckIn(discovereventsform.name.data, discovereventsform.email.data)
+#         discoverEvents_dict[discoverEvents.get_checkin_id()] = discoverEvents
+#         discovereventsdb['discoverevents'] = discoverEvents_dict
+#
+#         discovereventsdb.close()
+#     else:
+#         return render_template('retrieveDiscoverEvents.html', form=discovereventsform)
+#
+#
+# @app.route('/retrieveDiscoverEvents')
+# def retrieve_userevents():
+#     eventManagement_dict = {}
+#     try:
+#         db = shelve.open('eventManagement.db', 'r')
+#         if 'Events' in db:
+#             eventManagement_dict = db['Events']
+#         else:
+#             print("No events found in eventManagement.db")
+#     except FileNotFoundError:
+#         print("eventManagement.db not found")
+#     except Exception as e:
+#         print(f"Error retrieving events: {e}")
+#     finally:
+#         db.close()
+#
+#     # Print the retrieved events
+#     for key, event in eventManagement_dict.items():
+#         print(f"Event ID: {key}")
+#         print(f"Name: {event.get_name()}")
+#         print(f"Date: {event.get_date()}")
+#         print(f"Timing: {event.get_timing()}")
+#         print(f"Location: {event.get_location()}")
+#         print(f"Description: {event.get_description()}")
+#         print(f"Budget: {event.get_budget()}")
+#         print(f"Person in Charge: {event.get_person_in_charge()}")
+#         print(f"Collaborators: {event.get_collaborators()}")
+#         print("-----------------------------")
+#
+#     events_list = list(eventManagement_dict.values())
+#
+#     return render_template('retrieveDiscoverEvents.html', count=len(events_list), events_list=events_list)
 
-        try:
-            discoverEvents_dict = discovereventsdb['discoverevents']
-        except:
-            print("Error in retrieving discoverevents from discoverevents.db")
 
-        discoverEvents = userEvents.CheckIn(discovereventsform.name.data, discovereventsform.email.data)
-        discoverEvents_dict[discoverEvents.get_checkin_id()] = discoverEvents
-        discovereventsdb['discoverevents'] = discoverEvents_dict
-
-        discovereventsdb.close()
-    else:
-        return render_template('retrieveDiscoverEvents.html', form=discovereventsform)
-
-
-def retrieveDiscoverEvents():
-    discoverEvents_dict = {}
+@app.route('/retrieveDiscoverEvents')
+def retrieve_userEvents():
+    event_dict = {}
     try:
-        discovereventsdb = shelve.open('discoverevents.db', 'r')
-        if 'discoverevents' in discoverEvents_dict:
-            discoverEvents_dict = discovereventsdb['discoverevents']
+        db = shelve.open('eventManagement.db', 'r')
+        if 'Events' in db:
+            event_dict = db['Events']
         else:
-            discovereventsdb['discoverevents'] = discoverEvents_dict
-        discovereventsdb.close()
-
-    except:
-        print("discoverevents.db not found")
-
-    discoverevents_list = []
-    for key in discoverevents_list:
-        discoverevents = discoverEvents_dict.get(key)
-        discoverevents_list.append(discoverevents)
-
-    return render_template('retrieveDiscoverEvents.html', count=len(discoverevents_list),
-                           discoverevents_list=discoverevents_list)
-
-
-@app.route('/retrieveUserEvents')
-def createUserCheckIn():
-    create_checkIn_form = CheckInForm(request.form)
-    if request.method == 'POST' and create_checkIn_form.validate():
-        userCheckIn_dict = {}
-        db = shelve.open('usercheckIn.db', 'c')
-
-        try:
-            userCheckIn_dict = db['userCheckIn']
-
-        except:
-            print("Error in retrieving userCheckIn from usercheckIn.db")
-
-        userCheckIn = userEvents.CheckIn(create_checkIn_form.name.data, create_checkIn_form.email.data)
-        userCheckIn_dict[userCheckIn.get_checkin_id()] = userCheckIn
-        db['userCheckIn'] = userCheckIn_dict
-
+            db['Events'] = event_dict
         db.close()
+    except:
+        print("eventManagement.db not found")
 
-    else:
-        return render_template('retrieveUserEvents.html', form=create_checkIn_form)
+    events_list = []
+    for key in event_dict:
+        events = event_dict.get(key)
+        events_list.append(events)
 
+    return render_template("retrieveDiscoverEvents.html", count=len(events_list), events_list=events_list)
+
+
+# @app.route('/retrieveUserEvents')
+# def createUserCheckIn():
+#     create_checkIn_form = CheckInForm(request.form)
+#     if request.method == 'POST' and create_checkIn_form.validate():
+#         userCheckIn_dict = {}
+#         db = shelve.open('usercheckIn.db', 'c')
+#
+#         try:
+#             userCheckIn_dict = db['userCheckIn']
+#
+#         except:
+#             print("Error in retrieving userCheckIn from usercheckIn.db")
+#
+#         userCheckIn = userEvents.CheckIn(create_checkIn_form.name.data, create_checkIn_form.email.data)
+#         userCheckIn_dict[userCheckIn.get_checkin_id()] = userCheckIn
+#         db['userCheckIn'] = userCheckIn_dict
+#
+#         db.close()
+#
+#     else:
+#         return render_template('retrieveUserEvents.html', form=create_checkIn_form)
 
 def retrieveUserCheckIn():
     userCheckIn_dict = {}
@@ -477,10 +515,10 @@ def retrieveUserCheckIn():
     return render_template('retrieveUserEvents.html', count=len(userCheckIn_list),
                            userCheckIn_list=userCheckIn_list)
 
-
 @app.route('/userevent_confirmation', methods=['GET', 'POST'])
 def userevent_confirmation():
     return render_template('confirmation.html')
+
 
 
 @app.route("/upload_file", methods=["POST"])
@@ -644,7 +682,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                                  create_product_form.description.data, create_product_form.tags.data)
+                         create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 
