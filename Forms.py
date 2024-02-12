@@ -1,9 +1,8 @@
 from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, validators, PasswordField, IntegerField,
                      FloatField)
-from wtforms.fields import TimeField, IntegerField
-from wtforms.fields import DateField
-from wtforms.fields import EmailField, DateField
+from wtforms.fields import TimeField, IntegerField, EmailField, FileField, DateField
 from wtforms.validators import DataRequired, Length, ValidationError
+from flask_wtf.file import FileAllowed, FileRequired
 
 
 class CreateCompanyForm(Form):
@@ -211,6 +210,7 @@ class CreateEventForm(Form):
     person_in_charge = StringField("Person-In-Charge: ")
     budget = IntegerField("Budget($): ", [validators.NumberRange(min=0)])
     collaborators = StringField("Collaborators: ")
+    photo = FileField("Upload Image: ", validators=[FileRequired(), FileAllowed(["jpg", "png", "jpeg"])])
 
     def validate_name(self, name):
         excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
