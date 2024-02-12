@@ -2,7 +2,7 @@ from wtforms import (Form, StringField, RadioField, SelectField, TextAreaField, 
                      FloatField)
 from wtforms.fields import TimeField, IntegerField
 from wtforms.fields import DateField
-from wtforms.fields import EmailField, DateField
+from wtforms.fields.html5 import EmailField, DateField
 from wtforms.validators import DataRequired, Length, ValidationError
 
 
@@ -221,3 +221,11 @@ class CreateEventForm(Form):
         for char in person_in_charge.data:
             if char in excluded_chars:
                 raise ValidationError('Person-In-Charge must only contain alphanumeric values')
+
+
+class CreateReplyForm(Form):
+    customer_name = StringField('Customer Name', [validators.Length(min=1, max=150), validators.DataRequired()])
+    product_name = SelectField('Product Name', choices=[('', 'Select'), ('Tomato Seed', 'Tomato Seed'), ('Potato Seed', 'Potato Seed')], default='', validators=[validators.InputRequired()])
+    email = EmailField('Email', [validators.Email(), validators.DataRequired()])
+    reply_date = DateField('Reply Date', format='%Y-%m-%d')
+    comments = TextAreaField('Comments', [validators.Length(min=1, max=500), validators.DataRequired()])

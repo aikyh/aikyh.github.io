@@ -18,8 +18,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/response.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/retrieveReviews.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='/css/updateReviews.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='events.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='userEvents.css') }}">
    {% block head %}
   {% endblock %}
 </head>
@@ -33,20 +31,20 @@
         <li><a href="{{url_for('main.home')}}">Home</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Events <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{url_for('createDiscoverEvents')}}">Discover Events</a></li>
-            <li><a href="{{url_for('createUserCheckIn')}}">My Events</a></li>
+            <li><a href="{{url_for('retrieve_events')}}">Discover Events</a></li>
+            <li><a href="{{url_for('retrieveUserEvents')}}">My Events</a></li>
           </ul>
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{url_for('create_review')}}">Create Review</a></li>
+            <li><a href="{{url_for('retrieve_reviews')}}">Retrieve Review</a></li>
           </ul>
         </li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Products <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{url_for('store_page')}}">View Products</a></li>
             <li><a href="{{url_for('cart_page')}}">View Cart</a></li>
-            <li><a class="dropdown-item" href="{{ url_for('purchase')}}">Product Checkout</a></li>
           </ul>
         </li>
         <li><a href="/donation">Donation</a></li>
@@ -82,6 +80,8 @@
             userApplet.style.display = (userApplet.style.display === 'block') ? 'none' : 'block';
         }
     </script>
+</div>
+  </header>
 
 
   {% block content %}
