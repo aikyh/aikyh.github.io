@@ -443,6 +443,7 @@ def retrieveDiscoverEvents():
 @app.route('/retrieveUserEvents')
 def createUserCheckIn():
     create_checkIn_form = CheckInForm(request.form)
+    userEvents_data = shelve.open('eventManagement.db', 'r')
     if request.method == 'POST' and create_checkIn_form.validate():
         userCheckIn_dict = {}
         db = shelve.open('usercheckIn.db', 'c')
