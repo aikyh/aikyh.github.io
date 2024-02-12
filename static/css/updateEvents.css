@@ -1,0 +1,33 @@
+h1.display-4{
+padding: 10px;
+margin: 0;
+
+}
+
+div.col-lg-6{
+max-width: 500px;
+margin: auto;
+}
+#prof{
+padding: 10px;
+margin: 5px;
+}
+
+#location{
+max-width: 500px;
+padding-left: 15px;
+}
+
+input.btn.btn-primary{
+padding: 10px;
+font-weight: bold;
+margin-left: 80%;
+}
+
+#box{
+border: 1px solid green;
+padding: 10px;
+font-size: 18px;
+width: 800px;
+height: auto;
+}
