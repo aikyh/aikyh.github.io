@@ -1,6 +1,6 @@
 import mailbox
 import bcrypt as Bcrypt
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
@@ -11,6 +11,7 @@ from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, Creat
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'static/img/'
 
 
 def create_app():
@@ -43,6 +44,7 @@ def create_app():
         app.register_blueprint(admin_blueprint)
 
         app.run(debug=True, port=8000)
+
 
 class Store:
     def __init__(self):
@@ -293,7 +295,8 @@ def create_events():
                                                 create_event_form.timing.data, create_event_form.location.data,
                                                 create_event_form.description.data,
                                                 create_event_form.budget.data, create_event_form.collaborators.data,
-                                                create_event_form.person_in_charge.data)
+                                                create_event_form.person_in_charge.data,
+                                                create_event_form.photo.data)
         eventManagement_dict[event.get_event_id()] = event
         db['Events'] = eventManagement_dict
 
@@ -341,6 +344,7 @@ def update_events(id):
         event.set_budget(update_event_form.budget.data)
         event.set_person_in_charge(update_event_form.person_in_charge.data)
         event.set_collaborators(update_event_form.collaborators.data)
+        event.set_photo(update_event_form.photo.data)
 
         db['Events'] = eventManagement_dict
         db.close()
@@ -361,6 +365,7 @@ def update_events(id):
         update_event_form.budget.data = event.get_budget()
         update_event_form.person_in_charge.data = event.get_person_in_charge()
         update_event_form.collaborators.data = event.get_collaborators()
+        update_event_form.photo.data = event.get_photo()
 
         return render_template('updateEvents.html', form=update_event_form)
 
@@ -451,8 +456,8 @@ def createUserCheckIn():
     else:
         return render_template('retrieveUserEvents.html', form=create_checkIn_form)
 
-def retrieveUserCheckIn():
 
+def retrieveUserCheckIn():
     userCheckIn_dict = {}
     try:
         db = shelve.open('userCheckIn.db', 'r')
@@ -472,10 +477,10 @@ def retrieveUserCheckIn():
     return render_template('retrieveUserEvents.html', count=len(userCheckIn_list),
                            userCheckIn_list=userCheckIn_list)
 
+
 @app.route('/userevent_confirmation', methods=['GET', 'POST'])
 def userevent_confirmation():
     return render_template('confirmation.html')
-
 
 
 @app.route("/upload_file", methods=["POST"])
@@ -639,7 +644,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                         create_product_form.description.data, create_product_form.tags.data)
+                                  create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 
