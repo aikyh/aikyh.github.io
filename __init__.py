@@ -5,9 +5,9 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
 from werkzeug.utils import secure_filename
-import os, shelve, Response, eventManagement, Purchase, userEvents
+import os, shelve, Response, eventManagement, Purchase, userEvents, RegisteredEventUser
 from Forms import CreateCheckoutForm, CreateUpdateForm, CreateProductForm, CreateReviewForm, CreateEventForm, \
-    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm
+    CheckInForm, CreateUpdateForm2, CreateCheckoutForm2, RegsisterForm, Signupeventform
 import Review, Cart, Store, Product
 
 app = Flask(__name__)
@@ -44,6 +44,7 @@ def create_app():
 
     app.run(debug=True, port=8000)
 
+
 class Product:
     count_id = 0
 
@@ -52,7 +53,6 @@ class Product:
         self.name = name
         self.price = price
         self.image = image
-
 
 
 class Store:
@@ -473,6 +473,38 @@ def retrieve_userEvents():
     return render_template("retrieveDiscoverEvents.html", count=len(events_list), events_list=events_list)
 
 
+@app.route('/userSignupEvents', methods=['GET', 'POST'])
+def user_signup():
+    userSignup_event_form = Signupeventform(request.form)
+
+    if request.method == 'POST' and userSignup_event_form.validate():
+
+        eventuser_dict = {}
+        db = shelve.open('RegisteredEventUser.db', 'c')
+
+        try:
+            eventuser_dict = db['Events']
+        except:
+            print("Error in retrieving Events from RegisteredEventUser.db.")
+
+        event = RegisteredEventUser.RegisteredEventUser(userSignup_event_form.name.data,
+                                                        userSignup_event_form.email.data,
+                                                        userSignup_event_form.no_of_people.data,
+                                                        userSignup_event_form.contact_number.data)
+        eventuser_dict[event] = event
+        db['Events'] = eventManagement_dict
+
+        db.close()
+
+        return redirect(url_for('retrieve_events'))
+    return render_template('createEvents.html', form=create_event_form, )
+
+
+# @app.route('/registerevent')
+# def registerevent():
+#     return
+
+
 # @app.route('/retrieveUserEvents')
 # def createUserCheckIn():
 #     create_checkIn_form = CheckInForm(request.form)
@@ -515,10 +547,10 @@ def retrieveUserCheckIn():
     return render_template('retrieveUserEvents.html', count=len(userCheckIn_list),
                            userCheckIn_list=userCheckIn_list)
 
+
 @app.route('/userevent_confirmation', methods=['GET', 'POST'])
 def userevent_confirmation():
     return render_template('confirmation.html')
-
 
 
 @app.route("/upload_file", methods=["POST"])
@@ -682,7 +714,7 @@ def create_product():
             print("Error in retrieving Products from product.db.")
 
         product = Product.Product(create_product_form.name.data, create_product_form.price.data,
-                         create_product_form.description.data, create_product_form.tags.data)
+                                  create_product_form.description.data, create_product_form.tags.data)
         products_dict[product.get_product_id()] = product
         db['Products'] = products_dict
 

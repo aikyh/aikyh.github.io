@@ -46,6 +46,7 @@ class Admin(db.Model, UserMixin):
 
 # models.py
 class Company(db.Model, UserMixin):
+    __tablename__ = "Company"
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String(150), nullable=False)  # Add or update this line
     email = db.Column(db.String(150), nullable=False)
@@ -54,5 +55,10 @@ class Company(db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
 
 
-
+class Registeredevent(db.Model, UserMixin):
+    __tablename__ = "RegisteredEvent"
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String)
+    contact_number = db.Column(db.Integer)
+    number_of_people = db.Column(db.Integer)
 

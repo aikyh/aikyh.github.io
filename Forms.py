@@ -45,12 +45,13 @@ class CheckInForm(Form):
         for char in email.data:
             if char in excluded_chars:
                 raise ValidationError("Invalid Email")
+
+
 class RegsisterForm(Form):
     name = StringField('Name: ', [validators.DataRequired(message="Please enter your full name")],
                        render_kw={"placeholder": "Eg. Angeline Tan"})
     email = EmailField('Email: ', [validators.DataRequired(message="Please enter your email address")],
                        render_kw={"placeholder": "Eg. angelinetan123@gmail.com"})
-
 
     def validate_name(self, name):
         excluded_chars = "*?!'^+%&/()=}][{$#1234567890"
@@ -63,6 +64,7 @@ class RegsisterForm(Form):
         for char in email.data:
             if char in excluded_chars:
                 raise ValidationError("Invalid Email")
+
 
 class CreateCheckoutForm(Form):
     amount = IntegerField('You are donating a total of', render_kw={"readonly": True})
@@ -99,63 +101,66 @@ class CreateCheckoutForm(Form):
     cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
                       render_kw={"placeholder": "3 Digit CVC"})
 
+
 class CreateCheckoutForm2(Form):
-        amount = IntegerField('You are purchasing a total of', render_kw={"readonly": True})
+    amount = IntegerField('You are purchasing a total of', render_kw={"readonly": True})
 
-        fname = StringField('First Name', [validators.DataRequired()])
+    fname = StringField('First Name', [validators.DataRequired()])
 
-        lname = StringField('Last Name', [validators.DataRequired()])
+    lname = StringField('Last Name', [validators.DataRequired()])
 
-        phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
-                            render_kw={"placeholder": "8 Digit Phone Number"})
+    phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
+                        render_kw={"placeholder": "8 Digit Phone Number"})
 
-        email = EmailField('Email Address', [validators.DataRequired()], render_kw={"placeholder": "Example@gmail.com"})
+    email = EmailField('Email Address', [validators.DataRequired()], render_kw={"placeholder": "Example@gmail.com"})
 
-        add1 = StringField('Address Line 1', [validators.DataRequired()],
-                           render_kw={"placeholder": "Street"})
+    add1 = StringField('Address Line 1', [validators.DataRequired()],
+                       render_kw={"placeholder": "Street"})
 
-        add2 = StringField('Address Line 2', [validators.DataRequired()],
-                           render_kw={"placeholder": "Block & Unit Number"})
+    add2 = StringField('Address Line 2', [validators.DataRequired()],
+                       render_kw={"placeholder": "Block & Unit Number"})
 
-        pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
-                            render_kw={"placeholder": "6 Digit Postal Code"})
+    pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
+                        render_kw={"placeholder": "6 Digit Postal Code"})
 
-        dmethod = RadioField('Delivery Method', [validators.DataRequired()],
-                             choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
-                             default='Select')
+    dmethod = RadioField('Delivery Method', [validators.DataRequired()],
+                         choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
+                         default='Select')
 
-        cname = StringField('Full Name on Card', [validators.DataRequired()])
+    cname = StringField('Full Name on Card', [validators.DataRequired()])
 
-        cnum = StringField('Card Number', [validators.Length(min=16, max=16), DataRequired()],
-                           render_kw={"placeholder": "XXXX XXXX XXXX XXXX"})
+    cnum = StringField('Card Number', [validators.Length(min=16, max=16), DataRequired()],
+                       render_kw={"placeholder": "XXXX XXXX XXXX XXXX"})
 
-        edate = DateField('Expiry Date', [validators.DataRequired()])
+    edate = DateField('Expiry Date', [validators.DataRequired()])
 
-        cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
-                          render_kw={"placeholder": "3 Digit CVC"})
+    cvc = StringField('CVC', [validators.Length(min=3, max=3), DataRequired()],
+                      render_kw={"placeholder": "3 Digit CVC"})
+
+
 class CreateUpdateForm2(Form):
-            fname = StringField('First Name', [validators.DataRequired()])
+    fname = StringField('First Name', [validators.DataRequired()])
 
-            lname = StringField('Last Name', [validators.DataRequired()])
+    lname = StringField('Last Name', [validators.DataRequired()])
 
-            phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
-                                render_kw={"placeholder": "8 Digit Phone Number"})
+    phone = StringField('Phone Number', [validators.Length(min=8, max=8), DataRequired()],
+                        render_kw={"placeholder": "8 Digit Phone Number"})
 
-            email = EmailField('Email Address', [validators.DataRequired()],
-                               render_kw={"placeholder": "Example@gmail.com"})
+    email = EmailField('Email Address', [validators.DataRequired()],
+                       render_kw={"placeholder": "Example@gmail.com"})
 
-            add1 = StringField('Address Line 1', [validators.DataRequired()],
-                               render_kw={"placeholder": "Street"})
+    add1 = StringField('Address Line 1', [validators.DataRequired()],
+                       render_kw={"placeholder": "Street"})
 
-            add2 = StringField('Address Line 2', [validators.DataRequired()],
-                               render_kw={"placeholder": "Block & Unit Number"})
+    add2 = StringField('Address Line 2', [validators.DataRequired()],
+                       render_kw={"placeholder": "Block & Unit Number"})
 
-            pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
-                                render_kw={"placeholder": "6 Digit Postal Code"})
+    pcode = StringField('Postal Code', [validators.Length(min=6, max=6), DataRequired()],
+                        render_kw={"placeholder": "6 Digit Postal Code"})
 
-            dmethod = RadioField('Delivery Method', [validators.DataRequired()],
-                                 choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
-                                 default='Select')
+    dmethod = RadioField('Delivery Method', [validators.DataRequired()],
+                         choices=[('S', 'Standard (2-8 Business days)'), ('E', 'Express (1 Business day)')],
+                         default='Select')
 
 
 class CreateUpdateForm(Form):
@@ -220,3 +225,11 @@ class CreateEventForm(Form):
         for char in person_in_charge.data:
             if char in excluded_chars:
                 raise ValidationError('Person-In-Charge must only contain alphanumeric values')
+
+
+class Signupeventform(Form):
+    no_of_people = IntegerField("Numer of people attending event:", [validators.DataRequired()])
+    contact_number = IntegerField("Contact Number: ", [validators.DataRequired()])
+    email = EmailField("Email", [validators.DataRequired()])
+    name = StringField("Name", [validators.DataRequired()])
+
