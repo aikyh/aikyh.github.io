@@ -281,7 +281,7 @@ def view_user_review():
         review = reviews_dict.get(key)
         reviews_list.append(review)
 
-    return render_template('reviewManagement.html', count=len(reviews_list), reviews_list=reviews_list)
+    return render_template('reviewsManagement.html', count=len(reviews_list), reviews_list=reviews_list)
 
 @app.route('/createReply', methods=['GET', 'POST'])
 def create_reply():
