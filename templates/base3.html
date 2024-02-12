@@ -44,10 +44,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Product</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/store">View Products</a></li>
-                <li><a class="dropdown-item" href="{{url_for('main.usersbought')}}">User's Bought</a></li>
-                <li><a class="dropdown-item" href="/productManagement">Product Management</a></li>
-                <li><a class="dropdown-item" href="/createProduct">Create Product</a></li>
+                <li><a href="{{url_for('store_page')}}">View Products</a></li>
+                <li><a href="{{url_for('cart_page')}}">View Cart</a></li>
               </ul>
             </li>
             <li class="nav-item">
