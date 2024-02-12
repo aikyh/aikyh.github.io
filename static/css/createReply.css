@@ -1,24 +1,4 @@
-body{
-    font-family: 'Raleway', sans-serif;
-    place-items: center;
-    min-height: 100vh;
-    background-position: center;
-}
-
-.form-group .form-control{
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    border: 2px solid lightgray;
-}
-
-.text-center{
-    text-align: center;
-    font-size: 30px;
-    font-weight: lighter;
-}
-
-.form{
+.form13{
     display: grid;
     width: 470px;
     margin: 0 auto;
@@ -28,8 +8,16 @@ body{
     background-color: #EEEEEE;
     border-radius: 1rem;
     box-shadow: 2px 4px 11px -1px #000000;
+
 }
 
-.form-group .radio-group{
-    margin: 1rem 0;
+.display-4{
+    text-align: center;
+}
+
+.form-group{
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid lightgray;
 }

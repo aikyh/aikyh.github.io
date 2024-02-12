@@ -1,12 +1,12 @@
 {% extends "base3.html" %}
-{% block title %}Update Reply{% endblock %}
-
+{% block title %}VegeGrove - Update Reply{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/createReply.css') }}">
 {% block content %}
   {% from "includes/_formHelper.html" import render_field %}
-
+<div class="container">
   <h1 class="display-4">Update Reply</h1>
 
-  <form method="POST" action="">
+  <form method="POST" action="" class="form13">
     <div class="form-group">
       {{ render_field(form.customer_name, class="form-control") }}
     </div>
@@ -24,4 +24,5 @@
     </div>
     <input type="submit" value="Submit" class="btn btn-primary"/>
   </form>
+</div>
 {% endblock %}

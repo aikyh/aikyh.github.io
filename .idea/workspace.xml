@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0032cba9-b607-4fbb-9984-15f68861d9f3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/createReply.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/createReply.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/createReply.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createReply.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createReview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/retrieveReviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/retrieveReviews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reviewsManagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reviewsManagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateReplys.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateReplys.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateReview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateReview.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/viewReplys.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/viewReplys.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,14 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706528560294</updated>
-    </task>
-    <task id="LOCAL-00054" summary="idk">
-      <option name="closed" value="true" />
-      <created>1707408622903</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1707408622903</updated>
     </task>
     <task id="LOCAL-00055" summary="idk">
       <option name="closed" value="true" />
@@ -472,7 +467,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707742212118</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="...">
+      <option name="closed" value="true" />
+      <created>1707745331227</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1707745331227</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
