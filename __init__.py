@@ -393,7 +393,8 @@ def create_events():
                                                 create_event_form.timing.data, create_event_form.location.data,
                                                 create_event_form.description.data,
                                                 create_event_form.budget.data, create_event_form.collaborators.data,
-                                                create_event_form.person_in_charge.data)
+                                                create_event_form.person_in_charge.data,
+                                                create_event_form.photo.data)
         eventManagement_dict[event.get_event_id()] = event
         db['Events'] = eventManagement_dict
 
@@ -441,6 +442,7 @@ def update_events(id):
         event.set_budget(update_event_form.budget.data)
         event.set_person_in_charge(update_event_form.person_in_charge.data)
         event.set_collaborators(update_event_form.collaborators.data)
+        event.set_photo(update_event_form.photo.data)
 
         db['Events'] = eventManagement_dict
         db.close()
@@ -461,6 +463,7 @@ def update_events(id):
         update_event_form.budget.data = event.get_budget()
         update_event_form.person_in_charge.data = event.get_person_in_charge()
         update_event_form.collaborators.data = event.get_collaborators()
+        update_event_form.photo.data = event.get_photo()
 
         return render_template('updateEvents.html', form=update_event_form)
 
