@@ -6,58 +6,28 @@
 <div>
     <h1>Discover Events</h1>
 </div>
-<br>
-<div class="container-fluid mt-3 w-75 rounded-3" style="border:3px solid black" id="event-card">
-    <div class="row" id="discoverevent-details">
-        <div class="col-sm-4">
-            <img src="static/img/plant.jpeg">
-        </div>
-        <div class="col-sm-8 pe-5 py-4">
-            <h3>{{ render_field(form.name, class="form-control") }}</h3>
-            <hr>
-            <span>
-                <span>Description: </span>
-                <br>
-                Date:
-                <br>
-                Timing:
-                <br>
-                Location:
-            </span>
-            <br>
-            <hr>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registrationModal">
-                Register
-            </button>
-        </div>
+{% for event in events_list %}
+    <div class="event_table">
+        <table>
+            <tr>
+                <td> Event: {{event.get_name()}}</td>
+            </tr>
+            <tr>
+                <td> Description: {{event.get_description()}}</td>
+            </tr>
+            <tr>
+                <td> Time: {{ event.get_timing()}}</td>
+            </tr>
+            <tr>
+                <td>
+                   <button>
+                   Register
+                   </button>
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
-
-<!-- Modal -->
-
-<div class="modal fade modal auto-clear" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Please enter your particulars before signing up:</div>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                <div class="form-group">
-                    {{ render_field(form.name, class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ render_field(form.email, class="form-control") }}
-                </div>
-                </form>
-                <div class="modal-footer">
-                    <a href="/discoverEvents_confirmation" class="btn btn-primary" type="submit">Register</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% endfor %}
 
 
 {% endblock %}
