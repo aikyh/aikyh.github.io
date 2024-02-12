@@ -1,6 +1,6 @@
 import mailbox
 import bcrypt as Bcrypt
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from main import *
@@ -375,6 +375,22 @@ def update_events(id):
 
         return render_template('updateEvents.html', form=update_event_form)
 
+@app.route('/retrieve_event_name', methods=['GET'])
+def retrieve_event_name():
+    try:
+        db = shelve.open('RegisteredEventUser.db', 'r')  # Open the database for reading
+        events = db.get('Events', {})  # Retrieve the 'Events' data from the database
+        if events:
+            # Assume you want to retrieve the name of the first event in the database
+            event_name = events[1].get_name()  # Assuming event IDs start from 1
+            return jsonify({'event_name': event_name})
+        else:
+            return jsonify({'error': 'No events found in the database'})
+    except Exception as e:
+        return jsonify({'error': str(e)})
+    finally:
+        if db is not None:
+            db.close()  # Close the database
 
 @app.route('/deleteEvent/<int:id>', methods=['POST'])
 def delete_event(id):
@@ -487,17 +503,30 @@ def user_signup():
         except:
             print("Error in retrieving Events from RegisteredEventUser.db.")
 
-        event = RegisteredEventUser.RegisteredEventUser(userSignup_event_form.name.data,
-                                                        userSignup_event_form.email.data,
-                                                        userSignup_event_form.no_of_people.data,
-                                                        userSignup_event_form.contact_number.data)
-        eventuser_dict[event] = event
-        db['Events'] = eventManagement_dict
+        # Create an instance of the eventManagement class
+
+        # Call the get_name() method on the eventManager instance
+
+        event = RegisteredEventUser.RegisteredEventUser(
+            name=userSignup_event_form.name.data,
+            no_of_people=userSignup_event_form.no_of_people.data,
+            email=userSignup_event_form.email.data,
+            contact_number=userSignup_event_form.contact_number.data
+        )
+
+        eventuser_dict[retrieve_event_name()] = event  # Assuming you want to store by event ID
+        db['Events'] = eventuser_dict
 
         db.close()
 
-        return redirect(url_for('retrieve_events'))
-    return render_template('createEvents.html', form=create_event_form, )
+        return redirect(url_for('user_event'))  # Redirect to some route upon successful submission
+
+    return render_template('usersignupevent.html', form=userSignup_event_form)
+
+
+@app.route('/userevent', methods=['GET', 'POST'])
+def user_event():
+    return render_template('user_signupsuccessful.html')
 
 
 # @app.route('/registerevent')

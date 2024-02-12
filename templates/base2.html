@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <title>{% block title %}VegeGrove{% endblock %}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='/css/styleadmin.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styleadmin.css') }}">
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -22,15 +22,7 @@
         <li><a href="{{ url_for('admin.homepage')}}" class="active">Home</a></li>
             <li><a href="{{ url_for('admin.create_user') }}">Create Company</a></li>
             <li><a href="/retrieveCompany">Retrieve Company</a></li>
-      </ul>
-      <ul>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="{{url_for('reply_review')}}">View Reviews</a></li>
-              <li><a href="{{url_for('create_reply')}}">Create Reply</a></li>
-              <li><a href="{{url_for('view_replys')}}">View Replies</a></li>
-          </ul>
-        </li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>

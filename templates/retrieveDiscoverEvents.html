@@ -20,14 +20,33 @@
             </tr>
             <tr>
                 <td>
-                   <button>
+                   <button id="retrieve-button"><a href="{{url_for('user_signup')}}">
                    Register
+                   </a>
                    </button>
                 </td>
             </tr>
         </table>
     </div>
 {% endfor %}
+
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#retrieve-button').click(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/retrieve_event_name',
+                    success: function(response) {
+                        $('#event-name').text(response.event_name);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
 
 
 {% endblock %}
